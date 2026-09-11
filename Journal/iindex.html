@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Flip Journal — With PDF Download</title>
+<style>
+  :root{
+    --book-w:1050px;
+    --book-h:1650px;
+    --page-radius: 12px;
+    --duration: 700ms;
+    --bg: #f9f9f9;
+  }
+
+  html,body{
+    height:100%;
+    margin:0;
+    background:#222;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  }
+
+  .book-viewport {
+    width: var(--book-w);
+    height: var(--book-h);
+    perspective: 2200px;
+    position: relative;
+    transform-origin: center center;
+  }
+
+  .book-frame {
+    width:100%;
+    height:100%;
+    border-radius: var(--page-radius);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+    background: var(--bg);
+    position:relative;
+    overflow:visible;
+  }
+
+  .page-stack {
+    width:100%;
+    height:100%;
+    position:relative;
+    transform-style: preserve-3d;
+  }
+
+  .page {
+    position:absolute;
+    width:100%; height:100%;
+    top:0; left:0;
+    transform-origin:left center;
+    transition: transform var(--duration) ease;
+    transform-style: preserve-3d;
+    border-radius: var(--page-radius);
+    overflow:hidden;
+    will-change: transform;
+    box-shadow:0 12px 28px rgba(0,0,0,0.25);
+  }
+
+  .side {
+    position:absolute;
+    inset:0;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    border-radius: var(--page-radius);
+  }
+  .side.front { transform: rotateY(0deg) translateZ(0.5px); }
+  .side.back { transform: rotateY(180deg); background:#fff; }
+  .page.flipped { transform: rotateY(-180deg); }
+
+  .controls {
+    position:absolute;
+    bottom:10px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:10px;
+    z-index:50;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .btn {
+    background:#fff;
+    padding:6px 12px;
+    border-radius:6px;
+    cursor:pointer;
+    box-shadow:0 2px 8px rgba(0,0,0,0.25);
+    font-weight:700;
+    user-select:none;
+    text-align:center;
+  }
+
+  .hit-left,.hit-right {
+    position:absolute; top:0; bottom:0; width:50%; z-index:20;
+  }
+  .hit-left{left:0;} .hit-right{right:0;}
+
+  .page-indicator {
+    position:absolute; top:10px; right:10px;
+    background:rgba(0,0,0,0.6);
+    color:#fff;
+    padding:4px 8px;
+    border-radius:12px;
+    font-size:14px;
+    z-index:50;
+  }
+</style>
+</head>
+<body>
+
+<div class="book-viewport" id="viewport">
+  <div class="book-frame">
+    <div class="page-stack" id="stack"></div>
+
+    <div class="page-indicator" id="pageIndicator">Page 1 / 9</div>
+
+    <div class="controls">
+      <div id="prevBtn" class="btn">◀ Prev</div>
+      <div id="nextBtn" class="btn">Next ▶</div>
+      <!-- PDF download button -->
+      <a href="anibee.pdf" download="anibee.pdf" class="btn">📕 Save PDF My Marshmallow</a>
+      <!-- Mute/unmute button -->
+      <div id="muteBtn" class="btn">🔊</div>
+    </div>
+
+    <div class="hit-left" id="hitLeft"></div>
+    <div class="hit-right" id="hitRight"></div>
+  </div>
+</div>
+
+<!-- Audio element -->
+<audio id="bgAudio" loop>
+  <source src="jhoom.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const images = [
+  'Birthday-Journal-Ft.jpg',
+  '1.jpg',
+  '2.jpg',
+  '3.jpg',
+  '4.jpg',
+  '5.jpg',
+  '6.png',
+  '7.jpeg',
+  '8.jpg'
+];
+
+const PAGE_COUNT = images.length;
+const stack = document.getElementById('stack');
+const indicator = document.getElementById('pageIndicator');
+const nextBtn = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('prevBtn');
+const hitLeft = document.getElementById('hitLeft');
+const hitRight = document.getElementById('hitRight');
+const viewport = document.getElementById('viewport');
+const muteBtn = document.getElementById('muteBtn');
+const bgAudio = document.getElementById('bgAudio');
+
+let pages = [];
+let flippedCount = 0;
+let isAnimating = false;
+let audioStarted = false;
+
+function preloadAll(list){
+  return Promise.all(list.map(src => new Promise(resolve => {
+    const i = new Image();
+    i.onload = () => resolve({src, ok:true});
+    i.onerror = () => resolve({src, ok:false});
+    i.src = src;
+  })));
+}
+
+function buildPages(){
+  stack.innerHTML = '';
+  pages = [];
+  const EMPTY_PAGE = images[PAGE_COUNT - 1];
+
+  for(let i=0;i<PAGE_COUNT;i++){
+    const p = document.createElement('div');
+    p.className = 'page';
+    p.dataset.index = i;
+
+    const front = document.createElement('div');
+    front.className = 'side front';
+    front.style.backgroundImage = `url("${images[i]}")`;
+
+    const back = document.createElement('div');
+    back.className = 'side back';
+    back.style.backgroundImage = `url("${EMPTY_PAGE}")`;
+
+    p.appendChild(front);
+    p.appendChild(back);
+
+    p.style.zIndex = (PAGE_COUNT - i).toString();
+    stack.appendChild(p);
+    pages.push(p);
+  }
+}
+
+function updateIndicator(){
+  const visibleIndex = flippedCount % PAGE_COUNT;
+  indicator.textContent = `Page ${visibleIndex + 1} / ${PAGE_COUNT}`;
+}
+
+function flipForward(){
+  if(isAnimating) return;
+  const idx = flippedCount % PAGE_COUNT;
+  const p = pages[idx];
+  if(!p) return;
+
+  isAnimating = true;
+  p.style.zIndex = 1000;
+
+  const onEnd = function(e){
+    if(e.propertyName && e.propertyName.indexOf('transform') === -1) return;
+    p.removeEventListener('transitionend', onEnd);
+    flippedCount++;
+    if(flippedCount >= PAGE_COUNT){
+      setTimeout(() => {
+        pages.forEach(pg => pg.classList.remove('flipped'));
+        pages.forEach((pg,i) => pg.style.zIndex = (PAGE_COUNT - i).toString());
+        flippedCount = 0;
+        updateIndicator();
+        isAnimating = false;
+      }, 80);
+    } else {
+      p.style.zIndex = (PAGE_COUNT - idx).toString();
+      updateIndicator();
+      isAnimating = false;
+    }
+  };
+  p.addEventListener('transitionend', onEnd);
+  void p.offsetWidth;
+  p.classList.add('flipped');
+}
+
+function flipBackward(){
+  if(isAnimating) return;
+  if(flippedCount <= 0){
+    pages.forEach(pg => pg.classList.add('flipped'));
+    pages.forEach((pg,i) => pg.style.zIndex = (i+1).toString());
+    flippedCount = PAGE_COUNT;
+  }
+  const idx = (flippedCount - 1) % PAGE_COUNT;
+  const p = pages[idx];
+  if(!p) return;
+
+  isAnimating = true;
+  p.style.zIndex = 1000;
+
+  const onEnd = function(e){
+    if(e.propertyName && e.propertyName.indexOf('transform') === -1) return;
+    p.removeEventListener('transitionend', onEnd);
+    p.style.zIndex = (PAGE_COUNT - idx).toString();
+    flippedCount = Math.max(0, flippedCount - 1);
+    updateIndicator();
+    isAnimating = false;
+  };
+  p.addEventListener('transitionend', onEnd);
+  void p.offsetWidth;
+  p.classList.remove('flipped');
+}
+
+function fitBook(){
+  const designW = 1050;
+  const designH = 1650;
+  const margin = 36;
+  const availW = window.innerWidth - margin;
+  const availH = window.innerHeight - margin;
+  const scale = Math.min(availW / designW, availH / designH, 1);
+  viewport.style.transform = `scale(${scale})`;
+}
+
+function attachEvents(){
+  nextBtn.addEventListener('click', startAudioOnceAndFlip);
+  prevBtn.addEventListener('click', startAudioOnceAndFlip);
+  hitRight.addEventListener('click', startAudioOnceAndFlip);
+  hitLeft.addEventListener('click', startAudioOnceAndFlip);
+
+  window.addEventListener('keydown', (e) => {
+    if(e.key === 'ArrowRight') startAudioOnceAndFlip('forward');
+    if(e.key === 'ArrowLeft')  startAudioOnceAndFlip('backward');
+  });
+
+  let sx = null, sy = null;
+  viewport.addEventListener('touchstart', (ev) => {
+    const t = ev.touches[0];
+    sx = t.clientX; sy = t.clientY;
+  }, {passive:true});
+  viewport.addEventListener('touchend', (ev) => {
+    if(sx === null) return;
+    const t = ev.changedTouches[0];
+    const dx = t.clientX - sx;
+    const dy = t.clientY - sy;
+    sx = null; sy = null;
+    if(Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 36){
+      if(dx < 0) startAudioOnceAndFlip('forward'); else startAudioOnceAndFlip('backward');
+    }
+  }, {passive:true});
+
+  window.addEventListener('resize', fitBook);
+
+  muteBtn.addEventListener('click', () => {
+    bgAudio.muted = !bgAudio.muted;
+    muteBtn.textContent = bgAudio.muted ? '🔇' : '🔊';
+  });
+}
+
+function startAudioOnceAndFlip(direction){
+  if(!audioStarted){
+    bgAudio.play().catch(() => {});
+    audioStarted = true;
+  }
+  if(direction === 'backward') flipBackward();
+  else flipForward();
+}
+
+(async function init(){
+  const results = await preloadAll(images);
+  const failed = results.filter(r => !r.ok).map(r => r.src);
+  if(failed.length){
+    console.warn('Some images failed to load (check paths / names):', failed);
+  }
+  buildPages();
+  fitBook();
+  attachEvents();
+  updateIndicator();
+})();
+</script>
+</body>
+</html>
