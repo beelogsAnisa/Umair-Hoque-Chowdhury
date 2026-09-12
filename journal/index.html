@@ -14,6 +14,25 @@
      VIEW 1 · Library: sidebar + cream shelf card (Readowl style)
      VIEW 2 · Journal: spiral flip book (music lives ONLY here)
      One file, two views.
+
+     GLASS SYSTEM — 3 layers, same cream/coral palette:
+       L1  page backdrop ... dotted cream gradient + soft glows (painted
+           once by the browser, zero runtime cost — it's what the glass
+           refracts).
+       L2  rounded panels ... sidebar / shelf card / gift / profile.
+           Translucent cream + backdrop blur + white hairline + top glow.
+       L3  controls ....... chips, search, buttons, pills, badges.
+           Lighter frost (smaller blur, lower alpha).
+     Tune everything via the --panel-* / --ctrl-* / --frost-* vars in
+     :root. Phones without backdrop-filter, weak phones (html.no-glass)
+     and "reduce transparency" users automatically get the original
+     solid look — same layout, zero blur cost.
+
+     JOURNAL PERF (why the 2025 book stopped stuttering — keep for the
+     future editions): #scene never clips the 3D stack; sheets promote
+     to GPU layers only while turning; shade/turnShadow are promoted
+     only during a turn so per-frame opacity writes never repaint;
+     page art is pre-decoded on idle while the user browses the shelf.
      ============================================================ */
   /* embedded Baloo Da 2 (Bengali subset) — stylish Bangla, works offline */
   @font-face{
@@ -28,13 +47,39 @@
     --spine:794px; --pw:760px; --ph:1190px; --padt:48px;
     --coral:#f2695c; --coral2:#f8877a; --rose:#a34a55; --ink:#7d3b46;
     --card:#fff6ef; --side:#fff8f4; --line:#ffd9cc;
+
+    /* ---- glass system ----
+       L2 panels & L3 controls: translucent versions of the SAME colors,
+       frosted with backdrop-filter. Blur radii stay small on purpose:
+       cheap on mobile GPUs and enough to melt the 30px dot texture. */
+    --panel-bg:rgba(255,246,239,.60);        /* L2 cream panel        */
+    --panel-bg-side:rgba(255,248,244,.62);   /* L2 sidebar variant    */
+    --panel-line:rgba(255,255,255,.62);      /* glass hairline        */
+    --frost-l2:blur(14px) saturate(1.45);
+    --ctrl-bg:rgba(255,255,255,.52);         /* L3 white control      */
+    --ctrl-line:rgba(255,255,255,.60);
+    --frost-l3:blur(9px) saturate(1.3);
+    --frost-xs:blur(6px);
+    --coral-glass:linear-gradient(135deg,rgba(248,135,122,.85),rgba(242,105,92,.85));
+    --coral-keep:linear-gradient(135deg,rgba(243,177,162,.85),rgba(232,146,126,.85));
+    --pill-bg:rgba(255,228,216,.62);
+    --pill-lock:rgba(255,217,224,.62);
+    --cd-bg:linear-gradient(rgba(255,255,255,.60),rgba(255,241,233,.45));
+    --float-bg:rgba(255,255,255,.62);        /* indicator / hint      */
+    --toast-bg:rgba(201,85,106,.88);
   }
   body{
     margin:0; overflow:hidden;
+    /* L1: same cream dot texture, plus three soft glows painted INTO the
+       background (no extra elements, no filters). Flat color under glass
+       looks like nothing — these glows are what the frost refracts. */
     background:
       radial-gradient(rgba(255,255,255,.55) 1.5px, transparent 1.7px),
+      radial-gradient(42% 34% at 12% 6%, rgba(255,158,140,.42), transparent 70%),
+      radial-gradient(46% 38% at 88% 20%, rgba(255,214,203,.55), transparent 70%),
+      radial-gradient(52% 44% at 50% 110%, rgba(248,180,196,.38), transparent 72%),
       radial-gradient(120% 90% at 50% 0%, #fff3ee 0%, #ffe4dc 55%, #ffd6d2 100%);
-    background-size:30px 30px, auto;
+    background-size:30px 30px, auto, auto, auto, auto;
     font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
     -webkit-tap-highlight-color:transparent;
     color:var(--ink);
@@ -46,6 +91,11 @@
     animation:viewIn .5s ease;
   }
   @keyframes viewIn{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none}}
+  /* The journal opens with a transform-only transition: animating opacity
+     on a container that holds the 3D book would force a full re-composite
+     of every sheet (and a blur re-sample) each frame — open felt laggy. */
+  #journalView{animation:viewInBook .45s ease}
+  @keyframes viewInBook{from{transform:translateY(16px) scale(.99)} to{transform:none}}
   .view.gone{display:none!important}
   /* Library must be a plain scroll block: as a flex item of this fixed-height
      view it used to be crushed to viewport height and its content overflowed
@@ -87,9 +137,11 @@
   .side{
     grid-area:side;
     display:flex; flex-direction:column; gap:14px;
-    background:var(--side); border:1.5px solid var(--line); border-radius:28px;
+    background:var(--panel-bg-side);
+    border:1.5px solid var(--panel-line); border-radius:28px;
     padding:20px 16px;
-    box-shadow:0 22px 44px rgba(214,110,90,.16);
+    -webkit-backdrop-filter:var(--frost-l2); backdrop-filter:var(--frost-l2);
+    box-shadow:0 22px 44px rgba(214,110,90,.16), inset 0 1px 0 rgba(255,255,255,.7);
     align-self:start;
   }
   .logo{display:flex; align-items:center; gap:11px; padding:0 6px}
@@ -114,16 +166,19 @@
   .nav svg{flex:none; opacity:.75}
   .nav:hover{transform:translateX(4px); background:#ffece3; color:var(--rose)}
   .nav.active{
-    background:#fff; color:var(--coral);
-    box-shadow:0 6px 16px rgba(214,110,90,.18); border:1px solid var(--line);
+    background:var(--ctrl-bg); color:var(--coral);
+    -webkit-backdrop-filter:var(--frost-l3); backdrop-filter:var(--frost-l3);
+    box-shadow:0 6px 16px rgba(214,110,90,.18); border:1px solid var(--ctrl-line);
   }
   .nav.active svg{opacity:1}
   /* ---- 2027 gift widget (sidebar column, out of the way) ---- */
   .future{
     grid-area:future; min-height:0; overflow-y:auto;
-    background:rgba(255,255,255,.9); border:1.5px solid #ffd2c6; border-radius:22px;
+    background:var(--panel-bg);
+    border:1.5px solid var(--panel-line); border-radius:22px;
     padding:16px 14px 14px; text-align:center;
-    box-shadow:0 14px 30px rgba(214,110,90,.14);
+    -webkit-backdrop-filter:var(--frost-l2); backdrop-filter:var(--frost-l2);
+    box-shadow:0 14px 30px rgba(214,110,90,.14), inset 0 1px 0 rgba(255,255,255,.65);
   }
   .future .fhead{
     font-family:Georgia,serif; font-weight:700; color:var(--rose);
@@ -141,8 +196,9 @@
   .unwrap b{letter-spacing:1px; font-style:normal; color:var(--rose)}
   .countdown{display:grid; grid-template-columns:repeat(4,1fr); gap:7px}
   .cd-cell{
-    background:linear-gradient(#fff,#fff1e9); border:1.5px solid #ffd6c9;
+    background:var(--cd-bg); border:1.5px solid var(--ctrl-line);
     border-radius:13px; padding:8px 2px 6px;
+    -webkit-backdrop-filter:var(--frost-l3); backdrop-filter:var(--frost-l3);
   }
   .cd-cell b{
     display:block; font-size:clamp(15px,1.8vw,21px); color:var(--coral);
@@ -159,8 +215,10 @@
   .profile{
     grid-area:profile;
     display:flex; align-items:center; gap:11px;
-    background:#fff; border:1.5px solid var(--line); border-radius:18px;
-    padding:10px 12px; box-shadow:0 8px 18px rgba(214,110,90,.12);
+    background:var(--ctrl-bg); border:1.5px solid var(--ctrl-line); border-radius:18px;
+    padding:10px 12px;
+    -webkit-backdrop-filter:var(--frost-l3); backdrop-filter:var(--frost-l3);
+    box-shadow:0 8px 18px rgba(214,110,90,.12), inset 0 1px 0 rgba(255,255,255,.6);
   }
   .avatar{
     flex:none; width:38px; height:38px; border-radius:50%;
@@ -191,19 +249,22 @@
   .topbar{display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:26px}
   .chips{display:flex; gap:7px}
   .chip{
-    appearance:none; border:1.5px solid var(--line); background:#fff; color:#b36459;
+    appearance:none; border:1.5px solid var(--ctrl-line); background:var(--ctrl-bg); color:#b36459;
+    -webkit-backdrop-filter:var(--frost-l3); backdrop-filter:var(--frost-l3);
     border-radius:999px; padding:8px 16px; font:inherit; font-size:13px; font-weight:700;
     cursor:pointer; touch-action:manipulation; transition:all .2s ease;
   }
   .chip:hover{border-color:#ffb59e; color:var(--coral); transform:translateY(-1px)}
   .chip.active{
-    background:linear-gradient(135deg,var(--coral2),var(--coral));
-    border-color:transparent; color:#fff;
+    background:var(--coral-glass);
+    -webkit-backdrop-filter:var(--frost-l3); backdrop-filter:var(--frost-l3);
+    border:1.5px solid rgba(255,255,255,.45); color:#fff;
     box-shadow:0 6px 14px rgba(242,105,92,.35);
   }
   .search{
     flex:1; min-width:200px; display:flex; align-items:center; gap:9px;
-    background:#fff; border:1.5px solid var(--line); border-radius:999px;
+    background:var(--ctrl-bg); border:1.5px solid var(--ctrl-line); border-radius:999px;
+    -webkit-backdrop-filter:var(--frost-l3); backdrop-filter:var(--frost-l3);
     padding:9px 16px; transition:box-shadow .2s ease, border-color .2s ease;
   }
   .search svg{flex:none; color:#d89a8c}
@@ -223,12 +284,17 @@
     font-size:clamp(19px,2.2vw,24px); margin:0; letter-spacing:.3px;
   }
   .tag{
-    background:linear-gradient(135deg,var(--coral2),var(--coral)); color:#fff;
+    background:var(--coral-glass); color:#fff;
+    -webkit-backdrop-filter:var(--frost-l3); backdrop-filter:var(--frost-l3);
     border-radius:999px; padding:4px 12px;
     font-size:10.5px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
     box-shadow:0 4px 10px rgba(242,105,92,.3);
   }
-  .tag.keep{background:linear-gradient(135deg,#f3b1a2,#e8927e); box-shadow:0 4px 10px rgba(232,146,126,.3)}
+  .tag.keep{
+    background:var(--coral-keep);
+    -webkit-backdrop-filter:var(--frost-l3); backdrop-filter:var(--frost-l3);
+    box-shadow:0 4px 10px rgba(232,146,126,.3);
+  }
   .stitle{min-width:0}
   .shelf-sub2{
     margin:2px 0 0; color:#c4776c; font-family:Georgia,serif; font-style:italic;
@@ -304,6 +370,7 @@
   .book.ghost .slot{
     aspect-ratio:2/3; border-radius:6px 11px 11px 6px;
     border:2.5px dashed #f3bba8; background:rgba(255,255,255,.45);
+    -webkit-backdrop-filter:var(--frost-xs); backdrop-filter:var(--frost-xs);
     display:flex; align-items:center; justify-content:center;
     color:#dd9c88; font-family:Georgia,serif; font-style:italic; font-size:13px;
   }
@@ -325,9 +392,13 @@
   .pill{
     display:inline-block; margin-top:8px; border-radius:999px; padding:3px 11px;
     font-size:10.5px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
-    background:#ffe4d8; color:#b36459;
+    background:var(--pill-bg); color:#b36459;
+    -webkit-backdrop-filter:var(--frost-xs); backdrop-filter:var(--frost-xs);
   }
-  .pill.lock{background:#ffd9e0; color:#b04a68}
+  .pill.lock{
+    background:var(--pill-lock); color:#b04a68;
+    -webkit-backdrop-filter:var(--frost-xs); backdrop-filter:var(--frost-xs);
+  }
 
   #noRes{
     text-align:center; color:#c4776c; font-family:Georgia,serif; font-style:italic;
@@ -380,7 +451,11 @@
   #wrap{position:relative}
   #scene{
     position:absolute; top:0; left:0;
-    transform-origin:0 0; overflow:hidden; border-radius:20px;
+    transform-origin:0 0;
+    /* PERF: deliberately NO overflow:hidden / border-radius here. A clip
+       ancestor around a preserve-3d stack pushes mobile GPUs onto a slow
+       masked-composite path (the #1 cause of stuttery page flips).
+       #board already paints the rounded book shape, so nothing is lost. */
     touch-action:pan-y;
     user-select:none; -webkit-user-select:none; -webkit-touch-callout:none;
   }
@@ -417,15 +492,20 @@
   .sheet{
     position:absolute; left:0; top:0; width:100%; height:100%;
     transform-origin:left center; transform-style:preserve-3d;
-    will-change:transform;
+    /* PERF: no blanket will-change here — promoting all 9 sheets (18 big
+       faces) parks ~60MB+ of GPU textures on a phone. Only the sheet that
+       is mid-turn (and its shades) get promoted, via .turning/.flipping. */
   }
+  .sheet.turning{will-change:transform}
+  .sheet.turning .shade{will-change:opacity}
+  #scene.flipping #turnShadow{will-change:opacity}
   .sheet.cover-sheet{
     width:calc(var(--pw) + 16px); height:calc(var(--ph) + 24px); top:-12px;
   }
   .face{
     position:absolute; inset:0; border-radius:10px; overflow:hidden;
     backface-visibility:hidden; -webkit-backface-visibility:hidden;
-    box-shadow:0 12px 30px rgba(120,50,85,.3);
+    box-shadow:0 10px 18px rgba(120,50,85,.28); /* tighter blur = smaller shadow texture to keep in GPU memory */
   }
   .face.front{transform:rotateY(0deg) translateZ(.7px)}
   .face.back {transform:rotateY(180deg) translateZ(.7px); background:#f8f3e9}
@@ -463,17 +543,17 @@
 
   #indicator{
     position:absolute; top:8px; right:8px; z-index:20;
-    background:rgba(255,255,255,.92); color:#a64873;
-    border:1px solid #ffc9dc; box-shadow:0 3px 12px rgba(214,116,155,.28);
+    background:var(--float-bg); color:#a64873;
+    border:1px solid rgba(255,255,255,.7); box-shadow:0 3px 12px rgba(214,116,155,.28);
     padding:6px 13px; border-radius:999px; font-size:13px; font-weight:600;
-    -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px); pointer-events:none;
+    -webkit-backdrop-filter:var(--frost-l3); backdrop-filter:var(--frost-l3); pointer-events:none;
   }
   #hint{
     position:absolute; bottom:6px; left:50%; transform:translateX(-50%); z-index:20;
-    background:rgba(255,255,255,.92); color:#b04a75;
-    border:1px solid #ffc9dc; box-shadow:0 3px 12px rgba(214,116,155,.28);
+    background:var(--float-bg); color:#b04a75;
+    border:1px solid rgba(255,255,255,.7); box-shadow:0 3px 12px rgba(214,116,155,.28);
     padding:8px 15px; border-radius:999px; font-size:13px; letter-spacing:.3px;
-    -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px); pointer-events:none; white-space:nowrap;
+    -webkit-backdrop-filter:var(--frost-l3); backdrop-filter:var(--frost-l3); pointer-events:none; white-space:nowrap;
     transition:opacity .6s ease; animation:bob 2.2s ease-in-out infinite;
   }
   #hint.hidden{opacity:0; animation:none}
@@ -482,7 +562,8 @@
 
   .controls{display:flex; gap:10px; align-items:center; justify-content:center; flex-wrap:wrap}
   .btn{
-    appearance:none; border:0; background:#fff; color:#a94a76;
+    appearance:none; border:1px solid var(--ctrl-line); background:var(--ctrl-bg); color:#a94a76;
+    -webkit-backdrop-filter:var(--frost-l3); backdrop-filter:var(--frost-l3);
     border-radius:999px; padding:10px 18px;
     font:inherit; font-size:14px; font-weight:700; text-decoration:none;
     cursor:pointer; box-shadow:0 4px 14px rgba(203,96,146,.35);
@@ -503,9 +584,10 @@
   #toast{
     position:fixed; left:50%; bottom:18px; z-index:99;
     transform:translateX(-50%) translateY(20px);
-    background:#c9556a; color:#fff;
+    background:var(--toast-bg); color:#fff;
+    -webkit-backdrop-filter:var(--frost-l3); backdrop-filter:var(--frost-l3);
     padding:10px 18px; border-radius:999px; font-size:14px;
-    box-shadow:0 8px 24px rgba(151,74,109,.45);
+    box-shadow:0 8px 24px rgba(151,74,109,.45), inset 0 1px 0 rgba(255,255,255,.25);
     opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease;
     max-width:88vw; text-align:center;
   }
@@ -516,6 +598,41 @@
     .book .cover{height:0; padding-bottom:150%}
     .book.ghost .slot{height:266px}
   }
+  /* ---------------------------------------------------------------
+     GLASS FALLBACKS — same solid look as before, zero blur cost, for:
+       1) browsers without backdrop-filter support,
+       2) low-end phones (html.no-glass is set by a tiny JS probe),
+       3) users with "reduce transparency" enabled in their OS.
+     Only the vars swap — every layout rule stays untouched. */
+  @supports not ((backdrop-filter:blur(2px)) or (-webkit-backdrop-filter:blur(2px))){
+    :root{
+      --panel-bg:#fff6ef; --panel-bg-side:#fff8f4; --panel-line:#ffd9cc; --frost-l2:none;
+      --ctrl-bg:#fff; --ctrl-line:#ffd9cc; --frost-l3:none; --frost-xs:none;
+      --coral-glass:linear-gradient(135deg,#f8877a,#f2695c);
+      --coral-keep:linear-gradient(135deg,#f3b1a2,#e8927e);
+      --pill-bg:#ffe4d8; --pill-lock:#ffd9e0; --cd-bg:linear-gradient(#fff,#fff1e9);
+      --float-bg:rgba(255,255,255,.94); --toast-bg:#c9556a;
+    }
+  }
+  html.no-glass{
+    --panel-bg:#fff6ef; --panel-bg-side:#fff8f4; --panel-line:#ffd9cc; --frost-l2:none;
+    --ctrl-bg:#fff; --ctrl-line:#ffd9cc; --frost-l3:none; --frost-xs:none;
+    --coral-glass:linear-gradient(135deg,#f8877a,#f2695c);
+    --coral-keep:linear-gradient(135deg,#f3b1a2,#e8927e);
+    --pill-bg:#ffe4d8; --pill-lock:#ffd9e0; --cd-bg:linear-gradient(#fff,#fff1e9);
+    --float-bg:rgba(255,255,255,.94); --toast-bg:#c9556a;
+  }
+  @media (prefers-reduced-transparency: reduce){
+    :root{
+      --panel-bg:#fff6ef; --panel-bg-side:#fff8f4; --panel-line:#ffd9cc; --frost-l2:none;
+      --ctrl-bg:#fff; --ctrl-line:#ffd9cc; --frost-l3:none; --frost-xs:none;
+      --coral-glass:linear-gradient(135deg,#f8877a,#f2695c);
+      --coral-keep:linear-gradient(135deg,#f3b1a2,#e8927e);
+      --pill-bg:#ffe4d8; --pill-lock:#ffd9e0; --cd-bg:linear-gradient(#fff,#fff1e9);
+      --float-bg:rgba(255,255,255,.94); --toast-bg:#c9556a;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce){
     .view, .future .book .cover, #hint, .tw, .book{animation:none!important}
     .book .cover, .book .cover::after, .nav, .chip{transition:none!important}
@@ -564,7 +681,7 @@
         <h3 class="fhead">2027 Edition</h3>
         <p class="soon-line">2027 isn’t here yet, love 🎀</p>
         <figure class="book" id="book2027" tabindex="0" role="button" data-action="gift" aria-label="The 2027 gift — do not open until 19 September 2027">
-          <div class="cover"><img data-fallback="2027" src="cover2027.png" alt="A blank white book wrapped with a coral-pink ribbon bow"></div>
+          <div class="cover"><img decoding="async" data-fallback="2027" src="cover2027.png" alt="A blank white book wrapped with a coral-pink ribbon bow"></div>
         </figure>
         <p class="unwrap">do not open until <b>19 · 09 · 2027</b></p>
         <div class="countdown">
@@ -610,7 +727,7 @@
           </div>
           <div class="books">
             <figure class="book" id="book2026" tabindex="0" role="button" data-action="soon" data-tags="nilakash নীলাকাশ 2026 edition new newest" aria-label="নীলাকাশ — the 2026 Edition — still being written">
-              <div class="cover"><img data-fallback="2026" src="cover2026.png" alt="নীলাকাশ — 2026 Edition journal cover"></div>
+              <div class="cover"><img decoding="async" data-fallback="2026" src="cover2026.png" alt="নীলাকাশ — 2026 Edition journal cover"></div>
               <figcaption class="bangla" lang="bn">নীলাকাশ · coming soon ♥</figcaption>
             </figure>
             <figure class="book ghost" aria-hidden="true">
@@ -632,7 +749,7 @@
           </div>
           <div class="books">
             <figure class="book" id="book2025" tabindex="0" role="button" data-action="open" data-tags="vogue-bee voguebee 2025 edition journal keepsake first" aria-label="Open VOGUE-BEE — the 2025 Edition flip journal">
-              <div class="cover"><img id="shelfCover2025" src="birthday-journal-ft.jpg" alt="VOGUE-BEE — 2025 Edition journal cover" data-fallback="2025"></div>
+              <div class="cover"><img id="shelfCover2025" decoding="async" src="birthday-journal-ft.jpg" alt="VOGUE-BEE — 2025 Edition journal cover" data-fallback="2025"></div>
               <figcaption>VOGUE-BEE · tap to open ♥</figcaption>
             </figure>
             <figure class="book ghost" aria-hidden="true">
@@ -647,17 +764,17 @@
       <!-- all-books mode -->
       <div id="allWrap" class="gone">
         <figure class="book tile" tabindex="0" role="button" data-action="soon" data-tags="nilakash নীলাকাশ 2026 edition new newest" aria-label="নীলাকাশ — 2026 Edition — still being written">
-          <div class="cover"><img data-fallback="2026" src="cover2026.png" alt=""></div>
+          <div class="cover"><img decoding="async" data-fallback="2026" src="cover2026.png" alt=""></div>
           <figcaption class="bangla" lang="bn">নীলাকাশ</figcaption>
           <span class="pill">2026 · in progress</span>
         </figure>
         <figure class="book tile" tabindex="0" role="button" data-action="open" data-tags="vogue-bee voguebee 2025 edition journal keepsake first" aria-label="Open VOGUE-BEE — the 2025 Edition flip journal">
-          <div class="cover"><img data-fallback="2025" src="birthday-journal-ft.jpg" alt=""></div>
+          <div class="cover"><img decoding="async" data-fallback="2025" src="birthday-journal-ft.jpg" alt=""></div>
           <figcaption>VOGUE-BEE</figcaption>
           <span class="pill">2025 · ready to read</span>
         </figure>
         <figure class="book tile" tabindex="0" role="button" data-action="gift" data-tags="2027 gift future locked bow" aria-label="2027 Edition — locked until 19 September 2027">
-          <div class="cover"><img data-fallback="2027" src="cover2027.png" alt=""></div>
+          <div class="cover"><img decoding="async" data-fallback="2027" src="cover2027.png" alt=""></div>
           <figcaption>2027 Edition</figcaption>
           <span class="pill lock">locked · 19·09·2027</span>
         </figure>
@@ -734,6 +851,15 @@ const wrap=$("wrap"), scene=$("scene"), nudgeBox=$("nudge"), stackEl=$("stack"),
 
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const finePtr = matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+/* Glass auto-tune: weak phones keep the original solid cards (blur is the
+   one effect low-end GPUs choke on). Strong phones get the full frost.
+   Same layout either way — only the :root vars change. */
+try{
+  const cores = navigator.hardwareConcurrency || 4;
+  const mem   = navigator.deviceMemory || 4;
+  if(cores <= 4 || mem <= 3) document.documentElement.classList.add("no-glass");
+}catch(_){}
 
 /* --------------------------------------------------------- state */
 let sheets = [];        // {el, frontShade, backShade, isFlipped, fan}
@@ -887,6 +1013,8 @@ const randFan = () => (0.5 + Math.random()*1.4) * (Math.random()<0.5 ? -1 : 1);
 function turnSheet(sh, fromY, toY, fromZ, toZ, done){
   animating = true;
   sh.el.style.zIndex = 300;
+  sh.el.classList.add("turning");     /* promote THIS sheet only, for the turn */
+  scene.classList.add("flipping");    /* cheap compositor-only shade opacities */
   const dur = reduced ? 240 : 850;
   const t0 = performance.now();
   const c = 1.15;
@@ -899,6 +1027,8 @@ function turnSheet(sh, fromY, toY, fromZ, toZ, done){
   const finish = () => {
     cancelAnimationFrame(rafId);
     sh.el.style.transform = "rotateY("+toY+"deg) rotateZ("+toZ+"deg)";
+    sh.el.classList.remove("turning");
+    scene.classList.remove("flipping");
     sh.frontShade.style.opacity = 0;
     sh.backShade.style.opacity = 0;
     turnShadow.style.opacity = 0;
@@ -934,6 +1064,7 @@ function go(dir){
   }
   const i = dir === "forward" ? flipped : flipped - 1;
   const sh = sheets[i];
+  if(!sh){ pending = dir; return; }   /* future editions may stream-build pages */
   const wasFlipped = sh.isFlipped;
   const toZ = dir === "forward" ? randFan() : 0;
   killPeek();
@@ -1284,6 +1415,22 @@ async function resolveCover(){
     return ok[0] ? lower : (ok[1] ? camel : lower);
   }catch(_){ return lower; } // file:// etc. → keep the default
 }
+/* PERF: pre-decode page art while the user is still on the shelf.
+   Decoding eight big JPEGs in the same frame the journal opens is what
+   made the book hitch on phones — this spreads the work over idle time.
+   (Keep this when adding future editions: warm IMAGES after build.) */
+function warmImages(list){
+  list.forEach(src => {
+    const im = new Image();
+    im.decoding = "async";
+    im.src = src;
+    if(im.decode) im.decode().catch(()=>{});
+  });
+}
+const idle = window.requestIdleCallback
+  ? f => requestIdleCallback(f, {timeout:2500})
+  : f => setTimeout(f, 350);
+
 (async () => {
   IMAGES[0] = await resolveCover();
   const sc = $("shelfCover2025");
@@ -1293,6 +1440,7 @@ async function resolveCover(){
   buildPages();
   layout();
   updateUI();
+  idle(()=>{ warmImages(IMAGES.slice(0,4)); idle(()=>warmImages(IMAGES.slice(4))); });
 })();
 tickCountdown();
 setInterval(tickCountdown, 1000);
