@@ -801,7 +801,28 @@ html.still .motes{display:none}
 @supports not (backdrop-filter:blur(2px)){:root{--frost-l2:none;--frost-l3:none;--frost-xs:none;--panel-bg:var(--paper);--panel-bg-side:var(--paper)}}
 
 @media(max-width:600px){.side nav{grid-template-columns:repeat(4,minmax(0,1fr))}.side .nav{flex-direction:column;gap:6px;font-size:10px}.side .nav svg{width:16px;height:16px}}
-</style><meta content="Marshmallow — a quiet corner for journals, keepsakes, and chapters still to come." name="description"/></head>
+</style><meta content="Marshmallow — a quiet corner for journals, keepsakes, and chapters still to come." name="description"/><style id="boat-design">
+/* The Boat I Float On: an independent 2026 book, bound with facing pages. */
+.boat-book figcaption b{display:block;font-size:10px;font-weight:600;color:var(--rose);line-height:1.35}
+.boat-book figcaption span{display:block;font-size:8px;margin-top:5px;color:var(--muted);line-height:1.35}
+.shelf-2026 .books{gap:22px;align-items:flex-start}
+.shelf-2026 .books .book{flex:0 1 157px;width:calc((100% - 22px)/2);min-width:0}
+.shelf-2026 .book figcaption{min-height:36px}
+#allWrap{grid-template-columns:repeat(4,minmax(0,1fr));gap:23px}
+body[data-book="boat"] #rings,body[data-book="boat"] .holes{display:none}
+body[data-book="boat"] #board{background-color:#c2b298;background-image:linear-gradient(135deg,#ddcfb2,#ab987b)}
+body[data-book="boat"] .reader-title h2{letter-spacing:0;font-size:22px}
+body[data-book="boat"] .reader-title p{letter-spacing:.6px}
+body[data-book="boat"] .face.back{background:#f2edde}
+body[data-book="boat"] .face::before{background:linear-gradient(to right,rgba(45,38,22,.13),transparent 8%)}
+body[data-book="boat"] .face.back::before{background:linear-gradient(to left,rgba(45,38,22,.13),transparent 8%)}
+.page-transcript{flex:none;width:min(760px,100%);color:var(--ink);font-size:13px}
+.page-transcript summary{cursor:pointer;min-height:36px;padding:9px 0;text-align:center;color:var(--muted);font-size:11px}
+.page-transcript p{font-family:Georgia,serif;font-size:20px;line-height:1.8;background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:20px;margin:5px 0 0;white-space:pre-line}
+#bookmarkList .btn{white-space:normal;text-align:left;line-height:1.5}
+@media(max-width:1150px) and (min-width:921px){.shelf-2026 .books{gap:15px;padding-left:0;padding-right:0}.shelf-2026 .books .book{width:calc((100% - 15px)/2)}.boat-book figcaption b{font-size:9px}.boat-book figcaption span{font-size:7px}#allWrap{gap:15px}}
+@media(max-width:600px){.shelf-2026 .books{padding:20px 7px 0;gap:21px}.shelf-2026 .books .book{width:calc((100% - 21px)/2)}.boat-book figcaption b{font-size:11px}.boat-book figcaption span{font-size:9px}.shelf-2026 .book figcaption{min-height:43px}#allWrap{grid-template-columns:repeat(2,minmax(0,1fr))}body[data-book="boat"] .reader-title h2{font-size:22px}.page-transcript p{font-size:18px}.reading-track span{white-space:nowrap}}
+</style></head>
 <body><a class="skip-link" href="#mainContent" id="skipLink">Skip to content</a>
 <!-- ==================== VIEW 1 · LIBRARY ==================== -->
 <section aria-label="Library" class="view" id="libraryView">
@@ -835,7 +856,6 @@ html.still .motes{display:none}
             The Gift
           </button>
 <button class="nav" data-action="bookmarks" type="button"><svg aria-hidden="true" fill="none" height="17" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="17"><path d="M6 3h12v18l-6-4-6 4z"></path></svg>Bookmarks</button></nav>
-
 <div aria-label="Room preferences" class="room-settings">
 <span class="settings-label">Make yourself at home</span>
 <div aria-label="Room lighting" class="light-switch" role="group">
@@ -922,15 +942,9 @@ html.still .motes{display:none}
 </svg>
 <div aria-hidden="true" class="motes"><i></i><i></i><i></i><i></i></div>
 </header>
-
-
-
 <!-- shelves mode -->
-
 <!-- all-books mode -->
-
-
-<div class="collection" id="collection"><div class="collection-heading"><h2>Chapters on the shelf</h2><span>3 editions · one little library</span></div><div class="topbar">
+<div class="collection" id="collection"><div class="collection-heading"><h2>Chapters on the shelf</h2><span>4 books · 3 editions</span></div><div class="topbar">
 <div aria-label="Library view mode" class="chips" role="tablist">
 <button aria-controls="shelvesWrap" aria-selected="true" class="chip active" id="chipShelves" role="tab" type="button">Shelves</button>
 <button aria-controls="allWrap" aria-selected="false" class="chip" id="chipAll" role="tab" tabindex="-1" type="button">All books</button>
@@ -940,13 +954,10 @@ html.still .motes{display:none}
 <input aria-label="Search the library" autocomplete="off" id="searchInput" placeholder="Search in her library…" type="search"/>
 </div>
 </div><div aria-labelledby="chipShelves" id="shelvesWrap" role="tabpanel">
-<section aria-label="Nilakash — 2026 Edition" class="shelf">
+<section aria-label="2026 collection: Nilakash and The Boat I Float On" class="shelf shelf-2026">
 <div class="shelf-head">
-<div class="stitle">
-<h3 class="bangla" lang="bn">নীলাকাশ</h3>
-<p class="shelf-sub2">2026 Edition</p>
-</div>
-<span class="tag">newest</span>
+<div class="stitle"><h3>2026 Collection</h3><p class="shelf-sub2">One story here. One still unfolding.</p></div>
+<span class="tag">New story</span>
 <span class="shelf-note">still being written…</span>
 </div>
 <div class="books">
@@ -954,13 +965,12 @@ html.still .motes{display:none}
 <div class="cover"><img alt="নীলাকাশ — 2026 Edition journal cover" data-fallback="2026" data-src="cover2026.png" decoding="async" height="900" width="600"/></div>
 <figcaption class="bangla" lang="bn">নীলাকাশ · coming soon ♥</figcaption>
 </figure>
-<figure aria-hidden="true" class="book ghost">
-<div class="slot">someday…</div>
-<figcaption>more to come</figcaption>
-</figure>
+<figure aria-label="Open The Boat I Float On by Tanjila Tasnim Anisa, 2026" class="book boat-book" data-action="open" data-book="boat" data-tags="the boat i float on tanjila tasnim anisa 2026 story fiction illustrated" id="bookBoat" role="button" tabindex="0">
+<div class="cover"><img alt="The Boat I Float On, illustrated cover with a wooden boat, a schoolbook and a red pencil" data-fallback="boat" data-src="assets/boat/cover-thumb.webp" decoding="async" height="900" width="600"/></div>
+<figcaption><b>The Boat I Float On</b><span>Tanjila Tasnim Anisa</span></figcaption></figure>
 </div>
 <div class="board"></div>
-<div class="shelf-footer"><span><i aria-hidden="true" class="status-dot"></i>A chapter in the making</span><button data-action="soon" type="button">Coming soon <span aria-hidden="true">↗</span></button></div></section>
+<div class="shelf-footer"><span><i aria-hidden="true" class="status-dot"></i>16 illustrated pages</span><button data-action="open" data-book="boat" id="boatResume" type="button">Read the story ↗</button></div></section>
 <section aria-label="VOGUE-BEE — 2025 Edition" class="shelf">
 <div class="shelf-head">
 <div class="stitle">
@@ -983,7 +993,9 @@ html.still .motes{display:none}
 <div class="board"></div>
 <div class="shelf-footer"><span><i aria-hidden="true" class="status-dot"></i>8 pages of memories</span><button data-action="open" type="button">Read journal <span aria-hidden="true">↗</span></button></div></section>
 </div><div aria-labelledby="chipAll" class="gone" id="allWrap" role="tabpanel">
-<figure aria-label="নীলাকাশ — 2026 Edition — still being written" class="book tile" data-action="soon" data-tags="nilakash নীলাকাশ 2026 edition new newest" role="button" tabindex="0">
+<figure aria-label="Open The Boat I Float On by Tanjila Tasnim Anisa, 2026" class="book boat-book tile" data-action="open" data-book="boat" data-tags="the boat i float on tanjila tasnim anisa 2026 story fiction illustrated" role="button" tabindex="0">
+<div class="cover"><img alt="The Boat I Float On, illustrated cover with a wooden boat, a schoolbook and a red pencil" data-fallback="boat" data-src="assets/boat/cover-thumb.webp" decoding="async" height="900" width="600"/></div>
+<figcaption><b>The Boat I Float On</b><span>Tanjila Tasnim Anisa</span></figcaption><span class="pill">2026 · illustrated story</span></figure><figure aria-label="নীলাকাশ — 2026 Edition — still being written" class="book tile" data-action="soon" data-tags="nilakash নীলাকাশ 2026 edition new newest" role="button" tabindex="0">
 <div class="cover"><img alt="" data-fallback="2026" data-src="cover2026.png" decoding="async" height="900" width="600"/></div>
 <figcaption class="bangla" lang="bn">নীলাকাশ</figcaption>
 <span class="pill">2026 · in progress</span>
@@ -1012,7 +1024,6 @@ html.still .motes{display:none}
 <button aria-label="Turn sound on" aria-pressed="false" class="btn" id="muteBtn" type="button">♪ Sound off</button>
 </div>
 </header>
-
 <div aria-label="Journal book. Use the Previous and Next buttons or the arrow keys to turn pages." id="wrap" role="group">
 <div id="scene">
 <div id="nudge">
@@ -1029,12 +1040,11 @@ html.still .motes{display:none}
 <div id="indicator">Cover</div>
 <div id="hint">tap the page to flip · swipe works too</div>
 </div>
-
 <figure hidden="" id="flatReader">
 <img alt="VOGUE-BEE journal cover" decoding="async" height="1190" id="flatImage" width="760"/>
 <figcaption id="flatCaption">Cover · VOGUE-BEE, 2025</figcaption>
 </figure>
-<p hidden="" id="assetNote"></p>
+<p hidden="" id="assetNote"></p><details class="page-transcript" hidden="" id="pageTextPanel"><summary>Read this page as text</summary><p id="pageTranscript"></p></details>
 <div id="readerDock" tabindex="-1">
 <div class="reading-track">
 <span aria-live="polite" id="pageStatus" role="status">Cover</span>
@@ -1056,17 +1066,26 @@ html.still .motes{display:none}
 </div></section>
 <div id="toast" role="status"></div>
 <noscript><p style="color:#a34a55;text-align:center">Please enable JavaScript to open the library.</p></noscript>
-
 <audio aria-hidden="true" id="bgAudio" loop="" preload="none"><source src="jhoom.mp3" type="audio/mpeg"/></audio>
-
 <dialog aria-describedby="bookmarkSummary" aria-labelledby="bookmarksTitle" aria-modal="true" id="bookmarks" role="dialog">
 <div class="dialog-head"><h2 id="bookmarksTitle">A place kept for you</h2><button aria-label="Close bookmarks" class="btn" id="closeBookmarks" type="button">✕</button></div>
-<div class="dialog-body"><p id="bookmarkSummary">No bookmark yet.</p><button class="btn" hidden="" id="goBookmark" type="button">Open bookmark</button></div>
+<div class="dialog-body"><p id="bookmarkSummary">No bookmark yet.</p><div id="bookmarkList"></div></div>
 </dialog><script>(() => {
 'use strict';
 /* Keep these companion filenames beside index.html. No framework or network service is required. */
-const IMAGES = ['birthday-journal-ft.jpg','1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.png','7.jpeg','8.jpg'];
-const N = IMAGES.length, PW = 760, PH = 1190, RING_COUNT = 7;
+const BOOKS = {
+  vogue: {title:'VOGUE-BEE', author:'', year:2025, width:760, height:1190, duplex:false,
+    images:['birthday-journal-ft.jpg','1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.png','7.jpeg','8.jpg'],
+    pdf:'anibee.pdf', filename:'anibee.pdf', music:true},
+  boat: {title:'The Boat I Float On', author:'Tanjila Tasnim Anisa', year:2026, width:800, height:1200, duplex:true,
+    images:Array.from({length:16},(_,i)=>'assets/boat/pages/page-'+String(i+1).padStart(2,'0')+'.webp'),
+    pdf:'assets/boat/The-Boat-I-Float-On.pdf', filename:'The-Boat-I-Float-On.pdf', music:false,
+    pages:[{"file":"page-01.webp","label":"Cover","text":"The Boat I Float On\nTanjila Tasnim Anisa"},{"file":"page-02.webp","label":"Title page","text":"The Boat I Float On\nA story by Tanjila Tasnim Anisa\nAn illustrated reading edition"},{"file":"page-03.webp","label":"01 · The boat","text":"The boat is too small to stretch my legs, but the sea has taught me not to complain. There are worse things than having nowhere to stretch your legs."},{"file":"page-04.webp","label":"02 · The sea","text":"The sea is freezing cold. Despite knowing how to swim, I sit still because I have never wanted to test that knowledge here. My Ma says cold is dangerous when you are small but never explained why do I even need to swim at the early stage of my life. So, for my own sanity, I stay on the boat."},{"file":"page-05.webp","label":"03 · Before","text":"I used to complain about waking up early for school. My mother would pull the blanket from my face while I pretended to be asleep. My father would tell me that one day I would be grateful for every morning I was forced out of my bed."},{"file":"page-06.webp","label":"04 · School","text":"Then the school closed forever. I had never understood that going to school was a privilege until someone decided I was no longer allowed to. The war as I mentioned as the “cruel sea” simply made the decision for me."},{"file":"page-07.webp","label":"05 · The red pencil","text":"I keep my schoolbook beside me. I haven’t gone to school since the day we sailed from the shore. Its pages have begun to curl from the damp, but I still do the homework when there is enough light. Sometimes I draw on my sketchbook with my red pencil the only way I can relive the life I had before being on this boat."},{"file":"page-08.webp","label":"06 · The wind","text":"We flinch at the slightest sound of wind, fearing it might be another airstrike. For a moment we forget that not every sound from the sky is meant to hurt us."},{"file":"page-09.webp","label":"07 · The sky","text":"I used to know the sky differently. I used to look up when I heard the wind. I used to look for clouds, birds, the moon. Now I look for somewhere to hide."},{"file":"page-10.webp","label":"08 · A remembered place","text":"As time passed, I realized I was all alone in the boat. Ma used to sit at the front of the boat because she said the wind was kinder there. Now that seat stays empty. My brother used to steal the blanket from me at night which I still leave half folded beside me."},{"file":"page-11.webp","label":"09 · Space","text":"The boat which once seemed too small for me now became empty, I guess I can stretch my legs now."},{"file":"page-12.webp","label":"10 · What Ma said","text":"Ma used to say “Cold is dangerous when you are small” but now there is nobody left to remind me how precious I am, perhaps I had never been just a mere child for the world instead I was a threat."},{"file":"page-13.webp","label":"11 · A turning point","text":"This time I decide to swim not because I want to reach to the shore. I swim because, for the first time, there is nothing left behind me to hold on to. The water is cold, but I have known colder things. Perhaps the world had mistaken my silence for surrender."},{"file":"page-14.webp","label":"12 · Beyond","text":"So, I leave the boat behind. Not because it was never my home, but because I refuse to let it become my grave. And as the waves carry me further, I finally understand what Ma meant. Cold is indeed dangerous when you are small."},{"file":"page-15.webp","label":"13 · Not small","text":"But I am not small anymore."},{"file":"page-16.webp","label":"Colophon","text":"A small boat. A schoolbook. A red pencil.\nA childhood changed by war, told through the things a child keeps close.\nThe Boat I Float On. Text by Tanjila Tasnim Anisa. Illustrated reading edition / 2026.\nCover and schoolbook illustration generated with AI. Layout and typesetting created with AI assistance. The author’s wording is retained; quotation marks are standardized."}]}
+};
+let bookId='vogue', activeBook=BOOKS.vogue;
+let IMAGES=activeBook.images, N=IMAGES.length, PW=activeBook.width, PH=activeBook.height;
+const RING_COUNT=7;
+
 const CD_TARGET = new Date(2027,8,19,0,0,0);
 const $ = id => document.getElementById(id);
 const root = document.documentElement;
@@ -1087,8 +1106,11 @@ const STORE = 'marshmallow.immersive.v1';
 let prefs = {}, storageOK = true;
 try { prefs = JSON.parse(localStorage.getItem(STORE) || '{}') || {}; } catch (_) { storageOK = false; }
 if (typeof prefs !== 'object' || Array.isArray(prefs)) prefs = {};
+if(!prefs.books || typeof prefs.books!=='object' || Array.isArray(prefs.books)) prefs.books={};
+for(const id of Object.keys(BOOKS)) if(!prefs.books[id] || typeof prefs.books[id]!=='object') prefs.books[id]={page:0,marked:null};
+if(!prefs.multiBook) { prefs.books.vogue={page:prefs.page||0,marked:Number.isInteger(prefs.marked)?prefs.marked:null}; prefs.multiBook=true; }
 const clampPage = value => Number.isFinite(Number(value)) ? Math.max(0,Math.min(N,Math.round(Number(value)))) : 0;
-let page = clampPage(prefs.page), marked = Number.isInteger(prefs.marked) ? clampPage(prefs.marked) : null;
+let page=clampPage(prefs.books.vogue.page), marked=Number.isInteger(prefs.books.vogue.marked)?clampPage(prefs.books.vogue.marked):null;
 let view = 'library', allMode = false, opener = null, dialogOpener = null;
 let motionOff = motionQuery.matches || prefs.motion === false;
 let flatMode = prefs.reader === 'page' || (prefs.reader !== 'book' && (smallQuery.matches || lowPower || motionOff)) || !supports3d;
@@ -1100,7 +1122,8 @@ let swipe = null, suppressUntil = 0, readerEpoch = 0;
 const imageCache = new Map(), pageArt = new Map(), failedPages = new Set();
 
 function savePrefs() {
-  prefs.page = page; prefs.marked = marked;
+  prefs.books[bookId]={page,marked};
+  prefs.page=prefs.books.vogue.page; prefs.marked=prefs.books.vogue.marked;
   try { localStorage.setItem(STORE,JSON.stringify(prefs)); storageOK = true; }
   catch (_) { storageOK = false; }
   return storageOK;
@@ -1113,6 +1136,7 @@ function focus(el) { if (!el) return; try { el.focus({preventScroll:true}); } ca
 function svgURL(svg) { return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg); }
 function coverSVG(kind) {
   const common = '<svg xmlns="http://www.w3.org/2000/svg" width="600" height="900" viewBox="0 0 600 900">';
+  if (kind === 'boat') return svgURL(common+'<rect width="600" height="900" fill="#f2edde"/><text x="48" y="160" font-family="Georgia,serif" font-size="51" fill="#22231e">THE BOAT</text><text x="48" y="230" font-family="Georgia,serif" font-size="51" fill="#22231e">I FLOAT ON</text><path d="M75 540q220 50 450-10-190 270-450 10z" fill="none" stroke="#22231e" stroke-width="5"/><path d="M36 701q120-40 245 0t280 0" fill="none" stroke="#a94d38" stroke-width="3"/><text x="300" y="822" text-anchor="middle" font-family="Georgia,serif" font-size="23" fill="#22231e">Tanjila Tasnim Anisa</text></svg>');
   if (kind === '2027') return svgURL(common + '<rect width="600" height="900" fill="#fffaf3"/><rect x="23" y="23" width="554" height="854" rx="6" fill="none" stroke="#e7cdb8" stroke-width="2"/><rect x="260" width="80" height="900" fill="#eaa999"/><path d="M300 143C216 25 126 110 188 162c29 23 88 5 112-19M300 143C384 25 474 110 412 162c-29 23-88 5-112-19" fill="#df9685" stroke="#cd7d6e" stroke-width="3"/><path d="M282 159l-48 155 54-31 22 41 20-165" fill="#df9685"/><ellipse cx="300" cy="148" rx="24" ry="19" fill="#cd7d6e"/><text x="300" y="646" text-anchor="middle" font-family="Georgia,serif" font-size="27" fill="#955c52">a little patience</text><text x="300" y="703" text-anchor="middle" font-family="Georgia,serif" letter-spacing="8" font-size="20" fill="#955c52">2027</text></svg>');
   if (kind === '2026') return svgURL(common + '<rect width="600" height="900" fill="#a7bac3"/><rect x="23" y="23" width="554" height="854" fill="none" stroke="#e4e8de" stroke-width="2"/><path d="M130 561V328a170 170 0 01340 0v233z" fill="#d4ded8"/><circle cx="379" cy="295" r="45" fill="#f4e5bc"/><path d="M130 474q150-120 340-42v129H130z" fill="#8fa9ab"/><path d="M130 526q193-113 340-4v39H130z" fill="#789295"/><text x="300" y="105" text-anchor="middle" font-family="Georgia,serif" letter-spacing="6" font-size="15" fill="#f5f0e3">HER LITTLE LIBRARY</text><text x="300" y="675" text-anchor="middle" font-family="Georgia,serif" letter-spacing="5" font-size="43" fill="#fdf5e4">NILAKASH</text><text x="300" y="735" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="23" fill="#e8ece3">a sky full of stories</text><text x="300" y="817" text-anchor="middle" font-family="Georgia,serif" letter-spacing="7" font-size="18" fill="#f5f0e3">2026</text></svg>');
   return svgURL(common + '<rect width="600" height="900" fill="#edd7c5"/><rect x="22" y="22" width="556" height="856" fill="none" stroke="#a7675b" stroke-width="2"/><text x="300" y="95" text-anchor="middle" font-family="Georgia,serif" letter-spacing="4" font-size="17" fill="#93574b">THE FIRST CHAPTER · 2025</text><text x="300" y="254" text-anchor="middle" font-family="Georgia,serif" font-size="107" fill="#9b5249">VOGUE</text><text x="300" y="350" text-anchor="middle" font-family="Georgia,serif" font-size="112" fill="#9b5249">BEE</text><path d="M132 602q38-197 178-114 122-74 161 114" fill="none" stroke="#a87759" stroke-width="3"/><ellipse cx="300" cy="564" rx="29" ry="45" fill="#c5a06d" stroke="#8e694f" stroke-width="3"/><ellipse cx="264" cy="541" rx="26" ry="37" transform="rotate(-38 264 541)" fill="#fff1d9" stroke="#a87759" stroke-width="2"/><ellipse cx="336" cy="541" rx="26" ry="37" transform="rotate(38 336 541)" fill="#fff1d9" stroke="#a87759" stroke-width="2"/><path d="M276 562h48M275 576h50M284 593h33" stroke="#8e694f" stroke-width="6"/><circle cx="300" cy="520" r="13" fill="#8e694f"/><path d="M295 509l-12-14M305 509l12-14" stroke="#8e694f" stroke-width="2"/><text x="300" y="719" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="27" fill="#93574b">a keepsake, always</text><text x="300" y="815" text-anchor="middle" font-family="Georgia,serif" letter-spacing="5" font-size="16" fill="#93574b">MARSHMALLOW</text></svg>');
@@ -1121,7 +1145,7 @@ function paperSVG(label, sub) {
   return svgURL('<svg xmlns="http://www.w3.org/2000/svg" width="760" height="1190" viewBox="0 0 760 1190"><defs><pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M1 1h1" stroke="#b29777" stroke-opacity=".15"/></pattern></defs><rect width="760" height="1190" fill="#fbf3e6"/><rect width="760" height="1190" fill="url(#grain)"/><rect x="44" y="42" width="672" height="1106" rx="5" fill="none" stroke="#ddc8af"/><path d="M361 484h38M380 465v38" stroke="#c8967b" stroke-width="2"/><text x="380" y="588" text-anchor="middle" font-family="Georgia,serif" font-size="36" fill="#9b6657">'+ (label || 'A little pause') +'</text><text x="380" y="634" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="20" fill="#9b7f6d">'+ (sub || 'between the pages') +'</text><text x="380" y="1100" text-anchor="middle" font-family="Georgia,serif" letter-spacing="5" font-size="14" fill="#af9277">HER LITTLE LIBRARY</text></svg>');
 }
 const paperBack = paperSVG(), ending = paperSVG('The end','a story worth coming back to');
-function fallbackPage(index) { return index === 0 ? coverSVG('2025') : paperSVG('Page '+index+' is waiting','The original artwork is not available yet.'); }
+function fallbackPage(index) { return index === 0 ? coverSVG(bookId==='boat'?'boat':'2025') : paperSVG('Page '+index+' is waiting','The original artwork is not available yet.'); }
 function imageAttempt(src) {
   return new Promise(resolve => {
     const img = new Image(); img.decoding = 'async';
@@ -1139,17 +1163,18 @@ function loadImage(src, alternate) {
 }
 function background(el, src) { el.style.backgroundImage = 'url('+JSON.stringify(src)+')'; }
 async function hydrate(index) {
-  if (index < 0 || index >= N) return;
-  const original = await loadImage(IMAGES[index],index === 0 ? 'Birthday-Journal-Ft.jpg' : null);
-  const src = original || fallbackPage(index);
-  pageArt.set(index,src);
-  if (!original && index > 0) failedPages.add(index);
-  if (sheets[index]) background(sheets[index].art,src);
-  if (view === 'journal' && page === index) {
-    flatImage.src = src;
-    flatImage.alt = original ? (index ? 'VOGUE-BEE journal, page '+index : 'VOGUE-BEE journal cover') : (index ? 'Page '+index+': original artwork unavailable' : 'VOGUE-BEE cover placeholder');
-    $('assetNote').hidden = !!original;
-    $('assetNote').textContent = index ? 'The original image for this page isn’t available yet.' : 'The original cover isn’t available. A placeholder is shown.';
+  if(index<0 || index>=N) return;
+  const requestingBook=bookId, definition=activeBook;
+  const original=await loadImage(IMAGES[index],bookId==='vogue' && index===0?'Birthday-Journal-Ft.jpg':null);
+  if(requestingBook!==bookId) return;
+  const src=original || fallbackPage(index);pageArt.set(index,src);
+  const sheet=sheets[definition.duplex?Math.floor(index/2):index];
+  if(sheet) background(definition.duplex && index%2?sheet.backArt:sheet.art,src);
+  if(view==='journal' && page===index) {
+    flatImage.src=src;
+    flatImage.alt=definition.title+' · '+pageLabel(index)+(definition.pages && definition.pages[index].text ? '. '+definition.pages[index].text : '');
+    $('assetNote').hidden=!!original;
+    $('assetNote').textContent=original?'':'The artwork for this page could not be loaded. The text is available below.';
   }
 }
 function cancelWarm() {
@@ -1169,26 +1194,30 @@ function makePages() {
   const holes = [];
   for (let i=0;i<RING_COUNT;i++) holes.push('radial-gradient(circle at 13px '+((i+.5)/RING_COUNT*100)+'%,rgba(40,25,15,.65) 0 4px,rgba(40,25,15,.2) 5px,transparent 7px)');
   const fragment = document.createDocumentFragment();
-  for (let i=0;i<N;i++) {
+  const leafCount=activeBook.duplex?Math.ceil(N/2):N;
+  for (let i=0;i<leafCount;i++) {
     const el = document.createElement('div'); el.className = 'sheet'+(i === 0 ? ' cover-sheet' : ''); el.setAttribute('aria-hidden','true');
     const faces = [];
     for (const side of ['front','back']) {
       const face = document.createElement('div'); face.className = 'face '+side;
-      const art = document.createElement('div'); art.className = 'art'; background(art,side === 'front' ? (pageArt.get(i) || fallbackPage(i)) : paperBack);
+      const art = document.createElement('div'); art.className = 'art';
+      const idx=activeBook.duplex?i*2+(side==='back'?1:0):i;
+      background(art,side==='front' || activeBook.duplex ? (pageArt.get(idx) || fallbackPage(idx)) : paperBack);
       const hole = document.createElement('div'); hole.className = 'holes'; hole.style.backgroundImage = holes.join(',');
       const shade = document.createElement('div'); shade.className = 'shade';
       face.append(art,hole,shade); el.appendChild(face); faces.push({art,shade});
     }
-    sheets.push({el,art:faces[0].art,frontShade:faces[0].shade,backShade:faces[1].shade}); fragment.appendChild(el);
+    sheets.push({el,art:faces[0].art,backArt:faces[1].art,frontShade:faces[0].shade,backShade:faces[1].shade}); fragment.appendChild(el);
   }
   $('stack').appendChild(fragment);
   for (let i=0;i<RING_COUNT;i++) { const ring = document.createElement('div'); ring.className = 'ring'; $('rings').appendChild(ring); }
   syncSheets();
 }
 function syncSheets() {
+  const turned=activeBook.duplex?Math.ceil(page/2):page;
   sheets.forEach((sheet,i) => {
-    sheet.el.style.transform = i < page ? 'rotateY(-180deg)' : 'rotateY(0deg)';
-    sheet.el.style.zIndex = i < page ? 100+i : 100+N-i;
+    sheet.el.style.transform = i < turned ? 'rotateY(-180deg)' : 'rotateY(0deg)';
+    sheet.el.style.zIndex = i < turned ? 100+i : 100+N-i;
   });
   $('edgeL').style.opacity = page > 0 ? '1' : '0';
   $('edgeL').style.width = Math.min(6,page*.6)+'px';
@@ -1201,7 +1230,7 @@ function layout() {
   const style = getComputedStyle(journal);
   const head = journal.querySelector('.reader-header').offsetHeight;
   const dock = $('readerDock').offsetHeight;
-  const note = $('assetNote').hidden ? 0 : $('assetNote').offsetHeight+12;
+  const note=($('assetNote').hidden?0:$('assetNote').offsetHeight+12)+($('pageTextPanel').hidden?0:$('pageTextPanel').offsetHeight+12);
   const height = journal.clientHeight || innerHeight;
   const availH = Math.max(180,height-head-dock-note-48-parseFloat(style.paddingTop)-parseFloat(style.paddingBottom));
   const availW = Math.max(200,journal.clientWidth-parseFloat(style.paddingLeft)-parseFloat(style.paddingRight));
@@ -1213,7 +1242,7 @@ function layout() {
   scene.style.transform = 'scale('+scale+')';
 }
 function scheduleLayout() { if (!resizeRaf) resizeRaf = requestAnimationFrame(() => { resizeRaf=0; layout(); }); }
-function pageLabel(p) { return p === 0 ? 'Cover' : p === N ? 'The end' : 'Page '+p+' / '+(N-1); }
+function pageLabel(p,id=bookId) { const total=BOOKS[id].images.length; return p===0?'Cover':p>=total?'The end':id==='boat'?'Page '+(p+1)+' / '+total:'Page '+p+' / '+(total-1); }
 function updateProgress() {
   const label = pageLabel(page);
   range.value = String(page); range.setAttribute('aria-valuetext',label);
@@ -1222,18 +1251,24 @@ function updateProgress() {
   $('bookmarkBtn').setAttribute('aria-pressed',String(marked === page));
   $('bookmarkBtn').textContent = marked === page ? '◆ Saved' : '◇ Bookmark';
   $('bookmarkBtn').setAttribute('aria-label',marked === page ? 'Remove bookmark from this page' : 'Bookmark this page');
-  $('heroCtaLabel').textContent = page > 0 && page < N ? 'Continue reading' : 'Open the 2025 journal';
-  $('heroMeta').textContent = page > 0 && page < N ? pageLabel(page)+' · your place is kept' : 'VOGUE-BEE · a keepsake from 2025';
+  const vp=bookId==='vogue'?page:Number(prefs.books.vogue.page)||0;
+  $('heroCtaLabel').textContent=vp>0 && vp<9?'Continue reading':'Open the 2025 journal';
+  $('heroMeta').textContent=vp>0 && vp<9?pageLabel(vp,'vogue')+' · your place is kept':'VOGUE-BEE · a keepsake from 2025';
+  const bp=bookId==='boat'?page:Number(prefs.books.boat.page)||0;
+  $('boatResume').textContent=bp>0 && bp<16?'Continue · '+pageLabel(bp,'boat'):'Read the story ↗';
 }
 function renderPage() {
   readerEpoch++; updateProgress();
   if (view !== 'journal') return;
   $('hint').classList.toggle('hidden',page > 0 || flatMode);
   flatImage.src = page >= N ? ending : (pageArt.get(page) || fallbackPage(page));
-  flatImage.alt = page >= N ? 'The end of the VOGUE-BEE journal' : (page ? 'VOGUE-BEE journal, page '+page : 'VOGUE-BEE journal cover');
-  $('flatCaption').textContent = page === N ? 'A story worth coming back to.' : pageLabel(page)+' · VOGUE-BEE, 2025';
+  flatImage.alt=activeBook.title+' · '+pageLabel(page);
+  $('flatCaption').textContent=page===N?'A story worth coming back to.':pageLabel(page)+' · '+activeBook.title;
+  $('pageTextPanel').hidden=bookId!=='boat' || page>=N;
+  $('pageTranscript').textContent=activeBook.pages && activeBook.pages[page]?(activeBook.pages[page].text || activeBook.title+' — '+activeBook.author):'';
   $('assetNote').hidden = true;
-  if (page < N) hydrate(page).then(scheduleLayout);
+  if(page<N) hydrate(page).then(scheduleLayout);
+  if(activeBook.duplex && !flatMode) { const right=Math.ceil(page/2)*2; if(right!==page && right<N)hydrate(right); if(right>0)hydrate(right-1); }
   warmNext(); scheduleLayout();
 }
 function commit(p) {
@@ -1249,13 +1284,16 @@ function turn(dir) {
   if (view !== 'journal' || bookmarksDialog.hasAttribute('open')) return;
   const delta = dir === 'forward' ? 1 : -1;
   if (turning) { queued=dir; return; }
-  if (page+delta < 0 || page+delta > N) return;
+  if(page+delta<0 || page+delta>N) return;
+  const spread=activeBook.duplex && !flatMode;
+  const turned=spread?Math.ceil(page/2):page;
+  const destination=spread?Math.max(0,Math.min(N,(turned+delta)*2)):page+delta;
   killPeek();
   if (soundOn) { startMusic(); flipSound(); }
-  if (flatMode || motionOff || !supports3d) { commit(page+delta); return; }
-  const index = delta > 0 ? page : page-1, sheet = sheets[index];
-  if (!sheet) { commit(page+delta); return; }
-  const target=page+delta, from=delta>0?0:-180, to=delta>0?-180:0;
+  if (flatMode || motionOff || !supports3d) { commit(destination); return; }
+  const index=delta>0?turned:turned-1, sheet=sheets[index];
+  if (!sheet) { commit(destination); return; }
+  const target=destination, from=delta>0?0:-180, to=delta>0?-180:0;
   const duration=lowPower?480:720, start=performance.now();
   turning=true; sheet.el.classList.add('turning'); sheet.el.style.zIndex='300'; scene.classList.add('flipping');
   let finished=false;
@@ -1284,6 +1322,23 @@ function applyReaderMode() {
   $('zoomBtn').hidden=!flatMode;
   if (!flatMode) makePages();
   renderPage();
+}
+function selectBook(id) {
+  if(!Object.prototype.hasOwnProperty.call(BOOKS,id)) id='vogue';
+  settleTurn();cancelWarm();savePrefs();pauseAudio();readerEpoch++;
+  bookId=id;activeBook=BOOKS[id];IMAGES=activeBook.images;N=IMAGES.length;PW=activeBook.width;PH=activeBook.height;
+  page=clampPage(prefs.books[id].page);marked=Number.isInteger(prefs.books[id].marked)?clampPage(prefs.books[id].marked):null;
+  sheets=[];built=false;pageArt.clear();$('stack').textContent='';$('rings').textContent='';
+  document.body.setAttribute('data-book',id);range.max=String(N);
+  journal.querySelector('.reader-title h2').textContent=activeBook.title;
+  journal.querySelector('.reader-title p').textContent=id==='boat'?'Tanjila Tasnim Anisa · Illustrated story · 2026':'The 2025 journal · her little library';
+  journal.setAttribute('aria-label',activeBook.title+' reader');
+  wrap.setAttribute('aria-label',activeBook.title+'. Use the page controls or arrow keys to turn pages.');
+  flatImage.width=PW;flatImage.height=PH;
+  $('pdfBtn').href=activeBook.pdf;$('pdfBtn').download=activeBook.filename;
+  $('pageTextPanel').open=false;
+  flat.classList.remove('zoomed');$('zoomBtn').setAttribute('aria-pressed','false');$('zoomBtn').textContent='Enlarge';
+  updateProgress();
 }
 function showView(next, source) {
   if (next===view) return;
@@ -1335,18 +1390,22 @@ function closeBookmarks() {
 }
 function openBookmarks() {
   dialogOpener=document.activeElement;
-  $('bookmarkSummary').textContent=marked===null?'No bookmark yet. Open the journal and save a page to find it here.':'Your saved place in VOGUE-BEE · '+pageLabel(marked)+'.';
-  $('goBookmark').hidden=marked===null; $('goBookmark').textContent=marked===null?'Open bookmark':'Return to '+pageLabel(marked).toLowerCase()+' →';
-  if (typeof bookmarksDialog.showModal==='function') bookmarksDialog.showModal();
-  else { bookmarksDialog.setAttribute('open',''); bookmarksDialog.classList.add('dialog-fallback'); }
-  document.body.classList.add('modal-open');
-  library.setAttribute('aria-hidden','true'); journal.setAttribute('aria-hidden','true');
-  focus($('closeBookmarks'));
+  const ids=Object.keys(BOOKS).filter(id=>Number.isInteger(prefs.books[id].marked));
+  $('bookmarkSummary').textContent=ids.length?'Your saved places. Each book keeps its own bookmark.':'No bookmarks yet. Open a book and save a page to find it here.';
+  $('bookmarkList').textContent='';
+  for(const id of ids) {
+    const b=document.createElement('button');b.type='button';b.className='btn';b.setAttribute('data-saved-book',id);
+    b.textContent=BOOKS[id].title+' · '+pageLabel(prefs.books[id].marked,id)+' →';
+    b.addEventListener('click',()=>{const origin=dialogOpener;closeBookmarks();selectBook(id);commit(prefs.books[id].marked);showView('journal',origin);});
+    $('bookmarkList').appendChild(b);
+  }
+  if(typeof bookmarksDialog.showModal==='function')bookmarksDialog.showModal();
+  else {bookmarksDialog.setAttribute('open','');bookmarksDialog.classList.add('dialog-fallback');}
+  document.body.classList.add('modal-open');library.setAttribute('aria-hidden','true');journal.setAttribute('aria-hidden','true');focus($('closeBookmarks'));
 }
 $('closeBookmarks').addEventListener('click',closeBookmarks);
 bookmarksDialog.addEventListener('cancel',e => { e.preventDefault(); closeBookmarks(); });
 bookmarksDialog.addEventListener('click',e => { if(e.target===bookmarksDialog) { const r=bookmarksDialog.getBoundingClientRect(); if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom) closeBookmarks(); } });
-$('goBookmark').addEventListener('click',() => { const origin=dialogOpener; closeBookmarks(); if(marked!==null) commit(marked); showView('journal',origin); });
 function setNav(id) {
   document.querySelectorAll('.nav').forEach(b => { b.classList.toggle('active',b.id===id); if(b.id===id)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current'); });
 }
@@ -1355,7 +1414,7 @@ $('navHome').addEventListener('click',() => { search.value=''; setMode(false); s
 $('navLib').addEventListener('click',() => { setNav('navLib'); scrollInto($('collection')); });
 $('navGift').addEventListener('click',() => { setNav('navGift'); scrollInto($('futureCard')); $('futureCard').classList.add('highlight'); setTimeout(() => $('futureCard').classList.remove('highlight'),1300); focus($('book2027')); });
 function action(kind, el) {
-  if(kind==='open') showView('journal',el);
+  if(kind==='open') {selectBook(el && el.getAttribute('data-book') || 'vogue');showView('journal',el);}
   if(kind==='soon') toast('নীলাকাশ is still being written. A new chapter is on its way.');
   if(kind==='gift') toast(Date.now()>=CD_TARGET.getTime()?'The date is here! The 2027 edition has not been added yet.':'The 2027 edition is tucked away until 19 · 09 · 2027.');
   if(kind==='bookmarks') openBookmarks();
@@ -1436,7 +1495,7 @@ window.addEventListener('keydown',e => {
 /* Audio is opt-in, and pauses whenever the journal or tab is left. */
 function pauseAudio() { bgAudio.pause(); if(audioContext && audioContext.state==='running') audioContext.suspend().catch(() => {}); }
 function startMusic() {
-  if(!soundOn || audioFailed || view!=='journal' || document.hidden) return;
+  if(!soundOn || !activeBook.music || audioFailed || view!=='journal' || document.hidden) return;
   bgAudio.volume=.4;
   const play=bgAudio.play(); if(play && play.catch) play.catch(error => { if(error.name!=='AbortError' && error.name!=='NotAllowedError') { audioFailed=true; toast('The music track isn’t available. Page sounds are still on.'); } });
 }
@@ -1463,18 +1522,20 @@ bgAudio.addEventListener('error',() => { audioFailed=true; if(soundOn && view===
 /* Cancel navigation synchronously. Validate and download only a real PDF. */
 let downloading=false;
 $('pdfBtn').addEventListener('click',async e => {
+  if(location.protocol==='file:' && bookId==='boat') { $('pdfBtn').target='_blank'; $('pdfBtn').rel='noopener'; return; }
   e.preventDefault(); if(downloading)return;
+  const requestedBook=activeBook;
   if(location.protocol==='file:') { toast('To save the PDF locally, open anibee.pdf from the same folder. The download button works when the site is hosted.'); return; }
   if(!window.fetch) { toast('Open anibee.pdf from the website folder to save the journal.'); return; }
   downloading=true; $('pdfBtn').setAttribute('aria-busy','true'); $('pdfBtn').textContent='Preparing…';
   let controller=window.AbortController?new AbortController():null, timer=controller?setTimeout(() => controller.abort(),12000):null;
   try {
-    const response=await fetch('anibee.pdf',controller?{signal:controller.signal}:{}); if(!response.ok)throw new Error('missing');
+    const response=await fetch(requestedBook.pdf,controller?{signal:controller.signal}:{}); if(!response.ok)throw new Error('missing');
     const blob=await response.blob(); const signature=await blob.slice(0,5).text(); if(signature!=='%PDF-')throw new Error('not-pdf');
-    const url=URL.createObjectURL(blob), link=document.createElement('a'); link.href=url; link.download='anibee.pdf'; link.hidden=true;
+    const url=URL.createObjectURL(blob), link=document.createElement('a'); link.href=url; link.download=requestedBook.filename; link.hidden=true;
     document.body.appendChild(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url),60000);
-    toast('Your journal PDF is ready to save.');
-  } catch (_) { toast('The journal PDF isn’t available right now. Please try again later.'); }
+    toast(requestedBook.title+' PDF is ready to save.');
+  } catch (_) { toast('The PDF isn’t available right now. Please try again later.'); }
   finally { if(timer)clearTimeout(timer); downloading=false; $('pdfBtn').removeAttribute('aria-busy'); $('pdfBtn').textContent='↓ Save PDF'; }
 });
 function tickCountdown() {
@@ -1501,6 +1562,7 @@ document.querySelectorAll('img[data-fallback]').forEach(img => {
   img.src=coverSVG(kind);
   loadImage(src,kind==='2025'?'Birthday-Journal-Ft.jpg':null).then(found => { if(found)img.src=found; });
 });
+$('pageTextPanel').addEventListener('toggle',scheduleLayout);
 range.max=String(N); applyMotion(); setLight(prefs.light); setNav('navHome'); setMode(false); updateProgress(); updateClock();
 })();
 </script></body>
