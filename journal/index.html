@@ -822,7 +822,7 @@ body[data-book="boat"] .face.back::before{background:linear-gradient(to left,rgb
 #bookmarkList .btn{white-space:normal;text-align:left;line-height:1.5}
 @media(max-width:1150px) and (min-width:921px){.shelf-2026 .books{gap:15px;padding-left:0;padding-right:0}.shelf-2026 .books .book{width:calc((100% - 15px)/2)}.boat-book figcaption b{font-size:9px}.boat-book figcaption span{font-size:7px}#allWrap{gap:15px}}
 @media(max-width:600px){.shelf-2026 .books{padding:20px 7px 0;gap:21px}.shelf-2026 .books .book{width:calc((100% - 21px)/2)}.boat-book figcaption b{font-size:11px}.boat-book figcaption span{font-size:9px}.shelf-2026 .book figcaption{min-height:43px}#allWrap{grid-template-columns:repeat(2,minmax(0,1fr))}body[data-book="boat"] .reader-title h2{font-size:22px}.page-transcript p{font-size:18px}.reading-track span{white-space:nowrap}}
-</style><meta content="2026-09-18-bounded-flips-2" id="reader-build" name="application-version"/><style id="reader-stability">/* Keep the same artwork and room; cap the graphics work used by the reader. */
+</style><meta content="2026-09-20-gift-archive-1" id="reader-build" name="application-version"/><style id="reader-stability">/* Keep the same artwork and room; cap the graphics work used by the reader. */
 body.reading{--frost-l2:none;--frost-l3:none;--frost-xs:none}
 body.reading::before,body.reading::after{display:none}
 #journalView{animation:none}
@@ -866,6 +866,103 @@ body[data-book="nilakash"] .reader-title h2{font-family:"Baloo Da 2","Noto Sans 
 body[data-book="nilakash"] .reader-title p{letter-spacing:.6px}
 body[data-book="nilakash"] .art{background-color:#f4ead8}
 @media(max-width:600px){body[data-book="nilakash"] .reader-title h2{font-size:19px}}
+</style><style id="gift-design">
+/* The Gift · an in-page keepsake archive. No libraries or background media. */
+#giftView{display:block;overflow-y:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;padding:24px clamp(16px,4vw,60px) max(32px,env(safe-area-inset-bottom));padding-top:max(24px,env(safe-area-inset-top));background:var(--room);animation:giftEnter .35s ease}
+@keyframes giftEnter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+body.gifting{--frost-l2:none;--frost-l3:none;--frost-xs:none}
+body.gifting::before,body.gifting::after{display:none}
+.gift-shell{width:min(1140px,100%);margin:0 auto}
+.gift-topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:22px;border-bottom:1px solid var(--border)}
+.gift-brand{font:italic 18px Georgia,serif;color:var(--rose);text-align:center}
+.gift-topbar .gift-eyebrow{margin:0;text-align:right}
+.gift-eyebrow{font-size:10px;line-height:1.6;font-weight:650;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.gift-intro{position:relative;padding:48px 0 30px;max-width:720px}
+.gift-intro h1{font:400 clamp(48px,7vw,78px)/1.02 Georgia,serif;letter-spacing:-3px;color:var(--rose);margin:12px 0 17px;max-width:none}
+.gift-intro>p:last-child{font:400 16px/1.75 Georgia,serif;color:var(--muted);max-width:480px;margin:0}
+.gift-intro .gift-eyebrow{display:flex;align-items:center;gap:10px;margin:0}
+.gift-intro svg{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.35}
+.gift-year-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start;padding:8px 0 28px}
+.gift-year-card{appearance:none;display:block;width:100%;min-width:0;text-align:left;border:1px solid var(--border);border-radius:7px 23px 23px 7px;background:var(--paper);color:var(--ink);padding:20px 20px 21px;cursor:pointer;font:inherit;box-shadow:0 5px 15px var(--book-shadow);transition:transform .3s ease,box-shadow .3s ease;touch-action:manipulation;position:relative}
+.gift-year-card::before{content:"";position:absolute;inset:12px auto 12px 5px;width:1px;background:var(--border);opacity:.7}
+.gift-year-heading{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:0 2px 14px}
+.gift-year-heading strong{font:400 38px/1 Georgia,serif;color:var(--rose);letter-spacing:-1px}
+.gift-year-heading span{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.gift-photo-mat{display:grid;place-items:center;position:relative;min-width:0;overflow:hidden;background:var(--room);border:1px solid var(--line);border-radius:3px;aspect-ratio:4/3}
+.gift-year-card .gift-photo-mat{aspect-ratio:3/2}
+.gift-year-card .gift-photo-mat::after{content:"";position:absolute;left:50%;top:0;width:68px;height:15px;transform:translateX(-50%) rotate(-3deg);background:var(--paper);opacity:.65;pointer-events:none}
+.gift-photo-placeholder{position:absolute;inset:0;display:grid;place-content:center;gap:9px;text-align:center;padding:20px;color:var(--muted);font:italic 13px/1.5 Georgia,serif}
+.gift-photo-placeholder svg{width:46px;height:46px;margin:auto;fill:none;stroke:currentColor;stroke-width:1;opacity:.65}
+.gift-photo-mat canvas,.gift-photo-mat img{display:block;width:100%;height:100%;min-height:0;object-fit:contain;position:absolute;inset:0}
+.gift-photo-mat.is-ready .gift-photo-placeholder{display:none}
+.gift-year-caption{display:block;padding:19px 3px 0}
+.gift-year-caption b{display:block;font:400 27px/1.2 Georgia,serif;color:var(--rose);margin-bottom:7px}
+.gift-year-caption>span{display:block;font-size:12px;line-height:1.7;color:var(--muted);max-width:360px}
+.gift-open-label{display:flex!important;justify-content:space-between;gap:14px;border-top:1px solid var(--line);margin-top:19px;padding-top:13px;font-size:11px!important;font-weight:650;color:var(--rose)!important;max-width:none!important}
+.gift-open-label i{font-style:normal;font-size:20px;line-height:1}
+.gift-footnote{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--border);padding:17px 0;margin:0;font:italic 12px/1.6 Georgia,serif;color:var(--muted)}
+.gift-album-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:26px}
+.gift-text-button{appearance:none;border:0;background:none;color:var(--rose);font:inherit;font-size:12px;cursor:pointer;min-height:44px;padding:9px 1px;touch-action:manipulation;text-align:left}
+.gift-year-switch{display:flex;gap:4px;padding:3px;border:1px solid var(--border);border-radius:9px}
+.gift-year-switch button{appearance:none;min-height:38px;border:0;border-radius:6px;padding:8px 19px;font:inherit;font-size:11px;background:transparent;color:var(--muted);cursor:pointer}
+.gift-year-switch button[aria-pressed="true"]{background:var(--paper);color:var(--rose);box-shadow:0 2px 5px var(--book-shadow)}
+.gift-album-heading{display:grid;grid-template-columns:auto minmax(0,1fr);gap:30px;align-items:center;padding:25px 0 28px;border-bottom:1px solid var(--border)}
+.gift-album-heading h2{margin:0;font:400 clamp(70px,10vw,108px)/.95 Georgia,serif;letter-spacing:-5px;color:var(--rose)}
+.gift-album-heading h3{font:400 30px/1.2 Georgia,serif;margin:8px 0 9px;color:var(--rose)}
+.gift-album-heading p{font-size:12px;line-height:1.8;color:var(--muted);margin:0;max-width:520px}
+.gift-album-heading .gift-eyebrow{font-size:9px;letter-spacing:1.8px}
+.gift-filters{display:flex;flex-wrap:wrap;gap:8px;padding:23px 0 5px}
+.gift-filters button{appearance:none;min-height:40px;border:1px solid var(--border);border-radius:999px;background:transparent;color:var(--muted);font:inherit;font-size:11px;padding:9px 15px;cursor:pointer}
+.gift-filters button[aria-pressed="true"]{background:var(--rose);color:var(--paper);border-color:var(--rose)}
+.gift-group{padding:22px 0 7px}
+.gift-group-head{display:flex;align-items:baseline;gap:12px;margin:0 0 17px}
+.gift-group-head .gift-eyebrow{font-variant-numeric:tabular-nums;font-size:9px}
+.gift-group-head h3{font:400 26px/1.2 Georgia,serif;color:var(--rose);margin:0}
+.gift-group-head p{margin:0 0 0 auto;font-size:10px;color:var(--muted)}
+.gift-media-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.gift-item{display:block;appearance:none;min-width:0;width:100%;padding:9px 9px 14px;text-align:left;font:inherit;background:var(--paper);border:1px solid var(--border);border-radius:5px;color:var(--ink);cursor:pointer;transition:transform .25s ease,box-shadow .25s ease;touch-action:manipulation}
+.gift-item-label{display:flex;align-items:baseline;gap:12px;justify-content:space-between;padding:14px 4px 0}
+.gift-item-label b{font:400 18px/1.25 Georgia,serif;color:var(--rose)}
+.gift-item-label small{font-size:8px;letter-spacing:1px;text-transform:uppercase;flex:none;color:var(--muted)}
+.gift-video-card .gift-photo-mat{background:var(--ctrl-bg)}
+.gift-video-card .gift-photo-placeholder svg{width:54px;height:54px;opacity:1}
+.gift-album-footer{padding-top:31px;margin-top:20px}
+.gift-viewer-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0 10px}
+.gift-viewer-count{font:400 15px Georgia,serif;color:var(--muted);white-space:nowrap}
+.gift-stage{position:relative;display:grid;place-items:center;min-height:220px;height:clamp(280px,63vh,760px);height:clamp(220px,63dvh,760px);border:1px solid var(--border);background:var(--paper);border-radius:12px;overflow:hidden;touch-action:pan-y pinch-zoom}
+.gift-stage canvas,.gift-stage img,.gift-stage video{display:block;width:100%;height:100%;max-height:100%;object-fit:contain;position:absolute;inset:0}
+.gift-stage video{background:#261f1d}
+.gift-stage-message{position:relative;text-align:center;padding:24px;max-width:420px;color:var(--muted);z-index:1;background:var(--paper);border-radius:12px;margin:14px;max-height:calc(100% - 28px);overflow:auto}
+.gift-stage-message p{font:400 21px/1.45 Georgia,serif;margin:5px 0 12px}
+.gift-stage-message small{display:block;font:400 12px/1.7 system-ui,sans-serif}
+.gift-stage-message .btn{margin-top:16px}
+.gift-viewer-bottom{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:start;padding:20px 0}
+.gift-caption .gift-eyebrow{margin:0 0 8px;font-size:9px}
+.gift-caption h3{font:400 30px/1.15 Georgia,serif;letter-spacing:-.7px;margin:0 0 10px;color:var(--rose)}
+.gift-caption>p:last-child{font-size:12px;line-height:1.8;max-width:540px;color:var(--muted);margin:0}
+.gift-viewer-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.gift-viewer-actions .btn{white-space:nowrap;min-width:48px}
+.gift-save-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:4px;border-top:1px solid var(--border)}
+.gift-save-row a{font-size:11px;text-decoration:none}
+.gift-viewer-hint{font-size:10px;line-height:1.5;color:var(--muted);margin:0}
+@media(hover:hover) and (pointer:fine){.gift-year-card:hover{transform:translateY(-5px) rotate(-.35deg);box-shadow:0 12px 22px var(--book-shadow)}.gift-year-card:nth-child(2):hover{transform:translateY(-5px) rotate(.35deg)}.gift-item:hover{transform:translateY(-4px);box-shadow:0 7px 13px var(--book-shadow)}.gift-text-button:hover{text-decoration:underline;text-underline-offset:5px}}
+@media(max-width:760px){.gift-media-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gift-year-grid{gap:18px}.gift-year-card{padding:15px}.gift-year-caption b{font-size:23px}.gift-album-heading h3{font-size:27px}}
+@media(max-width:540px){
+ #giftView{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right));padding-top:max(16px,env(safe-area-inset-top))}
+ .gift-topbar{gap:8px;padding-bottom:16px}.gift-topbar>.gift-eyebrow{display:none}.gift-brand{font-size:17px}.gift-topbar .btn{font-size:11px}
+ .gift-intro{padding:33px 2px 23px}.gift-intro h1{font-size:60px;letter-spacing:-2.5px;margin-bottom:13px}.gift-intro>p:last-child{font-size:15px;max-width:290px}
+ .gift-year-grid{grid-template-columns:1fr;gap:22px}.gift-year-card{padding:17px}.gift-year-card .gift-photo-mat{aspect-ratio:4/3}.gift-year-heading strong{font-size:35px}.gift-year-caption b{font-size:27px}.gift-year-caption>span{font-size:12px}
+ .gift-footnote{gap:6px;font-size:11px}.gift-footnote span{display:block}.gift-album-nav{padding-top:17px}.gift-album-heading{gap:15px;grid-template-columns:1fr;padding:18px 2px 22px}.gift-album-heading h2{font-size:75px;letter-spacing:-3px}.gift-album-heading h3{font-size:29px;margin-top:5px}.gift-album-heading p{font-size:12px}
+ .gift-filters{gap:6px;padding-top:19px}.gift-filters button{font-size:10px;padding:8px 12px}.gift-group{padding-top:22px}.gift-group-head{gap:9px;margin-bottom:13px}.gift-group-head h3{font-size:23px}.gift-group-head p{font-size:9px}
+ .gift-media-grid{gap:12px}.gift-item{padding:6px 6px 11px}.gift-item .gift-photo-mat{aspect-ratio:4/5}.gift-item-label{padding:11px 2px 0;display:block}.gift-item-label b{font-size:17px}.gift-item-label small{display:block;margin-top:6px;font-size:8px}
+ .gift-photo-placeholder{font-size:11px;padding:8px}.gift-photo-placeholder svg{width:32px;height:32px}.gift-viewer-nav{padding-top:12px}.gift-viewer-count{font-size:13px}.gift-stage{height:57vh;height:57dvh;min-height:230px;border-radius:7px}
+ .gift-viewer-bottom{grid-template-columns:1fr;gap:16px;padding:17px 0}.gift-caption h3{font-size:28px}.gift-viewer-actions{justify-content:stretch}.gift-viewer-actions .btn{flex:1;font-size:12px}.gift-save-row{align-items:center}.gift-viewer-hint{font-size:9px;max-width:145px}
+}
+@media(max-width:350px){.gift-intro h1{font-size:51px}.gift-item-label b{font-size:15px}.gift-filters button{padding:8px 9px}.gift-group-head h3{font-size:21px}.gift-group-head p{display:none}}
+@media(max-height:520px) and (orientation:landscape){.gift-stage{height:70vh;height:70dvh;min-height:190px}.gift-intro{padding-top:25px}}
+html.still .gift-year-card:hover,html.still .gift-item:hover{transform:none}
+@media(prefers-reduced-motion:reduce){.gift-year-card:hover,.gift-item:hover{transform:none}}
+@media(forced-colors:active){.gift-year-card,.gift-item,.gift-stage,.gift-photo-mat{border-color:CanvasText}.gift-filters button[aria-pressed="true"],.gift-year-switch button[aria-pressed="true"]{outline:2px solid Highlight}}
 </style></head>
 <body><a class="skip-link" href="#mainContent" id="skipLink">Skip to content</a>
 <!-- ==================== VIEW 1 · LIBRARY ==================== -->
@@ -895,7 +992,7 @@ body[data-book="nilakash"] .art{background-color:#f4ead8}
 <svg aria-hidden="true" fill="none" height="17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="17"><path d="M4 19V5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 1-2-2z"></path><path d="M19 17H6a2 2 0 0 0-2 2"></path></svg>
             My Library
           </button>
-<button class="nav" id="navGift" type="button">
+<button aria-controls="giftView" class="nav" id="navGift" type="button">
 <svg aria-hidden="true" fill="none" height="17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="17"><rect height="4" width="18" x="3" y="8"></rect><rect height="9" width="14" x="5" y="12"></rect><path d="M12 8v13"></path><path d="M12 8c-2.5-.5-5-1.8-4-3.7C9 2.5 11.5 4 12 8z"></path><path d="M12 8c2.5-.5 5-1.8 4-3.7C15 2.5 12.5 4 12 8z"></path></svg>
             The Gift
           </button>
@@ -1061,6 +1158,62 @@ body[data-book="nilakash"] .art{background-color:#f4ead8}
 </div>
 </section>
 <!-- ==================== VIEW 2 · JOURNAL ==================== -->
+<!-- The Gift opens inside the existing room, just like a journal. -->
+<section aria-label="The Gift" class="view gone" id="giftView">
+ <div class="gift-shell">
+  <header class="gift-topbar">
+   <button class="btn" id="giftLibraryBack" type="button">← Library</button>
+   <span class="gift-brand">Marshmallow / The Gift</span>
+   <p class="gift-eyebrow">A keepsake collection</p>
+  </header>
+  <main id="giftContent" tabindex="-1">
+   <div id="giftOverview">
+    <header class="gift-intro">
+     <p class="gift-eyebrow"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 9h18v4H3zM5 13v8h14v-8M12 9v12M12 9C4 9 4 2 8 3c3 0 4 6 4 6Zm0 0s1-6 4-6c4-1 4 6-4 6Z"/></svg>Beyond the bookshelf</p>
+     <h1 id="giftTitle" tabindex="-1">The Gift</h1>
+     <p>Cakes, flowers, and the ideas in between.<br/>A little sweetness, kept through the years.</p>
+    </header>
+    <div aria-label="Gift collections by year" class="gift-year-grid" id="giftYearCards"></div>
+    <p class="gift-footnote"><span>Every detail has a place here.</span><span>Two years · twelve keepsakes</span></p>
+   </div>
+   <section aria-labelledby="giftAlbumTitle" hidden="" id="giftAlbum">
+    <div class="gift-album-nav">
+     <button class="gift-text-button" id="giftAllYears" type="button">← All years</button>
+     <div aria-label="Choose a gift year" class="gift-year-switch">
+      <button aria-pressed="false" data-gift-year="2025" type="button">2025</button>
+      <button aria-pressed="false" data-gift-year="2026" type="button">2026</button>
+     </div>
+    </div>
+    <header class="gift-album-heading">
+     <h2 id="giftAlbumTitle" tabindex="-1">2025</h2>
+     <div><p class="gift-eyebrow" id="giftAlbumMeta"></p><h3 id="giftAlbumName"></h3><p id="giftAlbumDescription"></p></div>
+    </header>
+    <div aria-label="Filter keepsakes" class="gift-filters" id="giftFilters"></div>
+    <div id="giftGroups"></div>
+    <p class="gift-footnote gift-album-footer"><span>From the first idea to the smallest detail.</span><span>Tap any keepsake to take a closer look.</span></p>
+   </section>
+   <section aria-labelledby="giftMediaTitle" hidden="" id="giftMediaPanel">
+    <div class="gift-viewer-nav">
+     <button class="gift-text-button" id="giftMediaBack" type="button">← Collection</button>
+     <span aria-live="polite" class="gift-viewer-count" id="giftMediaCount"></span>
+    </div>
+    <div aria-label="Selected keepsake" class="gift-stage" id="giftStage">
+     <div class="gift-stage-message" id="giftStageMessage" role="status"><p id="giftStageText">Opening this keepsake…</p><small hidden="" id="giftStageDetail"></small><button class="btn" hidden="" id="giftMediaRetry" type="button">↻ Try again</button></div>
+    </div>
+    <div class="gift-viewer-bottom">
+     <div class="gift-caption"><p class="gift-eyebrow" id="giftMediaCategory"></p><h3 id="giftMediaTitle" tabindex="-1"></h3><p id="giftMediaDescription"></p></div>
+     <div aria-label="Browse keepsakes" class="gift-viewer-actions">
+      <button aria-label="Previous keepsake" class="btn" id="giftPrevious" type="button">← Previous</button>
+      <button aria-label="Next keepsake" class="btn" id="giftNext" type="button">Next →</button>
+     </div>
+    </div>
+    <div class="gift-save-row"><p class="gift-viewer-hint" id="giftViewerHint">Swipe a photo or use the arrow keys.</p><a class="gift-text-button" download="" id="giftSaveOriginal">↓ Save original</a></div>
+   </section>
+   <p aria-live="polite" class="sr-only" id="giftStatus" role="status"></p>
+  </main>
+ </div>
+</section>
+
 <section aria-label="Flip journal" class="view gone" id="journalView"><header class="reader-header">
 <button class="btn" id="backBtn" type="button">← Library</button>
 <div class="reader-title"><h2>VOGUE-BEE</h2><p>The 2025 journal · her little library</p></div>
@@ -1470,19 +1623,285 @@ function selectBook(id) {
   scene.style.width='';scene.style.height='';updateProgress();
   if(view==='journal' && soundOn)startMusic();
 }
+/* Gift filenames intentionally match the existing cakes/ folder, including case. */
+const GIFT_COLLECTIONS = {
+  '2025': {
+    name:'A day in bloom', cover:'2025 Cake 1.jpg', meta:'8 images · 1 little film',
+    description:'The green floral cake, the designs that came before it, and the flowers beside it. A collection of the details from 2025.',
+    summary:'The cake, its first ideas, and a few flowers to keep.',
+    groups:[{id:'cake',title:'The cake',label:'Cake'},{id:'ideas',title:'Before the candles',label:'Design ideas'},{id:'flowers',title:'The finishing touches',label:'Flowers'}],
+    items:[
+      {file:'2025 Cake 1.jpg',group:'cake',title:'The birthday cake',kind:'Photo',alt:'The 2025 green birthday cake decorated with flowers.',description:'The finished 2025 cake, with a green top and a ring of little flowers.'},
+      {file:'2025 Cake 2.jpg',group:'cake',title:'Another little angle',kind:'Photo',alt:'A second view of the 2025 green and white floral cake.',description:'A second view of the cake, keeping the small details in the picture.'},
+      {file:'2025 Cake Top.jpg',group:'cake',title:'From above',kind:'Photo',alt:'The decorated green top of the 2025 cake, photographed from above.',description:'A closer look at the top of the 2025 cake.'},
+      {file:'2025 Cake Prototype 1.jpg',group:'ideas',title:'First idea',kind:'Prototype',alt:'The first cake prototype for 2025.',description:'The first saved cake idea in the 2025 collection.'},
+      {file:'2025 Cake Prototype 2.jpg',group:'ideas',title:'A floral direction',kind:'Prototype',alt:'The second 2025 cake prototype with green and floral details.',description:'Another design study, with flowers and green icing.'},
+      {file:'2025 Cake Prototype 3.JPG',group:'ideas',title:'A closer look',kind:'Prototype',alt:'The third saved prototype of the 2025 floral cake.',description:'The third cake prototype, saved alongside the other ideas.'},
+      {file:'2025 Bokeh Rose.jpg',group:'flowers',title:'Wrapped in pink',kind:'Photo',alt:'A pink bouquet with a red rose in the 2025 collection.',description:'The bouquet and rose, kept together in one frame.'},
+      {file:'2025 Rose.jpg',group:'flowers',title:'A single rose',kind:'Photo',alt:'A single red rose from 2025.',description:'A portrait of the red rose from the 2025 collection.'},
+      {file:'2025 Bokeh.mov',group:'flowers',title:'Flowers, in motion',kind:'Video',alt:'A short video of the 2025 bouquet.',description:'A little film of the bouquet. Press play to watch.',video:true}
+    ]
+  },
+  '2026': {
+    name:'Dreaming in buttercream', cover:'2026 Cake prototype.png', meta:'2 cake prototypes · 1 flower photograph',
+    description:'Swan-shaped details, soft flowers, and a new set of cake ideas. The 2026 designs and bouquet, collected in one place.',
+    summary:'Swan-inspired cake studies, soft petals, and a new chapter.',
+    groups:[{id:'ideas',title:'On the drawing table',label:'Design ideas'},{id:'flowers',title:'The flowers',label:'Flowers'}],
+    items:[
+      {file:'2026 Cake prototype.png',group:'ideas',title:'The swan study',kind:'Prototype',alt:'A white swan-inspired cake prototype with flowers for 2026.',description:'A sculptural swan and floral details in the first 2026 cake study.'},
+      {file:'2026 Cake prototype 2.png',group:'ideas',title:'A few possibilities',kind:'Prototype',alt:'A collage of cake design variations for 2026.',description:'Several cake variations, gathered into a single page of possibilities.'},
+      {file:'2026 Cake Bokeh.jpg',group:'flowers',title:'Petals for 2026',kind:'Photo',alt:'A pastel bouquet photographed with a cake for the 2026 collection.',description:'The flower photograph saved with the 2026 cake collection.'}
+    ]
+  }
+};
+const giftView=$('giftView');
+const giftURL=file=>'cakes/'+encodeURIComponent(file);
+const giftIcon='<svg aria-hidden="true" viewBox="0 0 64 64"><path d="M14 29h36v24H14zM10 23h44v8H10zM32 23v30M32 23C10 23 16 7 24 13c5 4 8 10 8 10Zm0 0s3-6 8-10c8-6 14 10-8 10Z"/></svg>';
+const giftPlayIcon='<svg aria-hidden="true" viewBox="0 0 64 64"><circle cx="32" cy="32" r="25"/><path d="m27 21 17 11-17 11Z"/></svg>';
+let giftYear=null, giftIndex=-1, giftFilter='all', giftOverviewScroll=0, giftAlbumScroll=0;
+let giftFrame=0, giftEpoch=0, giftJob=null, giftQueue=[], giftSwipe=null, giftVideoResume=null;
+
+function giftElement(tag,className,text) {
+  const el=document.createElement(tag);if(className)el.className=className;if(text!==undefined)el.textContent=text;return el;
+}
+function giftMat(file,alt,video=false) {
+  const mat=giftElement('span','gift-photo-mat');
+  if(!video){mat.dataset.giftPreview=file;mat.dataset.giftAlt=alt;}
+  const placeholder=giftElement('span','gift-photo-placeholder');placeholder.setAttribute('aria-hidden','true');
+  placeholder.innerHTML=video?giftPlayIcon:giftIcon;
+  placeholder.appendChild(giftElement('span','gift-placeholder-copy',video?'A little film':'A keepsake, waiting'));
+  mat.appendChild(placeholder);return mat;
+}
+function buildGiftOverview() {
+  if($('giftYearCards').children.length)return;
+  for(const year of Object.keys(GIFT_COLLECTIONS)){
+    const collection=GIFT_COLLECTIONS[year],button=giftElement('button','gift-year-card');button.type='button';button.dataset.giftYear=year;
+    button.setAttribute('aria-label','Open the '+year+' gift collection, '+collection.items.length+' keepsakes');
+    const heading=giftElement('span','gift-year-heading');heading.appendChild(giftElement('strong','',year));heading.appendChild(giftElement('span','',collection.items.length+' keepsakes'));
+    button.appendChild(heading);button.appendChild(giftMat(collection.cover,year+' gift collection: '+collection.name));
+    const caption=giftElement('span','gift-year-caption');caption.appendChild(giftElement('b','',collection.name));caption.appendChild(giftElement('span','',collection.summary));
+    const cta=giftElement('span','gift-open-label','Open the collection');const arrow=giftElement('i','','↗');arrow.setAttribute('aria-hidden','true');cta.appendChild(arrow);caption.appendChild(cta);
+    button.appendChild(caption);$('giftYearCards').appendChild(button);
+  }
+}
+function removeGiftRender(container) {
+  container.querySelectorAll('.gift-render').forEach(el=>{
+    if(el.tagName==='VIDEO'){
+      if(Number.isFinite(el.currentTime) && el.currentTime>0)giftVideoResume={file:el.dataset.file,time:el.currentTime};
+      el.onloadedmetadata=null;el.onerror=null;el.onloadeddata=null;el.pause();el.removeAttribute('src');try{el.load();}catch(_){}
+    }else if(el.tagName==='CANVAS'){el.width=1;el.height=1;}
+    else{el.removeAttribute('src');}
+    el.remove();
+  });
+  container.classList.remove('is-ready');delete container.dataset.giftLoad;
+}
+function cancelGiftJob() {
+  if(!giftJob)return;
+  clearTimeout(giftJob.timer);giftJob.image.onload=null;giftJob.image.onerror=null;giftJob.image.removeAttribute('src');
+  delete giftJob.slot.dataset.giftLoad;giftJob=null;
+}
+function releaseGiftMedia() {
+  giftEpoch++;giftQueue=[];cancelGiftJob();cancelAnimationFrame(giftFrame);giftFrame=0;giftSwipe=null;
+  giftView.querySelectorAll('[data-gift-preview]').forEach(removeGiftRender);removeGiftRender($('giftStage'));
+  $('giftStage').setAttribute('aria-busy','false');
+}
+function setGiftStageMessage(text,detail='',retry=false) {
+  $('giftStageMessage').hidden=false;$('giftStageText').textContent=text;$('giftStageDetail').textContent=detail;
+  $('giftStageDetail').hidden=!detail;$('giftMediaRetry').hidden=!retry;
+}
+/* Only one original is decoded at once. Keep small canvas previews, not all
+   full-resolution photo elements. Canvases are released as they leave view. */
+function pumpGiftImages() {
+  if(giftJob || view!=='gifts' || document.hidden)return;
+  const job=giftQueue.shift();if(!job)return;
+  if(job.epoch!==giftEpoch || !document.contains(job.slot)){pumpGiftImages();return;}
+  giftJob=job;job.image=new Image();job.image.decoding='async';job.slot.dataset.giftLoad='loading';
+  const finish=ok=>{
+    if(giftJob!==job || job.epoch!==giftEpoch)return;
+    clearTimeout(job.timer);const img=job.image;img.onload=null;img.onerror=null;
+    let displayedOriginal=false;
+    if(ok){
+      try{
+        const canvas=document.createElement('canvas'),w=img.naturalWidth||img.width,h=img.naturalHeight||img.height;
+        if(!w||!h)throw Error('Empty image');
+        const ratio=Math.min(1,job.size/Math.max(w,h));canvas.width=Math.max(1,Math.round(w*ratio));canvas.height=Math.max(1,Math.round(h*ratio));
+        const context=canvas.getContext('2d');
+        if(context){context.drawImage(img,0,0,canvas.width,canvas.height);canvas.className='gift-render';canvas.setAttribute('role','img');canvas.setAttribute('aria-label',job.alt);job.slot.appendChild(canvas);}
+        else{img.className='gift-render';img.alt=job.alt;job.slot.appendChild(img);displayedOriginal=true;}
+      }catch(_){ok=false;}
+    }
+    if(!displayedOriginal)img.removeAttribute('src');
+    job.slot.dataset.giftLoad=ok?'ready':'failed';job.slot.classList.toggle('is-ready',ok);giftJob=null;
+    if(job.viewer){
+      $('giftStage').setAttribute('aria-busy','false');
+      if(ok)$('giftStageMessage').hidden=true;
+      else setGiftStageMessage('This keepsake couldn’t load.','Try again, or use Save original below.',true);
+    }else if(!ok){const label=job.slot.querySelector('.gift-placeholder-copy');if(label)label.textContent='Tap to open';}
+    pumpGiftImages();
+  };
+  job.image.onload=()=>finish(true);job.image.onerror=()=>finish(false);job.timer=setTimeout(()=>finish(false),20000);job.image.src=giftURL(job.file);
+}
+function refreshGiftPreviews() {
+  giftFrame=0;if(view!=='gifts' || document.hidden || giftIndex>=0)return;
+  const container=giftYear?$('giftAlbum'):$('giftOverview');
+  const bounds=giftView.getBoundingClientRect(),bottom=bounds.bottom||window.innerHeight,top=bounds.top;
+  const slots=Array.from(container.querySelectorAll('[data-gift-preview]'));
+  const candidates=slots.filter(slot=>{if(slot.closest('[hidden]'))return false;const rect=slot.getBoundingClientRect();return rect.bottom>top && rect.top<bottom && rect.right>0 && rect.left<window.innerWidth;});
+  candidates.sort((a,b)=>Math.abs((a.getBoundingClientRect().top+a.getBoundingClientRect().bottom)/2-(top+bottom)/2)-Math.abs((b.getBoundingClientRect().top+b.getBoundingClientRect().bottom)/2-(top+bottom)/2));
+  const wanted=new Set(candidates.slice(0,smallQuery.matches||lowPower?4:6));
+  if(giftJob && !wanted.has(giftJob.slot))cancelGiftJob();
+  giftQueue=giftQueue.filter(job=>wanted.has(job.slot));
+  slots.forEach(slot=>{if(!wanted.has(slot))removeGiftRender(slot);});
+  for(const slot of wanted){
+    if(slot.dataset.giftLoad || giftQueue.some(job=>job.slot===slot))continue;
+    giftQueue.push({slot,file:slot.dataset.giftPreview,alt:slot.dataset.giftAlt,size:640,epoch:giftEpoch,viewer:false});
+  }
+  pumpGiftImages();
+}
+function scheduleGiftPreviews() {
+  if(view!=='gifts' || document.hidden || giftIndex>=0 || giftFrame)return;
+  giftFrame=requestAnimationFrame(refreshGiftPreviews);
+}
+function showGiftOverview(returning=false) {
+  const priorYear=giftYear;releaseGiftMedia();giftYear=null;giftIndex=-1;giftFilter='all';buildGiftOverview();
+  $('giftOverview').hidden=false;$('giftAlbum').hidden=true;$('giftMediaPanel').hidden=true;
+  giftView.scrollTop=returning?giftOverviewScroll:0;scheduleGiftPreviews();
+  focus(returning?$('giftYearCards').querySelector('[data-gift-year="'+priorYear+'"]'):$('giftTitle'));
+  $('giftStatus').textContent='The Gift. Choose the 2025 or 2026 collection.';
+}
+function renderGiftFilters() {
+  const collection=GIFT_COLLECTIONS[giftYear];$('giftFilters').textContent='';
+  for(const group of [{id:'all',label:'Everything'},...collection.groups]){
+    const count=group.id==='all'?collection.items.length:collection.items.filter(item=>item.group===group.id).length;
+    const button=giftElement('button','',group.label+' · '+count);button.type='button';button.dataset.giftFilter=group.id;button.setAttribute('aria-pressed',String(giftFilter===group.id));$('giftFilters').appendChild(button);
+  }
+}
+function renderGiftGroups() {
+  const collection=GIFT_COLLECTIONS[giftYear];$('giftGroups').textContent='';
+  collection.groups.forEach((group,groupIndex)=>{
+    const section=giftElement('section','gift-group');section.dataset.giftGroup=group.id;section.hidden=giftFilter!=='all'&&giftFilter!==group.id;
+    const heading=giftElement('div','gift-group-head');const number=giftElement('span','gift-eyebrow',String(groupIndex+1).padStart(2,'0'));number.setAttribute('aria-hidden','true');heading.appendChild(number);
+    const title=giftElement('h3','',group.title);title.id='giftGroup-'+group.id;section.setAttribute('aria-labelledby',title.id);heading.appendChild(title);
+    heading.appendChild(giftElement('p','',collection.items.filter(item=>item.group===group.id).length+' keepsakes'));section.appendChild(heading);
+    const grid=giftElement('div','gift-media-grid');
+    collection.items.forEach((item,index)=>{
+      if(item.group!==group.id)return;
+      const button=giftElement('button','gift-item'+(item.video?' gift-video-card':''));button.type='button';button.dataset.giftItem=String(index);button.setAttribute('aria-label',(item.video?'Watch ':'View ')+item.title+' · '+giftYear);
+      button.appendChild(giftMat(item.file,item.alt,item.video));const label=giftElement('span','gift-item-label');label.appendChild(giftElement('b','',item.title));label.appendChild(giftElement('small','',item.kind));button.appendChild(label);grid.appendChild(button);
+    });section.appendChild(grid);$('giftGroups').appendChild(section);
+  });
+}
+function showGiftYear(year) {
+  if(!Object.prototype.hasOwnProperty.call(GIFT_COLLECTIONS,year))return;
+  if(!giftYear)giftOverviewScroll=giftView.scrollTop;
+  releaseGiftMedia();giftYear=year;giftIndex=-1;giftFilter='all';giftAlbumScroll=0;
+  const collection=GIFT_COLLECTIONS[year];$('giftOverview').hidden=true;$('giftAlbum').hidden=false;$('giftMediaPanel').hidden=true;
+  $('giftAlbumTitle').textContent=year;$('giftAlbumName').textContent=collection.name;$('giftAlbumDescription').textContent=collection.description;$('giftAlbumMeta').textContent=collection.meta;
+  giftView.querySelectorAll('.gift-year-switch button').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.giftYear===year)));
+  renderGiftFilters();renderGiftGroups();giftView.scrollTop=0;scheduleGiftPreviews();focus($('giftAlbumTitle'));
+  $('giftStatus').textContent=year+' collection. '+collection.items.length+' keepsakes.';
+}
+function filterGiftItems(value) {
+  if(!giftYear || giftIndex>=0)return;
+  const collection=GIFT_COLLECTIONS[giftYear];if(value!=='all'&&!collection.groups.some(group=>group.id===value))return;
+  releaseGiftMedia();giftFilter=value;
+  giftView.querySelectorAll('[data-gift-filter]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.giftFilter===value)));
+  giftView.querySelectorAll('[data-gift-group]').forEach(group=>{group.hidden=value!=='all'&&group.dataset.giftGroup!==value;});
+  scheduleGiftPreviews();$('giftStatus').textContent=giftSequence().length+' keepsakes shown.';
+}
+function giftSequence() {
+  return giftYear?GIFT_COLLECTIONS[giftYear].items.map((item,index)=>({item,index})).filter(entry=>giftFilter==='all'||entry.item.group===giftFilter).map(entry=>entry.index):[];
+}
+function renderGiftItem() {
+  if(!giftYear || giftIndex<0 || document.hidden || view!=='gifts')return;
+  const item=GIFT_COLLECTIONS[giftYear].items[giftIndex],sequence=giftSequence(),position=sequence.indexOf(giftIndex),stage=$('giftStage');
+  $('giftMediaTitle').textContent=item.title;$('giftMediaDescription').textContent=item.description;$('giftMediaCategory').textContent=giftYear+' · '+item.kind;
+  $('giftMediaCount').textContent=String(position+1).padStart(2,'0')+' / '+String(sequence.length).padStart(2,'0')+' · '+giftYear;
+  $('giftMediaBack').textContent='← '+giftYear+' collection';$('giftPrevious').disabled=position<=0;$('giftNext').disabled=position>=sequence.length-1;
+  $('giftSaveOriginal').href=giftURL(item.file);$('giftSaveOriginal').download=item.file;
+  $('giftViewerHint').textContent=item.video?'Press play to watch.':'Swipe a photo or use the arrow keys.';
+  stage.setAttribute('aria-label',item.alt);stage.setAttribute('aria-busy',String(!item.video));setGiftStageMessage('Opening this keepsake…');
+  if(item.video){
+    const video=document.createElement('video');video.className='gift-render';video.controls=true;video.playsInline=true;video.preload='metadata';video.setAttribute('aria-label',item.alt);video.dataset.file=item.file;
+    const epoch=giftEpoch;
+    video.onloadedmetadata=()=>{if(epoch!==giftEpoch)return;if(giftVideoResume && giftVideoResume.file===item.file && giftVideoResume.time<video.duration){try{video.currentTime=giftVideoResume.time;}catch(_){}}};
+    video.onerror=()=>{if(epoch!==giftEpoch)return;video.hidden=true;stage.setAttribute('aria-busy','false');setGiftStageMessage('This video needs another player.','Save the original below to watch on your device, or try loading it again.',true);};
+    video.appendChild(document.createTextNode('Use Save original below if your browser cannot play this video.'));stage.appendChild(video);video.src=giftURL(item.file);$('giftStageMessage').hidden=true;
+  }else{
+    const stageSize=Math.max(stage.clientWidth,stage.clientHeight)*Math.min(window.devicePixelRatio||1,1.5);
+    giftQueue.push({slot:stage,file:item.file,alt:item.alt,size:Math.min(1920,Math.max(960,Math.ceil(stageSize))),epoch:giftEpoch,viewer:true});pumpGiftImages();
+  }
+}
+function openGiftItem(index) {
+  if(!giftYear || !Number.isInteger(index) || !GIFT_COLLECTIONS[giftYear].items[index] || !giftSequence().includes(index))return;
+  const entering=giftIndex<0;if(entering)giftAlbumScroll=giftView.scrollTop;
+  releaseGiftMedia();giftIndex=index;$('giftOverview').hidden=true;$('giftAlbum').hidden=true;$('giftMediaPanel').hidden=false;
+  renderGiftItem();if(entering){giftView.scrollTop=0;focus($('giftMediaBack'));}
+}
+function closeGiftItem() {
+  if(giftIndex<0)return;
+  const index=giftIndex;releaseGiftMedia();giftIndex=-1;$('giftMediaPanel').hidden=true;$('giftAlbum').hidden=false;
+  giftView.scrollTop=giftAlbumScroll;focus($('giftGroups').querySelector('[data-gift-item="'+index+'"]'));scheduleGiftPreviews();
+}
+function moveGiftItem(direction) {
+  if(giftIndex<0)return;const sequence=giftSequence(),next=sequence[sequence.indexOf(giftIndex)+direction];if(next!==undefined)openGiftItem(next);
+}
+function resumeGiftMedia() {
+  if(view!=='gifts')return;if(giftIndex>=0){releaseGiftMedia();renderGiftItem();}else scheduleGiftPreviews();
+}
+function giftKeydown(e) {
+  if(e.altKey||e.ctrlKey||e.metaKey)return;
+  if(e.key==='Escape'){
+    e.preventDefault();if(giftIndex>=0)closeGiftItem();else if(giftYear)showGiftOverview(true);else showView('library');return;
+  }
+  if(giftIndex<0 || /^(INPUT|TEXTAREA|SELECT|VIDEO)$/.test(e.target.tagName) || e.target.isContentEditable)return;
+  if(e.key==='ArrowRight'){e.preventDefault();moveGiftItem(1);}
+  if(e.key==='ArrowLeft'){e.preventDefault();moveGiftItem(-1);}
+}
+$('giftLibraryBack').addEventListener('click',()=>showView('library'));
+$('giftAllYears').addEventListener('click',()=>showGiftOverview(true));
+$('giftMediaBack').addEventListener('click',closeGiftItem);
+$('giftPrevious').addEventListener('click',()=>moveGiftItem(-1));
+$('giftNext').addEventListener('click',()=>moveGiftItem(1));
+$('giftMediaRetry').addEventListener('click',()=>{releaseGiftMedia();renderGiftItem();});
+giftView.addEventListener('click',e=>{
+  const year=e.target.closest('[data-gift-year]'),item=e.target.closest('[data-gift-item]'),filter=e.target.closest('[data-gift-filter]');
+  if(year)showGiftYear(year.dataset.giftYear);else if(item)openGiftItem(Number(item.dataset.giftItem));else if(filter)filterGiftItems(filter.dataset.giftFilter);
+});
+giftView.addEventListener('scroll',scheduleGiftPreviews,{passive:true});window.addEventListener('resize',scheduleGiftPreviews,{passive:true});
+$('giftStage').addEventListener('touchstart',e=>{
+  if(giftIndex<0 || GIFT_COLLECTIONS[giftYear].items[giftIndex].video || e.touches.length!==1 || (window.visualViewport && window.visualViewport.scale>1.05)){giftSwipe=null;return;}
+  giftSwipe={x:e.touches[0].clientX,y:e.touches[0].clientY};
+},{passive:true});
+$('giftStage').addEventListener('touchend',e=>{
+  if(!giftSwipe || e.touches.length || !e.changedTouches.length){giftSwipe=null;return;}
+  const dx=e.changedTouches[0].clientX-giftSwipe.x,dy=e.changedTouches[0].clientY-giftSwipe.y;giftSwipe=null;
+  if(Math.abs(dx)>55 && Math.abs(dx)>Math.abs(dy)*1.4)moveGiftItem(dx<0?1:-1);
+},{passive:true});
+$('giftStage').addEventListener('touchcancel',()=>{giftSwipe=null;},{passive:true});
+/* End of Gift archive. The existing reader continues below. */
+
 function showView(next,source) {
   if(next===view)return;
+  const previous=view;
+  if(previous==='gifts')releaseGiftMedia();
   settleTurn();clearCoverLifts();view=next;
-  library.classList.toggle('gone',view!=='library');journal.classList.toggle('gone',view!=='journal');
-  document.body.classList.toggle('reading',view==='journal');
-  $('skipLink').href=view==='library'?'#mainContent':'#readerDock';
+  library.classList.toggle('gone',view!=='library');journal.classList.toggle('gone',view!=='journal');giftView.classList.toggle('gone',view!=='gifts');
+  document.body.classList.toggle('reading',view==='journal');document.body.classList.toggle('gifting',view==='gifts');
+  $('skipLink').href=view==='library'?'#mainContent':view==='gifts'?'#giftContent':'#readerDock';
   if(view==='journal') {
     cancelImages(job=>job.kind==='cover');
     opener=source||document.activeElement;applyReaderMode();updateClock();focus(backBtn);
     if(soundOn)startMusic();
   }else {
     pauseAudio();releaseReader();document.body.classList.remove('reader-focus');$('focusBtn').setAttribute('aria-pressed','false');
-    focus(opener && document.contains(opener)?opener:$('heroCta'));updateClock();loadCovers();
+    if(view==='gifts'){
+      cancelImages(job=>job.kind==='cover');opener=source||document.activeElement;setNav('navGift');showGiftOverview();
+    }else{
+      if(previous==='gifts')setNav('navHome');
+      focus(opener && document.contains(opener)?opener:$('heroCta'));loadCovers();
+    }
+    updateClock();
   }
   savePrefs();
 }
@@ -1550,7 +1969,7 @@ function setNav(id) {
 function scrollInto(el) { el.scrollIntoView({behavior:motionOff?'auto':'smooth',block:'start'}); }
 $('navHome').addEventListener('click',() => { search.value=''; setMode(false); setNav('navHome'); library.scrollTo({top:0,behavior:motionOff?'auto':'smooth'}); });
 $('navLib').addEventListener('click',() => { setNav('navLib'); scrollInto($('collection')); });
-$('navGift').addEventListener('click',() => { setNav('navGift'); scrollInto($('futureCard')); $('futureCard').classList.add('highlight'); setTimeout(() => $('futureCard').classList.remove('highlight'),1300); focus($('book2027')); });
+$('navGift').addEventListener('click',() => showView('gifts',$('navGift')));
 function action(kind, el) {
   if(kind==='open') {selectBook(el && el.getAttribute('data-book') || 'vogue');showView('journal',el);}
   if(kind==='soon') toast('নীলাকাশ is still being written. A new chapter is on its way.');
@@ -1617,6 +2036,7 @@ window.addEventListener('keydown',e => {
     }
     return;
   }
+  if(view==='gifts'){giftKeydown(e);return;}
   const target=e.target, editing=/^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)||target.isContentEditable;
   if(e.key==='Escape' && view==='journal') { e.preventDefault(); showView('library'); return; }
   if(editing || e.altKey || e.ctrlKey || e.metaKey) return;
@@ -1695,12 +2115,13 @@ function tickCountdown() {
 function updateClock() { clearInterval(countTimer); countTimer=0; tickCountdown(); if(!document.hidden && view==='library')countTimer=setInterval(tickCountdown,1000); }
 document.addEventListener('visibilitychange',()=>{
   root.classList.toggle('page-hidden',document.hidden);updateClock();
-  if(document.hidden){settleTurn();pauseAudio();releaseReader();cancelImages(()=>true);}
+  if(document.hidden){settleTurn();pauseAudio();releaseReader();cancelImages(()=>true);releaseGiftMedia();}
   else if(view==='journal'){applyReaderMode();if(soundOn)startMusic();}
+  else if(view==='gifts')resumeGiftMedia();
   else loadCovers();
 });
-window.addEventListener('pagehide',()=>{settleTurn();savePrefs();pauseAudio();releaseReader();cancelImages(()=>true);clearInterval(countTimer);});
-window.addEventListener('pageshow',()=>{updateClock();applyMotion();if(view==='journal')applyReaderMode();else loadCovers();});
+window.addEventListener('pagehide',()=>{settleTurn();savePrefs();pauseAudio();releaseReader();cancelImages(()=>true);releaseGiftMedia();clearInterval(countTimer);});
+window.addEventListener('pageshow',()=>{updateClock();applyMotion();if(view==='journal')applyReaderMode();else if(view==='gifts')resumeGiftMedia();else loadCovers();});
 window.addEventListener('resize',scheduleLayout,{passive:true});
 if(window.visualViewport)window.visualViewport.addEventListener('resize',scheduleLayout,{passive:true});
 if(window.ResizeObserver) { const observer=new ResizeObserver(scheduleLayout); observer.observe($('readerDock')); observer.observe(journal.querySelector('.reader-header')); }
