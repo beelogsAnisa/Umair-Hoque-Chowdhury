@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171225">
+  <meta name="description" content="A little more time with a good book. Visit Molasses Books, a used bookstore and bar in Bushwick, Brooklyn.">
+  <meta property="og:title" content="Molasses Books — A little more time with a good book">
+  <meta property="og:description" content="An independent bookstore and bar in Bushwick, Brooklyn.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://umairhoquechowdhury.site/molassesbooks/">
+  <title>Molasses Books — A little more time with a good book</title>
+  <script>
+    if (window.location.pathname === "/molassesbooks") {
+      window.location.replace(window.location.pathname + "/" + window.location.search + window.location.hash);
+    }
+  </script>
+  <link rel="icon" href="./assets/molasses-mark-dark.png" type="image/png">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="announcement" aria-label="Shop announcement">
+    <div class="announcement-inner">
+      <span class="announcement-note"><span class="announcement-dot" aria-hidden="true"></span> An independent bookstore &amp; bar in Bushwick</span>
+      <a class="announcement-link" href="#visit">Come by 770 Hart St <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+
+  <header class="site-header" id="top">
+    <div class="nav-shell">
+      <a class="brand" href="#top" aria-label="Molasses Books home">
+        <span class="brand-mark" aria-hidden="true"><img src="./assets/molasses-mark-cream.png" alt=""></span>
+        <img class="brand-logotype" src="./assets/molasses-wordmark-cream.png" alt="">
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Open navigation">
+        <span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <a href="#shelf">The shelf</a>
+        <a href="#publishing">Small press</a>
+        <a href="#about">Our kind of place</a>
+        <a href="#visit">Visit</a>
+      </nav>
+
+      <button class="bag-button" type="button" data-cart-open aria-label="Open book inquiry bag">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8.5h14l1 12H4l1-12Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
+        <span class="bag-label">Your bag</span>
+        <span class="bag-count" id="bagCount" aria-live="polite">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero section-dark" aria-labelledby="hero-title">
+      <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+      <div class="hero-grid page-wrap">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-rule"></span> 770 HART STREET · BUSHWICK, BROOKLYN</p>
+          <h1 id="hero-title"><span class="hero-line">A little more</span><span class="hero-line"><em>time with</em></span><span class="hero-line">a good book.</span></h1>
+          <p class="hero-intro">A neighborhood bookstore and bar for the books you came in for—and the ones you didn't know you were looking for.</p>
+          <div class="hero-actions">
+            <a class="button button-coral" href="#shelf">Wander the shelf <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="text-link light-link" href="#visit">Find your way here <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="hero-bottomline">
+            <span class="hero-ornament" aria-hidden="true">✳</span>
+            <span>USED BOOKS <i>·</i> COFFEE <i>·</i> THE BAR <i>·</i> SMALL PRESS</span>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-label="Outside Molasses Books in Bushwick">
+          <div class="hero-photo-shell">
+            <img class="hero-photo" src="./assets/storefront.jpg" alt="Molasses Books storefront on a Brooklyn street, with a bicycle parked out front" fetchpriority="high">
+            <div class="photo-shade" aria-hidden="true"></div>
+            <div class="photo-topline"><span>THE NEIGHBORHOOD BOOKSHOP</span><span>BK · NY</span></div>
+            <div class="photo-caption glass-card">
+              <span class="caption-mark" aria-hidden="true">✳</span>
+              <div><span class="micro-label">A GOOD PLACE TO LAND</span><strong>Stay for one<br>more chapter.</strong></div>
+              <span class="caption-arrow" aria-hidden="true">↗</span>
+            </div>
+            <div class="photo-address">770 HART ST <span>·</span> BROOKLYN</div>
+          </div>
+          <div class="hero-snapshot glass-card">
+            <img src="./assets/interior.jpg" alt="A glimpse inside the book-filled shop" loading="lazy">
+            <div class="snapshot-note"><span>COME ON IN</span><strong>There’s a seat<br>somewhere.</strong></div>
+          </div>
+          <div class="orbit-note" aria-hidden="true"><span>READ</span><span>·</span><span>LINGER</span><span>·</span><span>REPEAT</span></div>
+        </div>
+      </div>
+      <a class="scroll-note" href="#about"><span class="scroll-line" aria-hidden="true"></span> There’s more to the story</a>
+    </section>
+
+    <section class="intro-section section-dark" id="about" aria-labelledby="about-title">
+      <div class="page-wrap">
+        <div class="intro-heading">
+          <p class="eyebrow"><span class="eyebrow-rule"></span> A BOOKSHOP WITH ROOM TO BREATHE</p>
+          <h2 id="about-title">Not just a place<br>to <em>pick up a book.</em></h2>
+          <p class="intro-lede">Molasses Books is a small used bookstore and bar in Brooklyn. Come for a particular title; stay for the curious one beside it.</p>
+        </div>
+        <div class="experience-grid">
+          <article class="experience-card experience-card-purple">
+            <div class="experience-card-top"><span class="card-index">01 / THE STACKS</span><span class="card-icon" aria-hidden="true">✳</span></div>
+            <div class="experience-illustration illustration-books" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+            <h3>Books with<br>a past life.</h3>
+            <p>Used, loved, and occasionally hard to find. Let the stacks surprise you.</p>
+            <a href="#shelf" class="card-arrow-link" aria-label="Browse the book shelf">Browse books <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="experience-card experience-card-lilac">
+            <div class="experience-card-top"><span class="card-index">02 / THE COUNTER</span><span class="card-icon" aria-hidden="true">☕</span></div>
+            <div class="experience-illustration illustration-cup" aria-hidden="true"><span class="cup-steam"></span><span class="cup-body"></span><span class="cup-saucer"></span></div>
+            <h3>Read. Sip.<br>Stay awhile.</h3>
+            <p>A neighborhood bookshop and bar, made for slowing the day down a notch.</p>
+            <a href="#visit" class="card-arrow-link" aria-label="Plan a visit">Plan a visit <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="experience-card experience-card-peach">
+            <div class="experience-card-top"><span class="card-index">03 / THE IMPRINT</span><span class="card-icon" aria-hidden="true">✎</span></div>
+            <div class="experience-illustration illustration-pages" aria-hidden="true"><span></span><span></span></div>
+            <h3>Small press.<br>Big feeling.</h3>
+            <p>An even smaller, infrequent imprint for poetry, new voices, and work worth keeping.</p>
+            <a href="#publishing" class="card-arrow-link" aria-label="Explore the small press">Meet the imprint <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+        <div class="quote-line"><span aria-hidden="true">“</span><p>Good books have a way of making a place feel like yours.</p><span class="quote-line-end" aria-hidden="true">✳</span></div>
+      </div>
+    </section>
+
+    <div class="reading-marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>USED BOOKS</span><i>✳</i><span>SMALL PRESS</span><i>✳</i><span>BUSHWICK, BROOKLYN</span><i>✳</i><span>TAKE YOUR TIME</span><i>✳</i>
+        <span>USED BOOKS</span><i>✳</i><span>SMALL PRESS</span><i>✳</i><span>BUSHWICK, BROOKLYN</span><i>✳</i><span>TAKE YOUR TIME</span><i>✳</i>
+      </div>
+    </div>
+
+    <section class="shelf-section" id="shelf" aria-labelledby="shelf-title">
+      <div class="page-wrap">
+        <div class="section-head shelf-head">
+          <div>
+            <p class="eyebrow eyebrow-dark"><span class="eyebrow-rule"></span> FROM THE SHOP FLOOR</p>
+            <h2 id="shelf-title">The good stuff<br><em>on the shelf.</em></h2>
+          </div>
+          <p class="section-head-note">A small peek at the online catalog. Every book has a story; inventory and availability can change quickly.</p>
+        </div>
+
+        <div class="catalog-toolbar" aria-label="Book catalog tools">
+          <label class="search-box" for="bookSearch">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4 4"/></svg>
+            <input id="bookSearch" type="search" placeholder="Search title, author, or mood…" autocomplete="off">
+            <span class="search-shortcut" aria-hidden="true">⌕</span>
+          </label>
+          <button class="surprise-button" id="surpriseButton" type="button" aria-label="Choose a random book from the catalog">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5c3.1-.9 5.8-.5 8 1.3v12c-2.2-1.8-4.9-2.2-8-1.3z"/><path d="M20 5.5c-3.1-.9-5.8-.5-8 1.3v12c2.2-1.8 4.9-2.2 8-1.3z"/><path d="M7 9c1.2-.2 2.2 0 3 .5M17 9c-1.2-.2-2.2 0-3 .5"/></svg>
+            <span>Surprise me</span><b aria-hidden="true">✳</b>
+          </button>
+          <label class="sort-control" for="bookSort"><span>Sort</span>
+            <select id="bookSort" aria-label="Sort books">
+              <option value="featured">Curated</option>
+              <option value="title">Title A–Z</option>
+              <option value="low">Price: low to high</option>
+              <option value="high">Price: high to low</option>
+            </select>
+            <span class="select-chevron" aria-hidden="true">⌄</span>
+          </label>
+        </div>
+
+        <div class="filter-row" role="group" aria-label="Filter books">
+          <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">All finds <span class="filter-count" data-count-for="all">—</span></button>
+          <button class="filter-chip" type="button" data-filter="signed" aria-pressed="false">Rare &amp; signed</button>
+          <button class="filter-chip" type="button" data-filter="fiction" aria-pressed="false">Fiction</button>
+          <button class="filter-chip" type="button" data-filter="poetry" aria-pressed="false">Poetry</button>
+          <button class="filter-chip" type="button" data-filter="press" aria-pressed="false">Small press</button>
+          <button class="filter-chip filter-chip-available" type="button" data-filter="listed" aria-pressed="false"><span class="availability-dot" aria-hidden="true"></span> Ask about</button>
+          <button class="filter-chip" type="button" data-filter="sold-out" aria-pressed="false">Sold out</button>
+        </div>
+
+        <div class="catalog-status"><p id="resultCount" aria-live="polite">A few good finds</p><span>Tap a book for the details</span></div>
+        <div class="book-grid" id="bookGrid" aria-live="polite"></div>
+        <div class="catalog-footer-note"><span class="tiny-star" aria-hidden="true">✳</span> Stock changes as fast as a good conversation. Ask the shop to confirm before making a special trip.</div>
+      </div>
+    </section>
+
+    <section class="publishing-section section-dark" id="publishing" aria-labelledby="publishing-title">
+      <div class="publishing-ambient" aria-hidden="true"></div>
+      <div class="page-wrap publishing-grid">
+        <div class="publishing-copy">
+          <p class="eyebrow"><span class="eyebrow-rule"></span> FROM THE MOLASSES BOOKS IMPRINT</p>
+          <p class="issue-mark"><span>MBP</span><span class="issue-rule"></span><span>PRINTED MATTER, OCCASIONALLY</span></p>
+          <h2 id="publishing-title">A little<br><em>pressing</em><br>matter.</h2>
+          <p class="publishing-lede">Molasses Books Publishing is an even smaller and infrequent imprint. Focused primarily, though not exclusively, on poetry, it brings together contemporary writers and work from out of print or public domain.</p>
+          <a class="button button-lilac" href="#press-books">See a few releases <span class="arrow" aria-hidden="true">↗</span></a>
+          <p class="publishing-footnote">Small editions. Independent spirit. Made in Brooklyn.</p>
+        </div>
+        <div class="press-showcase" id="press-books">
+          <article class="press-feature press-feature-large">
+            <button class="press-cover press-cover-large" type="button" data-open-product="quarterly" aria-label="View Molasses Quarterly number one">
+              <img src="./assets/quarterly.jpg" alt="Cover of Molasses Quarterly, Issue One" loading="lazy">
+              <span class="press-sticker">ISSUE<br>NO. 01</span>
+            </button>
+            <div class="press-meta"><span class="press-number">01 / A QUARTERLY</span><h3>Molasses Quarterly #1</h3><p>Fiction, poetry, art, interviews &amp; essays.</p><button class="press-text-button" type="button" data-open-product="quarterly">Ask about this issue <span aria-hidden="true">↗</span></button></div>
+          </article>
+          <article class="press-feature press-feature-small">
+            <button class="press-cover press-cover-small" type="button" data-open-product="clown-car" aria-label="View Clown Car by Hen Win">
+              <img src="./assets/clown-car.jpg" alt="Cover of Clown Car by Hen Win" loading="lazy">
+              <span class="out-of-print-stamp">OUT OF<br>PRINT</span>
+            </button>
+            <div class="press-meta"><span class="press-number">A MOLASSES BOOKS RELEASE</span><h3>Clown Car</h3><p>Hen Win · expanded second edition.</p><button class="press-text-button" type="button" data-open-product="clown-car">Read about the book <span aria-hidden="true">↗</span></button></div>
+          </article>
+          <div class="press-orbit" aria-hidden="true"><span>SMALL</span><i>·</i><span>INDEPENDENT</span><i>·</i><span>OCCASIONAL</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit-section" id="visit" aria-labelledby="visit-title">
+      <div class="page-wrap visit-grid">
+        <div class="visit-copy">
+          <p class="eyebrow eyebrow-dark"><span class="eyebrow-rule"></span> YOU KNOW WHERE TO FIND US</p>
+          <h2 id="visit-title">Meet us<br><em>on Hart.</em></h2>
+          <p class="visit-lede">Take a walk through Bushwick. Follow a hunch. Come in for a book and see where the afternoon goes.</p>
+          <div class="address-card">
+            <span class="address-pin" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 10.2c0 5.2-7 11-7 11s-7-5.8-7-11a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.2"/></svg></span>
+            <div><span class="micro-label">THE SHOP</span><strong>770 Hart Street</strong><span>Brooklyn, NY 11237</span></div>
+            <button class="copy-address" type="button" id="copyAddress" aria-label="Copy shop address" title="Copy address">⧉</button>
+          </div>
+          <div class="visit-actions">
+            <a class="button button-dark" href="https://www.google.com/maps/search/?api=1&amp;query=770+Hart+Street%2C+Brooklyn%2C+NY+11237" target="_blank" rel="noopener">Get directions <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="text-link dark-link" href="https://www.instagram.com/molassesbooks/" target="_blank" rel="noopener">Check in on Instagram <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="hours-note"><span class="hours-spark" aria-hidden="true">✳</span> Hours can change. Check the live listing before you head over.</p>
+        </div>
+        <div class="visit-art">
+          <div class="visit-map-card" aria-label="Illustrated map card showing Molasses Books on Hart Street">
+            <div class="map-head"><span>FIND YOUR WAY</span><span>BK · 11237</span></div>
+            <svg class="neighborhood-map" viewBox="0 0 560 460" role="img" aria-label="Abstract street map of the neighborhood">
+              <path class="map-street map-street-wide" d="M-20 125 600 340"/><path class="map-street" d="M-20 248 586 16"/><path class="map-street" d="M88-20 260 490"/><path class="map-street" d="M270-30 170 495"/><path class="map-street" d="M410-30 518 490"/><path class="map-street" d="M-10 38 590 420"/>
+              <path class="map-block" d="M65 78 137 104 120 166 44 136Z"/><path class="map-block" d="M179 119 256 147 239 212 159 184Z"/><path class="map-block" d="M308 164 381 190 363 253 290 229Z"/><path class="map-block" d="M427 207 500 234 480 297 407 270Z"/><path class="map-block" d="M103 296 180 268 199 329 122 361Z"/><path class="map-block" d="M260 317 337 287 355 350 278 380Z"/>
+              <path class="map-route" d="M80 346c55-65 64-127 147-138 57-8 62 31 103 6 43-26 53-94 120-102"/>
+              <circle class="map-point-halo" cx="330" cy="214" r="27"/><circle class="map-point" cx="330" cy="214" r="8"/>
+              <text x="342" y="202" class="map-label">MOLASSES</text><text x="342" y="220" class="map-label map-label-small">770 HART ST</text>
+              <text x="38" y="420" class="map-side-note">TAKE THE LONG WAY.</text>
+              <text x="430" y="64" class="map-street-name" transform="rotate(27 430 64)">HART ST</text>
+            </svg>
+            <div class="map-coordinates"><span>40°41' N</span><span>73°55' W</span></div>
+            <div class="map-stamp" aria-hidden="true">A<br>GOOD<br>PLACE<br>TO LAND</div>
+          </div>
+          <div class="visit-image-note"><img src="./assets/storefront-alt.jpg" alt="Another view of the Molasses Books storefront" loading="lazy"><span>JUST AROUND THE CORNER FROM YOUR NEXT FAVORITE BOOK.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter-section section-dark" id="letters" aria-labelledby="newsletter-title">
+      <div class="page-wrap newsletter-wrap">
+        <div class="newsletter-card glass-card">
+          <div class="newsletter-copy">
+            <p class="eyebrow"><span class="eyebrow-rule"></span> THE OCCASIONAL GOOD WORD</p>
+            <h2 id="newsletter-title">Notes from<br><em>Hart Street.</em></h2>
+            <p>New finds, small press news, and whatever’s worth passing along. No noise, just the occasional note.</p>
+          </div>
+          <form class="newsletter-form" id="newsletterForm">
+            <label class="visually-hidden" for="newsletterEmail">Your email address</label>
+            <div class="newsletter-input-row">
+              <input id="newsletterEmail" type="email" name="email" placeholder="Your email address" autocomplete="email" required>
+              <button type="submit" aria-label="Sign up for notes from Molasses Books">Count me in <span aria-hidden="true">↗</span></button>
+            </div>
+            <p class="form-note" id="newsletterStatus" aria-live="polite">A rare email, when there’s something to say.</p>
+          </form>
+          <span class="newsletter-orbit" aria-hidden="true">✳</span>
+        </div>
+        <footer class="site-footer">
+          <a class="footer-brand" href="#top" aria-label="Molasses Books home"><img class="footer-mark" src="./assets/molasses-mark-cream.png" alt=""><img class="footer-logotype" src="./assets/molasses-wordmark-cream.png" alt=""></a>
+          <p>For readers, regulars, and the happily lost.</p>
+          <div class="footer-links"><a href="#shelf">The shelf</a><a href="#publishing">Publishing</a><a href="https://www.instagram.com/molassesbooks/" target="_blank" rel="noopener">Instagram ↗</a></div>
+          <span class="footer-credit">© <span id="currentYear">2026</span> Molasses Books</span>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <div class="drawer-layer" id="drawerLayer" hidden>
+    <button class="drawer-scrim" type="button" data-cart-close aria-label="Close book inquiry bag"></button>
+    <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" tabindex="-1">
+      <div class="drawer-header">
+        <div><p class="eyebrow eyebrow-dark"><span class="eyebrow-rule"></span> YOUR LITTLE STACK</p><h2 id="cartTitle">Book bag <span id="cartTitleCount">(0)</span></h2></div>
+        <button class="icon-button close-button" type="button" data-cart-close aria-label="Close book inquiry bag">×</button>
+      </div>
+      <p class="drawer-intro">A short list of the books you’d like to ask about.</p>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-empty" id="cartEmpty"><span class="empty-spark" aria-hidden="true">✳</span><strong>Your bag is waiting<br>for a good story.</strong><a href="#shelf" data-cart-close>Browse the shelf <span aria-hidden="true">↗</span></a></div>
+      <div class="drawer-footer" id="drawerFooter" hidden>
+        <div class="cart-total"><span>Listed total</span><strong id="cartTotal">$0</strong></div>
+        <p>Availability changes. This is an inquiry list, not a checkout.</p>
+        <button class="button button-dark drawer-cta" type="button" id="startInquiry">Make an inquiry <span class="arrow" aria-hidden="true">↗</span></button>
+      </div>
+    </aside>
+  </div>
+
+  <dialog class="book-dialog" id="productDialog" aria-labelledby="productDialogTitle">
+    <div id="productDialogContent"></div>
+  </dialog>
+
+  <dialog class="inquiry-dialog" id="inquiryDialog" aria-labelledby="inquiryTitle">
+    <button class="icon-button dialog-close" type="button" data-close-dialog aria-label="Close inquiry details">×</button>
+    <p class="eyebrow eyebrow-dark"><span class="eyebrow-rule"></span> A NOTE FOR THE SHOP</p>
+    <h2 id="inquiryTitle">Curious about<br><em>these finds?</em></h2>
+    <p class="inquiry-explainer">Your list is ready. Copy it, then send a message to <strong>@molassesbooks</strong> to ask about current availability.</p>
+    <pre class="inquiry-copy" id="inquiryText"></pre>
+    <div class="inquiry-actions"><button class="button button-dark" type="button" id="copyInquiry">Copy list <span class="arrow" aria-hidden="true">⧉</span></button><a class="button button-coral" href="https://www.instagram.com/molassesbooks/" target="_blank" rel="noopener">Continue on Instagram <span class="arrow" aria-hidden="true">↗</span></a></div>
+    <p class="prototype-note">The bag is a browsing aid—no payment is taken here.</p>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
