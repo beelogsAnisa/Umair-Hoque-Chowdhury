@@ -15,6 +15,7 @@ Open `http://localhost:4175/` on your machine. Keep `index.html`, `styles.css`, 
 ## Included interactions and accessibility
 
 - Persistent bottom navigation on small and large screens; in-page links update the active section while scrolling.
+- Custom inline SVG icons in the mobile dock, category controls, and decorative marks—no emoji glyphs for interface icons.
 - Synchronized, keyboard-operable menu filters and a random “Pick me a treat” highlight, with screen-reader announcements.
 - Fluid hero, decorative sticker, photo hover, scroll reveal, and a subtle fine-pointer-only parallax.
 - Deliberate hover, visible keyboard-focus, and touch press states; motion is disabled for `prefers-reduced-motion`.
