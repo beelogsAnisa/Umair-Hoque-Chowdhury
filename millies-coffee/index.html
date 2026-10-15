@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#241912">
+  <meta name="description" content="Millie's Coffee Co in Astoria, Queens: specialty coffee, Filipino-inspired flavors, and community. Meet the Sage Séance seasonal drink and explore the current Toast menu.">
+  <title>Millie's Coffee Co — Coffee, Community, Creative Culture</title>
+  <link rel="icon" type="image/webp" href="assets/millies-logo.webp">
+  <link rel="preload" as="image" href="assets/millies-logo.webp">
+  <link rel="preload" as="image" href="assets/sage-seance-glass-curved.webp">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="topline">
+    <span>25-83 31ST ST · ASTORIA, QUEENS</span>
+    <span class="topline__motto">COFFEE · COMMUNITY · CREATIVE CULTURE</span>
+    <a href="https://toast.app/r/millies-coffee-co-25-83-31st-street/order" target="_blank" rel="noopener noreferrer">Live menu <svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+  </div>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#top" aria-label="Millie's Coffee Co home">
+        <img src="assets/millies-logo.webp" alt="Millie's Coffee Co" width="220" height="82">
+      </a>
+      <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="#menu">The drinks</a>
+        <a href="#story">Our corner</a>
+        <a href="#circle">Millie's Circle</a>
+        <a class="nav-order" href="https://toast.app/r/millies-coffee-co-25-83-31st-street/order" target="_blank" rel="noopener noreferrer">Order / rewards <svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+      </nav>
+      <div class="palette-switcher" role="group" aria-label="Choose a color palette">
+        <span class="palette-switcher__label">COLOR STORY</span>
+        <button class="palette-dot is-active" type="button" data-theme-choice="roast" aria-label="Roast palette" aria-pressed="true" title="Roast"><i></i></button>
+        <button class="palette-dot" type="button" data-theme-choice="sage" aria-label="Sage palette" aria-pressed="false" title="Sage"><i></i></button>
+        <button class="palette-dot" type="button" data-theme-choice="fig" aria-label="Fig palette" aria-pressed="false" title="Fig"><i></i></button>
+        <button class="palette-dot" type="button" data-theme-choice="caramel" aria-label="Caramel palette" aria-pressed="false" title="Caramel"><i></i></button>
+        <span class="palette-switcher__current" id="palette-name" aria-live="polite">ROAST</span>
+      </div>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="primary-nav" aria-expanded="false">
+        <svg viewBox="0 0 28 28" aria-hidden="true"><path class="toggle-line toggle-line--one" d="M4 8h20"/><path class="toggle-line toggle-line--two" d="M4 14h20"/><path class="toggle-line toggle-line--three" d="M4 20h20"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__ghost" aria-hidden="true">MILLIE'S</div>
+      <div class="hero__beans" aria-hidden="true">
+        <span class="coffee-bean bean--one"></span><span class="coffee-bean bean--two"></span><span class="coffee-bean bean--three"></span><span class="coffee-bean bean--four"></span><span class="coffee-bean bean--five"></span><span class="coffee-bean bean--six"></span><span class="coffee-bean bean--seven"></span><span class="coffee-bean bean--eight"></span>
+      </div>
+
+      <div class="hero__copy" data-reveal>
+        <p class="eyebrow"><span class="eyebrow__line"></span> FILIPINO-INSPIRED COFFEE · ASTORIA, NY</p>
+        <h1 id="hero-title">SIP THE<br><em>UNEXPECTED.</em></h1>
+        <p class="hero__lead">Coffee with a curious side. Meet a fall pour built on matcha, fig, sage, and a little Millie's magic.</p>
+        <a class="button button--copper" href="#menu">Explore the drinks <svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+        <div class="hero__footnote"><span>25-83 31ST STREET</span><span>ASTORIA · QUEENS 11102</span></div>
+      </div>
+
+      <div class="hero__cup-stage" data-cup-stage>
+        <span class="hero__stage-ring hero__stage-ring--one" aria-hidden="true"></span>
+        <span class="hero__stage-ring hero__stage-ring--two" aria-hidden="true"></span>
+        <span class="hero__stage-tag">THE FALL FEATURE <i></i> SAGE SÉANCE</span>
+        <button class="cup-interaction" type="button" aria-label="Spin the three-dimensional Sage Séance drink cup" title="Tap to spin; scroll to rotate">
+          <span class="sr-only">Scroll to rotate the cup or tap to spin it.</span>
+          <span class="cup-scroll-layer">
+            <span class="cup-click-layer">
+              <span class="cup-tilt-layer">
+                <span class="cup-model" data-cup-photo="assets/sage-seance-glass-curved.webp" aria-hidden="true">
+                  <span class="cup-model__shadow"></span>
+                  <span class="cup-shell" aria-hidden="true"></span>
+                  <span class="cup-fallback" aria-hidden="true"><span class="cup-fallback__liquid"></span><span class="cup-fallback__shine"></span></span>
+                  <img class="cup-logo-plane" src="assets/millies-logo.webp" alt="" width="180" height="67">
+                  <span class="cup-base"></span>
+                  <span class="cup-rim"></span>
+                  <span class="cup-foam"></span>
+                  <span class="cup-salt" aria-hidden="true"></span>
+                  <span class="fig-garnish" aria-hidden="true"><i></i><i></i><i></i></span>
+                </span>
+              </span>
+            </span>
+          </span>
+        </button>
+        <p class="cup-interaction-hint"><span>SCROLL</span> TO ROTATE <b></b> <span>TAP</span> TO SPIN</p>
+        <span class="hero__stage-index" aria-hidden="true">MM / 01</span>
+      </div>
+
+      <div class="hero__flavor" data-reveal>
+        <p class="hero__flavor-kicker">SEASONAL SIP <span>01 — FALL</span></p>
+        <h2>Sage<br><em>Séance</em></h2>
+        <p class="hero__ingredients">Matcha · Milk · Housemade Fig &amp; Sage Jam · Vanilla Cold Foam · Black Lava Salt · Dehydrated Fig</p>
+        <a class="hero__link" href="https://toast.app/r/millies-coffee-co-25-83-31st-street/order" target="_blank" rel="noopener noreferrer">Check the live menu <svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+        <img class="hero__seasonal-photo" src="assets/sage-seance-product.webp" alt="Millie's Sage Séance matcha drink topped with vanilla cold foam, black lava salt, and dried fig." width="373" height="525" loading="eager">
+      </div>
+      <div class="hero__baseline"><span>GOOD COFFEE, CURIOUS COMPANY.</span><span>ASTORIA, NEW YORK</span></div>
+    </section>
+
+    <section class="drink-menu section-pad" id="menu" aria-labelledby="menu-title">
+      <div class="section-shell">
+        <div class="section-heading" data-reveal>
+          <div><p class="section-kicker">01 / THE DRINK LIST</p><h2 id="menu-title">A LITTLE<br><em>UNEXPECTED.</em></h2></div>
+          <p>Filipino-inspired flavors, coffeehouse classics, and seasonal ideas. The Toast menu has the latest lineup, prices, and availability.</p>
+        </div>
+        <div class="drink-filters" role="group" aria-label="Filter drinks">
+          <button class="drink-filter is-active" type="button" data-filter="all" aria-pressed="true">All sips <span>05</span></button>
+          <button class="drink-filter" type="button" data-filter="seasonal" aria-pressed="false">Seasonal <span>01</span></button>
+          <button class="drink-filter" type="button" data-filter="coffee" aria-pressed="false">Coffee <span>03</span></button>
+          <button class="drink-filter" type="button" data-filter="matcha" aria-pressed="false">Matcha &amp; more <span>02</span></button>
+        </div>
+        <p class="sr-only" id="drink-filter-status" aria-live="polite"></p>
+        <div class="drink-grid" id="drink-grid">
+          <article class="drink-card drink-card--feature" data-drink-category="seasonal matcha" data-reveal>
+            <div class="drink-card__photo"><img src="assets/sage-seance-product.webp" alt="Sage Séance with vanilla cold foam, black lava salt, and dehydrated fig." width="373" height="525" loading="lazy"><span class="drink-card__sticker">FALL<br>FEATURE</span><span class="drink-card__index">01 / 05</span></div>
+            <div class="drink-card__body"><p class="drink-card__kind">MATCHA · SEASONAL</p><h3>Sage Séance</h3><p>Fig &amp; sage jam meets matcha, vanilla cold foam, black lava salt, and dehydrated fig.</p><button class="drink-card__pick" type="button" data-pick="sage">Pick this mood <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button></div>
+          </article>
+          <article class="drink-card" data-drink-category="coffee" data-reveal>
+            <div class="drink-card__photo drink-card__photo--purple"><img src="assets/drink-lineup.webp" alt="Purple-topped Millie's drink among the café's cup lineup." width="1000" height="750" loading="lazy"><span class="drink-card__index">02 / 05</span></div>
+            <div class="drink-card__body"><p class="drink-card__kind">ESPRESSO · UBE</p><h3>Purple Crown</h3><p>Espresso crowned with ube cheesecake cold foam—a signature Millie's flavor combination.</p><button class="drink-card__pick" type="button" data-pick="purple">Pick this mood <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button></div>
+          </article>
+          <article class="drink-card" data-drink-category="coffee" data-reveal>
+            <div class="drink-card__photo drink-card__photo--tonic"><img src="assets/fall-drinks.webp" alt="A lineup of specialty Millie's drinks with cold foam and espresso." width="723" height="570" loading="lazy"><span class="drink-card__index">03 / 05</span></div>
+            <div class="drink-card__body"><p class="drink-card__kind">ESPRESSO · TONIC</p><h3>Manila Mist</h3><p>An espresso tonic on Millie's signature-drink list. Check Toast for current details.</p><button class="drink-card__pick" type="button" data-pick="bright">Pick this mood <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button></div>
+          </article>
+          <article class="drink-card" data-drink-category="matcha" data-reveal>
+            <div class="drink-card__photo drink-card__photo--matcha"><img src="assets/drink-lineup.webp" alt="Green matcha drink in Millie's branded cup." width="1000" height="750" loading="lazy"><span class="drink-card__index">04 / 05</span></div>
+            <div class="drink-card__body"><p class="drink-card__kind">MATCHA · STRAWBERRY</p><h3>Strawberry Fields</h3><p>A matcha latte featured on Millie's menu. See the live Toast page for its current build.</p><button class="drink-card__pick" type="button" data-pick="matcha">Pick this mood <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button></div>
+          </article>
+          <article class="drink-card" data-drink-category="coffee" data-reveal>
+            <div class="drink-card__photo drink-card__photo--oat"><img src="assets/drink-lineup.webp" alt="A creamy Millie's latte in a branded cup." width="1000" height="750" loading="lazy"><span class="drink-card__index">05 / 05</span></div>
+            <div class="drink-card__body"><p class="drink-card__kind">OAT LATTE · SIGNATURE</p><h3>Rice &amp; Shine</h3><p>Rice &amp; Shine Oat Latte is another signature on Millie's Toast menu. Check its live page for current details.</p><button class="drink-card__pick" type="button" data-pick="cozy">Pick this mood <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button></div>
+          </article>
+        </div>
+        <div class="menu-footer-line"><span>THE MENU CHANGES WITH THE MOOD.</span><a href="https://toast.app/r/millies-coffee-co-25-83-31st-street/order" target="_blank" rel="noopener noreferrer">See what's pouring <svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div>
+      </div>
+    </section>
+
+    <section class="story section-pad" id="story" aria-labelledby="story-title">
+      <div class="section-shell story__layout">
+        <div class="story__image" data-reveal>
+          <img src="assets/cafe-interior.webp" alt="Millie's Coffee Co's leafy Astoria café, with its orange wordmark and counter." width="713" height="510" loading="lazy">
+          <span class="story__image-label">31ST STREET / ASTORIA</span>
+          <span class="story__image-mark" aria-hidden="true">MM</span>
+        </div>
+        <div class="story__copy" data-reveal>
+          <p class="section-kicker">02 / THE MILLIE'S MOOD</p>
+          <h2 id="story-title">COFFEE.<br>COMMUNITY.<br><em>CREATIVE CULTURE.</em></h2>
+          <p>Millie's is a sibling-run Astoria coffee shop bringing Filipino-inspired flavors, inventive cold foams, and a leafy, art-filled room together on 31st Street.</p>
+          <div class="story__notes"><span>FILIPINO-INSPIRED</span><span>HOUSEMADE FLAVOR</span><span>ASTORIA, QUEENS</span></div>
+          <a class="story__link" href="https://www.instagram.com/milliescoffeenyc/" target="_blank" rel="noopener noreferrer">Follow the daily pour <svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="story__ticker" aria-hidden="true"><span>COFFEE</span><i></i><span>COMMUNITY</span><i></i><span>CREATIVE CULTURE</span><i></i><span>COFFEE</span><i></i><span>COMMUNITY</span></div>
+    </section>
+
+    <section class="millie-circle section-pad" id="circle" aria-labelledby="circle-title">
+      <div class="section-shell circle__layout">
+        <div class="circle__copy" data-reveal>
+          <p class="section-kicker">03 / THE REGULARS CLUB</p>
+          <h2 id="circle-title">A LITTLE<br><em>LOVE BACK.</em></h2>
+          <p>Toast lists 10 points per dollar spent and 50 points just for signing up. Try the small points estimator, then check the live program for its current terms.</p>
+          <label class="points-label" for="spend-slider">Your example spend <output id="spend-value" for="spend-slider">$6</output></label>
+          <input id="spend-slider" type="range" min="1" max="30" value="6" step="1" aria-label="Example coffee spend in dollars">
+          <div class="points-meter" aria-hidden="true"><span id="points-fill"></span></div>
+          <p class="points-result" id="points-result" aria-live="polite">$6 spend = 60 points, plus 50 signup points.</p>
+          <a class="button button--copper" href="https://toast.app/r/millies-coffee-co-25-83-31st-street/order" target="_blank" rel="noopener noreferrer">Join in Toast <svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+          <p class="circle__fineprint">Illustrative estimate only; reward rules can change.</p>
+        </div>
+        <div class="circle__visual" data-reveal>
+          <div class="circle__orbit circle__orbit--outer"></div><div class="circle__orbit circle__orbit--inner"></div>
+          <div class="circle__seal"><span>10×</span><small>POINTS PER<br>DOLLAR</small></div>
+          <div class="circle__stamp"><span>+50</span><small>TO JOIN</small></div>
+          <p class="circle__background-type" aria-hidden="true">REGULAR</p>
+          <img src="assets/drink-lineup.webp" alt="Millie's signature cold foam drinks lined up on the café table." width="1000" height="750" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="flavor-finder section-pad" id="finder" aria-labelledby="finder-title">
+      <div class="section-shell">
+        <div class="finder-card" data-reveal>
+          <div class="finder-card__intro">
+            <p class="section-kicker">04 / A QUICK LITTLE QUIZ</p>
+            <h2 id="finder-title">WHAT'S YOUR<br><em>SIP MOOD?</em></h2>
+            <p>Choose a mood. We'll point you toward a Millie's menu name to start with.</p>
+          </div>
+          <div class="finder-card__choices" role="group" aria-label="Choose your drink mood">
+            <button type="button" class="mood-button is-selected" data-mood="sage" aria-pressed="true"><span>01</span> Curious &amp; green</button>
+            <button type="button" class="mood-button" data-mood="purple" aria-pressed="false"><span>02</span> Cozy &amp; creamy</button>
+            <button type="button" class="mood-button" data-mood="bright" aria-pressed="false"><span>03</span> Bright &amp; fizzy</button>
+            <button type="button" class="mood-button" data-mood="matcha" aria-pressed="false"><span>04</span> Fruity matcha</button>
+          </div>
+          <div class="finder-card__result" aria-live="polite" aria-atomic="true">
+            <span class="finder-card__result-kicker">YOUR STARTING SIP</span>
+            <strong id="mood-result">Sage Séance</strong>
+            <span id="mood-description">A seasonal matcha with fig, sage, and vanilla cold foam.</span>
+            <a href="https://toast.app/r/millies-coffee-co-25-83-31st-street/order" target="_blank" rel="noopener noreferrer">Check the live menu <svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="visit">
+    <div class="section-shell footer__main">
+      <div class="footer__brand-block">
+        <img src="assets/millies-logo.webp" alt="Millie's Coffee Co" width="220" height="82" loading="lazy">
+        <p>Good coffee, curious company.</p>
+      </div>
+      <div class="footer__address"><span>FIND YOUR WAY</span><strong>25-83 31st Street</strong><p>1st Floor · Astoria, Queens, NY 11102</p><a href="https://www.google.com/maps/search/?api=1&amp;query=25-83+31st+St+Astoria+NY+11102" target="_blank" rel="noopener noreferrer">Open in Maps <svg class="icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div>
+      <div class="footer__contact"><span>SAY HELLO</span><a href="tel:+19296618519">(929) 661-8519</a><a href="https://www.instagram.com/milliescoffeenyc/" target="_blank" rel="noopener noreferrer">@milliescoffeenyc</a><a href="https://toast.app/r/millies-coffee-co-25-83-31st-street/order" target="_blank" rel="noopener noreferrer">Menu · rewards · current hours</a></div>
+    </div>
+    <div class="section-shell footer__bottom"><span>COFFEE · COMMUNITY · CREATIVE CULTURE</span><span>Independent website concept · 2026</span><a href="#top">Back to top <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V4m-6 6 6-6 6 6"/></svg></a></div>
+  </footer>
+</body>
+</html>
