@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>U Party NYC — Party Rentals in East Harlem</title>
+  <meta name="description" content="U Party in East Harlem, Manhattan: chairs, tables, tents, concessions and entertainment. Build one organized rental quote online.">
+  <meta name="theme-color" content="#170a1c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23ff8c42'/%3E%3Ctext x='32' y='44' font-size='36' text-anchor='middle' font-family='Georgia' fill='%23170a1c'%3EU%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#catalog">Skip to catalog</a>
+  <div class="glow" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav glass" id="nav">
+    <a class="brand" href="#top" aria-label="U Party home">
+      <span class="logo">U</span>
+      <span class="brand-text">U Party<small>East Harlem · NYC</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#catalog">Catalog</a>
+      <a href="#planner">Planner</a>
+      <a href="#process">How it works</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn btn-ghost btn-sm basket-open" type="button" aria-controls="drawer">
+        Basket <span class="pill" id="fabCount">0</span>
+      </button>
+      <a class="btn btn-primary btn-sm magnetic" href="#quote">Get a quote</a>
+      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="sun" aria-hidden="true"></div>
+      <svg class="palm palm-l" viewBox="0 0 300 300" aria-hidden="true">
+        <path d="M150 300 C140 220 165 150 150 60" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+        <path d="M150 70 C110 20 60 30 20 80 C70 60 110 75 150 80Z" fill="currentColor"/>
+        <path d="M150 70 C190 20 240 30 280 80 C230 60 190 75 150 80Z" fill="currentColor"/>
+        <path d="M150 70 C120 40 100 0 90 -10 C120 10 135 40 150 80Z" fill="currentColor"/>
+        <path d="M150 70 C180 40 200 0 210 -10 C180 10 165 40 150 80Z" fill="currentColor"/>
+      </svg>
+
+      <div class="hero-inner">
+        <p class="eyebrow reveal">Party rentals · East Harlem, Manhattan</p>
+        <h1 class="reveal">Your party, <em class="accent">fully equipped.</em></h1>
+        <p class="lead reveal">Chiavari chairs, round tables, tents, candy stations, DJs and characters, all from one team. Pick what you need, set your date and delivery address, and send one organized quote.</p>
+        <div class="hero-cta reveal">
+          <a class="btn btn-primary magnetic" href="#catalog">Build my quote <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost magnetic" href="tel:+19175879846">Call 917-587-9846</a>
+        </div>
+        <ul class="hero-pills reveal">
+          <li>Established 2017</li>
+          <li>Best of NYC 2024</li>
+          <li>Hablamos español</li>
+          <li>Delivery across NYC</li>
+        </ul>
+      </div>
+
+      <aside class="hero-card glass tilt reveal" aria-label="Highlights">
+        <p class="eyebrow">Manhattan's reader favourite</p>
+        <h3>Best Party &amp; Event Rentals</h3>
+        <p class="muted">Voted Best Party and Event Rentals in Manhattan in the 2024 Best of New York City reader poll.</p>
+        <div class="live">
+          <div>
+            <span class="muted small">Your basket, priced items</span>
+            <b id="heroTotal">$0.00</b>
+          </div>
+          <a class="btn btn-sm btn-primary" href="#catalog">Keep adding</a>
+        </div>
+      </aside>
+    </section>
+
+    <!-- MARQUEE -->
+    <section class="marquee" aria-label="Services">
+      <div class="track">
+        <span>Chiavari chairs</span><i>✦</i><span>Round tables</span><i>✦</i><span>Gazebo tents</span><i>✦</i><span>Photo booths</span><i>✦</i><span>Cotton candy</span><i>✦</i><span>DJs &amp; magicians</span><i>✦</i><span>Characters</span><i>✦</i><span>Candy stations</span><i>✦</i>
+        <span>Chiavari chairs</span><i>✦</i><span>Round tables</span><i>✦</i><span>Gazebo tents</span><i>✦</i><span>Photo booths</span><i>✦</i><span>Cotton candy</span><i>✦</i><span>DJs &amp; magicians</span><i>✦</i><span>Characters</span><i>✦</i><span>Candy stations</span><i>✦</i>
+      </div>
+    </section>
+
+    <!-- CATALOG -->
+    <section class="section" id="catalog">
+      <div class="section-head reveal">
+        <p class="eyebrow">The catalog</p>
+        <h2>Everything on <em class="accent">one page.</em></h2>
+        <p class="muted">Listed rates from U Party. <span id="itemCount">40+</span> items. Delivery, setup and tax are quoted separately.</p>
+      </div>
+
+      <div class="toolbar reveal">
+        <div class="chips" id="chips" role="tablist" aria-label="Filter by category"></div>
+        <label class="search glass">
+          <span class="sr">Search items</span>
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input id="search" type="search" placeholder="Search chairs, tents, DJs…" autocomplete="off">
+        </label>
+      </div>
+
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <!-- PLANNER -->
+    <section class="section" id="planner">
+      <div class="planner glass tilt reveal">
+        <div class="planner-form">
+          <p class="eyebrow">Smart planner</p>
+          <h2>How many chairs<br><em class="accent">do you need?</em></h2>
+          <p class="muted">Enter your guest count. We suggest 10% spare chairs and one 48" round table for every four guests.</p>
+
+          <label class="field">
+            <span>Guests</span>
+            <input id="guests" type="number" min="1" max="400" value="40" inputmode="numeric">
+          </label>
+          <label class="field">
+            <span>Chair style</span>
+            <select id="chairType">
+              <option value="folding-white">White folding ($2.50)</option>
+              <option value="folding-black">Black folding ($3.00)</option>
+              <option value="chiavari-gold">Gold &amp; clear Chiavari ($10.00)</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="planner-out">
+          <div class="stat"><span>Chairs</span><b id="planChairs">44</b></div>
+          <div class="stat"><span>48" round tables</span><b id="planTables">10</b></div>
+          <div class="stat big"><span>Estimated rental subtotal</span><b id="planEst">$0.00</b><small>Before delivery, setup and tax</small></div>
+          <button class="btn btn-primary magnetic" id="planAdd" type="button">Add this to my quote</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section" id="process">
+      <div class="section-head reveal">
+        <p class="eyebrow">How it works</p>
+        <h2>Three steps. <em class="accent">One quote.</em></h2>
+      </div>
+      <div class="steps">
+        <article class="step-card glass tilt reveal">
+          <span class="num">01</span>
+          <h3>Pick your pieces</h3>
+          <p class="muted">Browse the catalog and set quantities. Your basket saves on this device, so you can come back later.</p>
+        </article>
+        <article class="step-card glass tilt reveal">
+          <span class="num">02</span>
+          <h3>Add date &amp; location</h3>
+          <p class="muted">Tell us your event date, time, guest count and delivery address in one short form.</p>
+        </article>
+        <article class="step-card glass tilt reveal">
+          <span class="num">03</span>
+          <h3>Get one clear quote</h3>
+          <p class="muted">Everything arrives in a single request with a priced subtotal. Delivery and setup are confirmed with you.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- QUOTE FORM -->
+    <section class="section" id="quote">
+      <div class="quote-wrap">
+        <div class="quote-intro reveal">
+          <p class="eyebrow">Request your quote</p>
+          <h2>Tell us about<br><em class="accent">the big day.</em></h2>
+          <p class="muted">Your basket is included automatically. We reply by email or phone, whichever you prefer.</p>
+
+          <div class="glass summary" id="quoteSummary" aria-live="polite"></div>
+          <p class="warn" id="modeWarn" hidden>The 60" table is delivery only. Choose delivery or remove it from your basket.</p>
+        </div>
+
+        <form class="glass form reveal" id="quoteForm" novalidate>
+          <div class="grid-2">
+            <label class="field"><span>Full name *</span><input name="name" autocomplete="name" required><em class="error" id="err-name"></em></label>
+            <label class="field"><span>Phone *</span><input name="phone" type="tel" autocomplete="tel" placeholder="917-555-0123" required><em class="error" id="err-phone"></em></label>
+          </div>
+          <label class="field"><span>Email *</span><input name="email" type="email" autocomplete="email" required><em class="error" id="err-email"></em></label>
+
+          <div class="grid-2">
+            <label class="field"><span>Event date *</span><input name="eventDate" type="date" required><em class="error" id="err-eventDate"></em></label>
+            <label class="field"><span>Start time</span><input name="eventTime" type="time"></label>
+          </div>
+          <div class="grid-2">
+            <label class="field"><span>Event type</span>
+              <select name="eventType">
+                <option>Birthday</option><option>Wedding</option><option>Baby shower</option><option>Quinceañera / Sweet 16</option><option>Corporate</option><option>Community / other</option>
+              </select>
+            </label>
+            <label class="field"><span>Number of guests</span><input name="guests" type="number" min="1" max="1000" inputmode="numeric"></label>
+          </div>
+
+          <fieldset class="field modes">
+            <legend>Delivery or pickup *</legend>
+            <label class="radio"><input type="radio" name="mode" value="delivery" checked><span>Delivery</span></label>
+            <label class="radio"><input type="radio" name="mode" value="pickup"><span>Pickup</span></label>
+          </fieldset>
+
+          <label class="field"><span>Delivery address</span><input name="address" autocomplete="street-address" placeholder="Street, building, apartment"><em class="error" id="err-address"></em></label>
+          <div class="grid-2">
+            <label class="field"><span>ZIP code</span><input name="zip" inputmode="numeric" maxlength="5" placeholder="10029"></label>
+            <label class="field"><span>Notes</span><input name="notes" placeholder="Setup time, colours, access…"></label>
+          </div>
+
+          <!-- honeypot -->
+          <label class="hp" aria-hidden="true">Company <input name="company" tabindex="-1" autocomplete="off"></label>
+
+          <div class="form-actions">
+            <button class="btn btn-primary magnetic" type="submit" id="submitBtn">Send quote request</button>
+            <button class="btn btn-ghost" type="button" id="copyBtn">Copy summary</button>
+          </div>
+          <p class="small muted">Prices are listed rates. Final quote includes delivery, setup and tax where applicable.</p>
+
+          <div class="success" id="success" hidden>
+            <h3>Request sent ✦</h3>
+            <p>Thank you. U Party will reply shortly with your quote. If your email app didn't open, email <a href="mailto:upartynyc@gmail.com">upartynyc@gmail.com</a> or call <a href="tel:+19175879846">917-587-9846</a>.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- VISIT -->
+    <section class="section" id="visit">
+      <div class="visit glass reveal">
+        <div>
+          <p class="eyebrow">Visit &amp; contact</p>
+          <h2>Come see the pieces <em class="accent">in person.</em></h2>
+          <p class="muted">2163 First Avenue, between 111th and 112th Streets, East Harlem. Call ahead to confirm hours.</p>
+          <ul class="contact">
+            <li><span>Address</span><a href="https://www.google.com/maps/search/?api=1&amp;query=2163+First+Avenue+New+York+NY+10029" target="_blank" rel="noopener">2163 First Avenue, New York, NY 10029</a></li>
+            <li><span>Phone</span><a href="tel:+19175879846">917-587-9846</a></li>
+            <li><span>Email</span><a href="mailto:upartynyc@gmail.com">upartynyc@gmail.com</a></li>
+            <li><span>Instagram</span><a href="https://www.instagram.com/upartynyc/" target="_blank" rel="noopener">@upartynyc</a></li>
+          </ul>
+        </div>
+        <div class="award">
+          <span class="laurel">✦</span>
+          <p class="eyebrow">2024 · Best of New York City</p>
+          <h3>Best Party &amp; Event Rentals</h3>
+          <p class="muted small">Manhattan, reader-voted.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <span class="logo">U</span>
+      <span>© 2026 U Party NYC · East Harlem</span>
+    </div>
+    <div class="social">
+      <a href="https://www.instagram.com/upartynyc/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+      <a href="https://www.facebook.com/upartynyc/" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <!-- FLOATING BASKET -->
+  <button class="fab glass basket-open" type="button" aria-label="Open basket">
+    <span>Basket</span><span class="pill" id="fabCount2">0</span>
+  </button>
+
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="drawer glass" id="drawer" aria-label="Your basket" aria-hidden="true">
+    <div class="drawer-head">
+      <h3>Your basket</h3>
+      <button class="icon-btn" id="drawerClose" type="button" aria-label="Close basket">✕</button>
+    </div>
+    <ul class="drawer-list" id="drawerList"></ul>
+    <div class="drawer-foot">
+      <div class="row"><span>Priced subtotal</span><b id="drawerSubtotal">$0.00</b></div>
+      <small class="muted" id="drawerQuoteCount"></small>
+      <div class="drawer-actions">
+        <button class="btn btn-ghost btn-sm" id="clearBasket" type="button">Clear</button>
+        <a class="btn btn-primary btn-sm" href="#quote" id="drawerQuote">Request quote</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MOBILE BAR -->
+  <nav class="mobile-bar glass" aria-label="Quick actions">
+    <a href="tel:+19175879846">Call</a>
+    <button class="basket-open" type="button">Basket (<span id="mobileCount">0</span>)</button>
+    <a href="#quote" class="primary">Quote</a>
+  </nav>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
