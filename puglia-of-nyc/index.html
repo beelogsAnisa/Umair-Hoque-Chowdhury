@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#21201f">
+  <meta name="description" content="Original Puglia in Little Italy, New York. The restaurant says its family story dates to 1919. Browse the posted menu and inquire about visits by phone or direct message.">
+  <title>Original Puglia — Little Italy, NYC</title>
+  <link rel="icon" type="image/svg+xml" href="assets/puglia-wordmark.svg">
+  <link rel="preload" href="assets/fonts/unifrakturmaguntia.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
+
+  <header class="site-header" id="top">
+    <div class="header-ribbon">
+      <a class="location-pill" href="https://maps.google.com/?q=189+Hester+Street+New+York+NY+10013" target="_blank" rel="noopener noreferrer">189 Hester St · NYC <span aria-hidden="true">↗</span></a>
+      <span class="ribbon-center">Original Puglia · Little Italy</span>
+      <nav class="header-social" aria-label="Social profiles linked by Puglia">
+        <a href="https://www.instagram.com/pugliarestaurantny/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+        <a href="https://www.facebook.com/Puglia-Restaurant-of-NYC-111458662210086/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">FB</a>
+        <a href="https://www.tiktok.com/@pugliarestaurantnyc" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TK</a>
+      </nav>
+    </div>
+    <div class="header-main">
+      <a class="brand" href="#home" aria-label="Original Puglia home">
+<span class="brand-name"><span class="brand-original">Original</span><strong>Puglia</strong></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation">
+        <span></span><span></span>
+      </button>
+      <nav class="primary-navigation" id="primary-navigation" aria-label="Main navigation">
+        <a href="#story">Our story</a>
+        <a href="#menu">Menu</a>
+        <a href="#gather">Gather</a>
+        <a href="#music">Music</a>
+        <a href="#visit">Visit</a>
+      </nav>
+      <a class="header-reserve" href="tel:+12129666006">
+        <span>Reserve by phone</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-photo" data-parallax>
+        <img src="assets/dining-room.webp" alt="Archived dining and performance scene from Puglia's public photo gallery" fetchpriority="high">
+      </div>
+      <div class="hero-scrim" aria-hidden="true"></div>
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow hero-eyebrow"><span class="eyebrow-dot"></span> Little Italy · 189 Hester Street</p>
+        <h1 id="hero-title"><span class="hero-original">Original</span><span class="hero-puglia">Puglia</span></h1>
+        <p class="hero-script">A family story · New York</p>
+        <p class="hero-deck">Puglia says its family story dates to 1919. Browse the posted Italian-American menu and ask whether live music is scheduled.</p>
+        <div class="hero-actions">
+          <a class="button button-light" href="#menu">Explore the menu <span class="button-arrow" aria-hidden="true">↗</span></a>
+          <button class="text-link" type="button" data-open-reserve>Reservation options <span aria-hidden="true">↗</span></button>
+        </div>
+      </div>
+      <figure class="hero-food">
+        <img src="assets/pizza-hero-cutout.png" alt="AI-generated illustrative overhead pizza cutout on a transparent background; not a verified Puglia dish" fetchpriority="high">
+      </figure>
+      <div class="hero-bottomline">
+        <span>189 Hester Street · NYC</span>
+        <span class="hero-bottomline-mark" aria-hidden="true">✳</span>
+        <span>Live music advertised <small>· confirm current schedule</small></span>
+      </div>
+      <a class="scroll-cue" href="#menu-spotlight" aria-label="Scroll to menu highlights"><span>Scroll to discover</span><i aria-hidden="true"></i></a>
+    </section>
+
+    <section class="reservation-strip section-shell" id="reservation" aria-labelledby="reservation-strip-title">
+      <div class="reservation-strip-heading">
+        <p class="eyebrow"><span class="eyebrow-dash"></span> Plan a visit · inquiry only</p>
+        <h2 id="reservation-strip-title">Ask about <em>a table.</em></h2>
+      </div>
+      <form class="reservation-form" id="reservation-form">
+        <label><span>Date</span><input type="date" id="reservation-date" aria-label="Preferred date"></label>
+        <label><span>Time</span><input type="time" id="reservation-time" aria-label="Preferred time"></label>
+        <label><span>Guests</span><input type="number" id="reservation-guests" min="1" step="1" placeholder="Party size" aria-label="Number of guests"></label>
+        <button class="reservation-submit" type="submit">Prepare inquiry <span aria-hidden="true">↗</span></button>
+      </form>
+      <noscript><p class="reservation-note">To ask about a table, call <a href="tel:+12129666006">(212) 966-6006</a> or message Puglia through <a href="https://www.instagram.com/pugliarestaurantny/">Instagram</a>. Availability must be confirmed directly.</p></noscript>
+      <p class="reservation-note">This form does not check availability or book a date. Puglia asks guests to call or message directly; wait for the restaurant to confirm.</p>
+    </section>
+
+    <section class="spotlight-section section-shell" id="menu-spotlight" aria-labelledby="spotlight-title">
+      <div class="spotlight-heading" data-reveal>
+        <div><p class="eyebrow"><span class="eyebrow-dash"></span> A first look</p><h2 id="spotlight-title">From the <em>menu.</em></h2></div>
+        <p>Food photographs from Puglia’s existing public gallery. Browse the posted menu below; current dishes and prices should be confirmed.</p>
+      </div>
+      <div class="spotlight-grid">
+        <article class="spotlight-card" data-reveal="up">
+          <button class="spotlight-image" type="button" data-lightbox="assets/pizza-gallery.webp" data-alt="A pizza from Puglia's public food gallery" data-caption="Pizza photographed for Puglia’s public gallery"><img src="assets/pizza-gallery.webp" alt="Pizza from Puglia's public food gallery" loading="lazy"><span class="spotlight-image-arrow" aria-hidden="true">↗</span></button>
+          <div class="spotlight-meta"><span>01 / Pizza</span><span>Little Italy</span></div>
+          <h3>Pizza &amp; rolls</h3>
+          <p>Browse the pizza varieties and rolls listed on Puglia’s public menu.</p>
+          <a class="spotlight-cta" href="#menu" data-jump-filter="pizza">Browse pizza menu <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="spotlight-card" data-reveal="up">
+          <button class="spotlight-image" type="button" data-lightbox="assets/seafood-gallery.webp" data-alt="A seafood dish from Puglia's public food gallery" data-caption="Seafood photographed for Puglia’s public gallery"><img src="assets/seafood-gallery.webp" alt="Seafood dish from Puglia's public food gallery" loading="lazy"><span class="spotlight-image-arrow" aria-hidden="true">↗</span></button>
+          <div class="spotlight-meta"><span>02 / Dinner</span><span>From the archive</span></div>
+          <h3>Pasta &amp; seafood</h3>
+          <p>Explore the dishes and descriptions Puglia publishes online.</p>
+          <a class="spotlight-cta" href="#menu" data-jump-filter="pasta">Browse pasta menu <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="spotlight-card" data-reveal="up">
+          <button class="spotlight-image" type="button" data-lightbox="assets/dessert-gallery.webp" data-alt="A dessert photographed for Puglia's public food gallery" data-caption="Dessert photographed for Puglia’s public gallery"><img src="assets/dessert-gallery.webp" alt="A plated dessert from Puglia's public gallery" loading="lazy"><span class="spotlight-image-arrow" aria-hidden="true">↗</span></button>
+          <div class="spotlight-meta"><span>03 / Dolci</span><span>Save room</span></div>
+          <h3>Something sweet</h3>
+          <p>See the desserts and café items on Puglia’s online menu.</p>
+          <a class="spotlight-cta" href="#menu" data-jump-filter="dessert">Browse dessert menu <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="Original Puglia, Little Italy, New York, with a family history dating to 1919 according to the restaurant">
+      <div class="ticker-track" aria-hidden="true">
+        <span>Little Italy · New York</span><b>✳</b><span>A Puglia story since 1919</span><b>✳</b><span>Food · family · music</span><b>✳</b><span>Reservations by call or direct message</span><b>✳</b>
+        <span>Little Italy · New York</span><b>✳</b><span>A Puglia story since 1919</span><b>✳</b><span>Food · family · music</span><b>✳</b><span>Reservations by call or direct message</span><b>✳</b>
+      </div>
+    </div>
+
+    <section class="story section-shell" id="story" aria-labelledby="story-title">
+      <div class="section-kicker" data-reveal><span>01 / The beginning</span><span>Our story</span></div>
+      <div class="story-layout">
+        <figure class="story-illustration" data-reveal="left">
+          <div class="image-frame image-frame-illustration"><img src="assets/storefront-illustration.webp" alt="A colorful illustrated storefront bearing the Original Puglia name and 1919 founding year" loading="lazy"></div>
+          <figcaption><span>Little Italy, remembered</span><span>01 — 03</span></figcaption>
+        </figure>
+        <div class="story-copy" data-reveal="up">
+          <p class="eyebrow"><span class="eyebrow-dash"></span> A name from the south</p>
+          <h2 id="story-title">One family.<br>One <em>Hester Street</em><br>table.</h2>
+          <p class="story-lead">Puglia’s own story begins with Gregorio Garofalo, who came to New York in 1919. The restaurant takes its name from the southern Italian region he left behind.</p>
+          <p class="story-body">The family says the tradition continues at the original Hester Street address. Today, the room brings together old-school Italian-American cooking, generous tables and the kind of evening that can linger a little longer.</p>
+          <div class="story-signature">
+            <span class="signature-rule"></span>
+            <span><strong>189 Hester Street</strong><small>Little Italy · New York City</small></span>
+          </div>
+        </div>
+      </div>
+      <div class="story-footnote" data-reveal><span class="story-asterisk">✳</span><p>History shared here follows the restaurant’s own account; it has not been independently verified.</p><a href="https://www.pugliaofnyc.com/about" target="_blank" rel="noopener noreferrer">Read Puglia’s story <span aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <section class="menu-section" id="menu" aria-labelledby="menu-title">
+      <div class="menu-top section-shell">
+        <div class="section-kicker" data-reveal><span>02 / At the table</span><span>From the menu</span></div>
+        <div class="menu-heading-row">
+          <div class="menu-heading" data-reveal="left">
+            <p class="eyebrow"><span class="eyebrow-dash"></span> Pass the bread</p>
+            <h2 id="menu-title">A menu for<br><em>staying awhile.</em></h2>
+            <p>Browse the dishes Puglia publishes online. Menus and prices can change; call to confirm today’s offerings.</p>
+          </div>
+          <figure class="menu-feature-photo" data-reveal="right">
+            <img src="assets/seafood-gallery.webp" alt="Seafood pasta platter with mussels, shrimp and fresh basil" loading="lazy">
+            <figcaption><span>From Puglia’s public photo gallery</span><span>02 — 03</span></figcaption>
+            <span class="photo-corner-mark" aria-hidden="true">✳</span>
+          </figure>
+        </div>
+
+        <div class="menu-browser" aria-label="Browse Puglia's menu">
+          <div class="menu-controls">
+            <div class="menu-filter-label"><span>Choose your page</span><span class="menu-count" id="menu-count" aria-live="polite"></span></div>
+            <div class="menu-filters" role="group" aria-label="Filter menu by category">
+              <button class="menu-filter is-active" type="button" data-menu-filter="highlights" aria-pressed="true"><span class="filter-mark" aria-hidden="true">✓</span>House highlights</button>
+              <button class="menu-filter" type="button" data-menu-filter="all" aria-pressed="false"><span class="filter-mark" aria-hidden="true">✓</span>Full menu</button>
+              <button class="menu-filter" type="button" data-menu-filter="antipasti" aria-pressed="false"><span class="filter-mark" aria-hidden="true">✓</span>Antipasti</button>
+              <button class="menu-filter" type="button" data-menu-filter="salads" aria-pressed="false"><span class="filter-mark" aria-hidden="true">✓</span>Salads</button>
+              <button class="menu-filter" type="button" data-menu-filter="pasta" aria-pressed="false"><span class="filter-mark" aria-hidden="true">✓</span>Pasta &amp; soup</button>
+              <button class="menu-filter" type="button" data-menu-filter="seafood" aria-pressed="false"><span class="filter-mark" aria-hidden="true">✓</span>Seafood</button>
+              <button class="menu-filter" type="button" data-menu-filter="chicken" aria-pressed="false"><span class="filter-mark" aria-hidden="true">✓</span>Chicken</button>
+              <button class="menu-filter" type="button" data-menu-filter="veal" aria-pressed="false"><span class="filter-mark" aria-hidden="true">✓</span>Veal</button>
+              <button class="menu-filter" type="button" data-menu-filter="vegetables" aria-pressed="false"><span class="filter-mark" aria-hidden="true">✓</span>Vegetables &amp; sides</button>
+              <button class="menu-filter" type="button" data-menu-filter="pizza" aria-pressed="false"><span class="filter-mark" aria-hidden="true">✓</span>Pizza &amp; rolls</button>
+              <button class="menu-filter" type="button" data-menu-filter="dessert" aria-pressed="false"><span class="filter-mark" aria-hidden="true">✓</span>Dessert &amp; café</button>
+              <button class="menu-filter" type="button" data-menu-filter="drinks" aria-pressed="false"><span class="filter-mark" aria-hidden="true">✓</span>Drinks</button>
+            </div>
+            <label class="menu-search">
+              <span class="search-icon" aria-hidden="true">⌕</span>
+              <span class="visually-hidden">Search menu items</span>
+              <input type="search" id="menu-search" placeholder="Search dishes…" autocomplete="off">
+              <kbd>/</kbd>
+            </label>
+          </div>
+          <div class="menu-results-heading"><span id="menu-results-label">House highlights</span><span class="menu-result-line"></span><span>Published menu · may change</span></div>
+          <div class="menu-grid" id="menu-grid" aria-live="polite" aria-busy="true"></div>
+          <p class="menu-empty" id="menu-empty" hidden>No dishes match that search. Try another name or choose “Full menu.”</p>
+          <noscript><p class="menu-noscript">Menu filters need JavaScript. Open Puglia’s <a href="https://www.pugliaofnyc.com/menu">dinner menu</a>, <a href="https://www.pugliaofnyc.com/pizza-menu">pizza menu</a> or <a href="https://www.pugliaofnyc.com/dessert-menu">drinks &amp; dessert menu</a> directly.</p></noscript>
+          <div class="menu-footer-row">
+            <p>Prices reflect Puglia’s public online menus as checked 17 October 2026. Some menu pages are older; please confirm prices, availability and ingredients directly with the restaurant.</p>
+            <div class="menu-source-links"><a class="underlined-link" href="https://www.pugliaofnyc.com/menu" target="_blank" rel="noopener noreferrer">Dinner <span aria-hidden="true">↗</span></a><a class="underlined-link" href="https://www.pugliaofnyc.com/pizza-menu" target="_blank" rel="noopener noreferrer">Pizza <span aria-hidden="true">↗</span></a><a class="underlined-link" href="https://www.pugliaofnyc.com/dessert-menu" target="_blank" rel="noopener noreferrer">Drinks &amp; dessert <span aria-hidden="true">↗</span></a></div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-bottom-band" aria-hidden="true"><span>Made for the middle of the table</span><span>✳</span><span>Pizza · pasta · something sweet</span></div>
+    </section>
+
+    <section class="gather section-shell" id="gather" aria-labelledby="gather-title">
+      <div class="section-kicker" data-reveal><span>03 / Come together</span><span>Gather at Puglia</span></div>
+      <div class="gather-layout">
+        <figure class="gather-photo" data-reveal="left">
+          <img src="assets/family-party.webp" alt="Guests celebrating together in a lively Puglia dining room" loading="lazy">
+          <figcaption><span>A toast, a song, a full table</span><span>From Puglia’s public gallery</span></figcaption>
+        </figure>
+        <div class="gather-copy" data-reveal="up">
+          <p class="eyebrow"><span class="eyebrow-dash"></span> Parties &amp; celebrations</p>
+          <h2 id="gather-title">Make room<br>for <em>one more.</em></h2>
+          <p>Puglia says two dining rooms are available for parties, big and small. Ask the team about group menus, room arrangements and current terms before you plan.</p>
+          <div class="gather-facts">
+            <div><span>01</span><p>Two dining rooms<br><small>Ask about the right fit</small></p></div>
+            <div><span>02</span><p>Group menus<br><small>Current details by phone</small></p></div>
+            <div><span>03</span><p>Little Italy address<br><small>189 Hester Street</small></p></div>
+          </div>
+          <a class="button button-dark" href="tel:+12129666006">Call about a gathering <span class="button-arrow" aria-hidden="true">↗</span></a>
+          <p class="fine-print">Online party pages show different package prices and terms; confirm current details directly. A call or message is an inquiry, not a confirmed booking.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="music-section" id="music" aria-labelledby="music-title">
+      <div class="music-image" data-reveal="right">
+        <img src="assets/live-music.webp" alt="Performers sharing a lively moment during an evening at Puglia" loading="lazy">
+        <div class="music-image-note"><span>From the restaurant’s entertainment gallery</span><span>03 — 03</span></div>
+      </div>
+      <div class="music-content" data-reveal="up">
+        <div class="music-orbit" aria-hidden="true"><span>♪</span><i></i></div>
+        <p class="eyebrow"><span class="eyebrow-dash"></span> The room has a rhythm</p>
+        <h2 id="music-title">Dinner with<br>a <em>soundtrack.</em></h2>
+        <p>Puglia’s homepage advertises live music on open nights. The lineup and schedule can vary, so check with the restaurant before making a night of it.</p>
+        <a class="underlined-link" href="https://www.pugliaofnyc.com/entertainment" target="_blank" rel="noopener noreferrer">Explore Puglia’s entertainment page <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="music-side-photo" data-reveal="left"><img src="assets/live-music-crowd.webp" alt="Guests enjoying music and celebrating together at Puglia" loading="lazy"></div>
+    </section>
+
+    <section class="gallery-section section-shell" aria-labelledby="gallery-title">
+      <div class="section-kicker" data-reveal><span>04 / A little look around</span><span>At Puglia</span></div>
+      <div class="gallery-heading" data-reveal="up"><h2 id="gallery-title">A table worth<br><em>remembering.</em></h2><p>Food and moments pictured in the restaurant’s public gallery. Tap a photo to take a closer look.</p></div>
+      <div class="photo-grid">
+        <button class="photo-tile photo-tile-large" type="button" data-lightbox="assets/pizza-gallery.webp" data-alt="A baked Puglia pizza with tomato and herbs" data-caption="A pizza from Puglia’s public food gallery" data-reveal="up"><img src="assets/pizza-gallery.webp" alt="A baked pizza with tomato and herbs" loading="lazy"><span class="photo-zoom" aria-hidden="true">↗</span></button>
+        <button class="photo-tile photo-tile-tall" type="button" data-lightbox="assets/dessert-gallery.webp" data-alt="A plated dessert from Puglia's public gallery" data-caption="A dessert from Puglia’s public food gallery" data-reveal="up"><img src="assets/dessert-gallery.webp" alt="A plated dessert with a scoop of ice cream" loading="lazy"><span class="photo-zoom" aria-hidden="true">↗</span></button>
+        <button class="photo-tile" type="button" data-lightbox="assets/plate-dessert.webp" data-alt="A restaurant dessert plate with chocolate garnish" data-caption="A dessert from Puglia’s public food gallery" data-reveal="up"><img src="assets/plate-dessert.webp" alt="A dessert plate with chocolate garnish" loading="lazy"><span class="photo-zoom" aria-hidden="true">↗</span></button>
+        <button class="photo-tile" type="button" data-lightbox="assets/seafood-plate.webp" data-alt="Seafood and mussels from Puglia's public gallery" data-caption="A seafood dish from Puglia’s public food gallery" data-reveal="up"><img src="assets/seafood-plate.webp" alt="A seafood dish served with mussels" loading="lazy"><span class="photo-zoom" aria-hidden="true">↗</span></button>
+      </div>
+      <p class="gallery-caveat">Gallery images are from Puglia’s existing public website; current menu presentation and image permissions should be reconfirmed before launch.</p>
+    </section>
+
+    <section class="visit-section" id="visit" aria-labelledby="visit-title">
+      <div class="visit-backdrop" aria-hidden="true"><img src="assets/front-awning.webp" alt="" loading="lazy"></div>
+      <div class="visit-overlay" aria-hidden="true"></div>
+      <div class="visit-inner section-shell">
+        <div class="section-kicker" data-reveal><span>05 / Come by</span><span>Find us in Little Italy</span></div>
+        <div class="visit-heading" data-reveal="up"><p class="eyebrow"><span class="eyebrow-dash"></span> Your table is on Hester</p><h2 id="visit-title">See you<br><em>in the neighborhood.</em></h2></div>
+        <div class="visit-cards">
+          <div class="visit-card visit-card-address" data-reveal="left">
+            <span class="visit-card-number">01 / Find us</span>
+            <div class="map-illustration" aria-hidden="true"><span class="map-street street-one">HESTER ST</span><span class="map-street street-two">MULBERRY ST</span><span class="map-dot"><i></i></span><span class="map-label">PUGLIA</span></div>
+            <h3>189 Hester Street</h3>
+            <p>New York, NY 10013<br>Little Italy</p>
+            <a class="underlined-link" href="https://maps.google.com/?q=189+Hester+Street+New+York+NY+10013" target="_blank" rel="noopener noreferrer">Get directions <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="visit-card visit-card-hours" data-reveal="up">
+            <span class="visit-card-number">02 / Opening times listed</span>
+            <h3>When to come</h3>
+            <dl class="hours-list">
+              <div><dt>Wednesday</dt><dd>From 4 pm</dd></div>
+              <div><dt>Thursday</dt><dd>From 4 pm</dd></div>
+              <div><dt>Friday</dt><dd>From 12 pm</dd></div>
+              <div><dt>Saturday</dt><dd>From 12 pm</dd></div>
+              <div><dt>Sunday</dt><dd>From 3 pm</dd></div>
+            </dl>
+            <p class="hours-note">Puglia notes that hours and days can sometimes vary. Closing times and Monday/Tuesday hours aren’t listed on the current homepage; call before visiting.</p>
+          </div>
+          <div class="visit-card visit-card-contact" data-reveal="right">
+            <span class="visit-card-number">03 / Say hello</span>
+            <h3>Make it a Puglia night.</h3>
+            <p class="contact-row"><span>Phone</span><a href="tel:+12129666006">(212) 966-6006</a></p>
+            <p class="contact-row"><span>Reservations</span><span>Phone or direct message</span></p>
+            <p class="contact-row"><span>General inquiries</span><a href="mailto:inquiry@pugliaofnyc.com?subject=General%20inquiry">Email Puglia</a></p>
+            <div class="social-links" aria-label="Official social profiles linked by Puglia">
+              <a href="https://www.instagram.com/pugliarestaurantny/" target="_blank" rel="noopener noreferrer" aria-label="Instagram: Puglia Restaurant NYC">IG</a>
+              <a href="https://www.facebook.com/Puglia-Restaurant-of-NYC-111458662210086/" target="_blank" rel="noopener noreferrer" aria-label="Facebook: Puglia Restaurant of NYC">FB</a>
+              <a href="https://www.tiktok.com/@pugliarestaurantnyc" target="_blank" rel="noopener noreferrer" aria-label="TikTok: Puglia Restaurant NYC">TK</a>
+            </div>
+            <p class="hours-note">Reservation requests should not be emailed; Puglia asks guests to call or message directly.</p>
+          </div>
+        </div>
+        <div class="visit-cta" data-reveal><p>Have a date in mind?</p><button class="button button-light" type="button" data-open-reserve>Choose how to reach us <span class="button-arrow" aria-hidden="true">↗</span></button></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main section-shell">
+      <a class="brand brand-footer" href="#home" aria-label="Back to Original Puglia home"><span class="brand-name"><span class="brand-original">Original</span><strong>Puglia</strong></span></a>
+      <div class="footer-location"><span>189 Hester Street</span><span>Little Italy · New York, NY 10013</span><a href="tel:+12129666006">(212) 966-6006</a></div>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="#story">Story</a><a href="#menu">Menu</a><a href="#gather">Gather</a><a href="#visit">Visit</a></nav>
+      <a class="back-top" href="#top" aria-label="Back to top">↑</a>
+    </div>
+    <div class="footer-bottom section-shell"><span>Original Puglia · Little Italy, NYC</span><span>Concept redesign · For review, not an official restaurant site</span><a href="https://www.pugliaofnyc.com/" target="_blank" rel="noopener noreferrer">Visit current website ↗</a></div>
+  </footer>
+
+  <dialog class="reserve-dialog" id="reserve-dialog" aria-labelledby="reserve-title">
+    <div class="dialog-inner">
+      <button class="dialog-close" type="button" aria-label="Close reservation options" data-close-dialog>×</button>
+      <p class="eyebrow"><span class="eyebrow-dash"></span> Reach the restaurant</p>
+      <h2 id="reserve-title">Ask about<br><em>Puglia.</em></h2>
+      <p>Puglia asks guests to send reservation requests by phone or direct message on Facebook or Instagram. This page does not check availability or book your date; wait for the restaurant to confirm.</p>
+      <p class="reservation-summary" id="reservation-summary" aria-live="polite">Add a preferred date, time or guest count if you like, then copy the inquiry details to include in your message.</p>
+      <div class="dialog-actions">
+        <button class="button button-dark" type="button" data-copy-inquiry>Copy inquiry details <span class="button-arrow" aria-hidden="true">↗</span></button>
+        <span class="copy-status" id="copy-status" aria-live="polite"></span>
+        <a class="button button-light" href="tel:+12129666006">Call (212) 966-6006 <span class="button-arrow" aria-hidden="true">↗</span></a>
+        <a class="dialog-social" href="https://www.instagram.com/pugliarestaurantny/" target="_blank" rel="noopener noreferrer">Message on Instagram <span aria-hidden="true">↗</span></a>
+        <a class="dialog-social" href="https://www.facebook.com/Puglia-Restaurant-of-NYC-111458662210086/" target="_blank" rel="noopener noreferrer">Message on Facebook <span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="dialog-footnote">Please do not email reservation requests. For general inquiries only, use <a href="mailto:inquiry@pugliaofnyc.com">inquiry@pugliaofnyc.com</a>.</p>
+    </div>
+  </dialog>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+    <button type="button" class="lightbox-close" aria-label="Close photo" data-close-lightbox>×</button>
+    <figure><img id="lightbox-image" src="" alt=""><figcaption id="lightbox-caption"></figcaption></figure>
+  </dialog>
+  <div class="cursor-glow" aria-hidden="true"></div>
+</body>
+</html>
