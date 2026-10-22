@@ -1,0 +1,245 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "@id": "https://umairhoquechowdhury.site/#gallery",
+  "name": "Umair Hoque Chowdhury — photos",
+  "about": {
+    "@id": "https://umairhoquechowdhury.site/#person"
+  },
+  "creator": {
+    "@id": "https://umairhoquechowdhury.site/#person"
+  },
+  "isPartOf": {
+    "@id": "https://umairhoquechowdhury.site/#website"
+  },
+  "associatedMedia": [
+    {
+      "@type": "ImageObject",
+      "@id": "https://umairhoquechowdhury.site/#photo-01",
+      "contentUrl": "https://umairhoquechowdhury.site/kg/umair-01.png",
+      "url": "https://umairhoquechowdhury.site/kg/umair-01.png",
+      "name": "Umair Hoque Chowdhury — editorial portrait",
+      "caption": "Umair Hoque Chowdhury, Digital Creator & Artist — editorial portrait.",
+      "creditText": "Umair Hoque Chowdhury",
+      "copyrightNotice": "© Umair Hoque Chowdhury",
+      "copyrightHolder": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "license": "https://umairhoquechowdhury.site/press.html",
+      "acquireLicensePage": "https://umairhoquechowdhury.site/press.html",
+      "about": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "representativeOfPage": false
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://umairhoquechowdhury.site/#photo-02",
+      "contentUrl": "https://umairhoquechowdhury.site/kg/umair-02.png",
+      "url": "https://umairhoquechowdhury.site/kg/umair-02.png",
+      "name": "Umair Hoque Chowdhury — on-set filmmaking",
+      "caption": "Umair Hoque Chowdhury, Digital Creator & Artist — on-set filmmaking.",
+      "creditText": "Umair Hoque Chowdhury",
+      "copyrightNotice": "© Umair Hoque Chowdhury",
+      "copyrightHolder": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "license": "https://umairhoquechowdhury.site/press.html",
+      "acquireLicensePage": "https://umairhoquechowdhury.site/press.html",
+      "about": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "representativeOfPage": false
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://umairhoquechowdhury.site/#photo-03",
+      "contentUrl": "https://umairhoquechowdhury.site/kg/umair-03.png",
+      "url": "https://umairhoquechowdhury.site/kg/umair-03.png",
+      "name": "Umair Hoque Chowdhury — cinematography and camera work",
+      "caption": "Umair Hoque Chowdhury, Digital Creator & Artist — cinematography and camera work.",
+      "creditText": "Umair Hoque Chowdhury",
+      "copyrightNotice": "© Umair Hoque Chowdhury",
+      "copyrightHolder": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "license": "https://umairhoquechowdhury.site/press.html",
+      "acquireLicensePage": "https://umairhoquechowdhury.site/press.html",
+      "about": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "representativeOfPage": false
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://umairhoquechowdhury.site/#photo-04",
+      "contentUrl": "https://umairhoquechowdhury.site/kg/umair-04.png",
+      "url": "https://umairhoquechowdhury.site/kg/umair-04.png",
+      "name": "Umair Hoque Chowdhury — editorial modeling",
+      "caption": "Umair Hoque Chowdhury, Digital Creator & Artist — editorial modeling.",
+      "creditText": "Umair Hoque Chowdhury",
+      "copyrightNotice": "© Umair Hoque Chowdhury",
+      "copyrightHolder": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "license": "https://umairhoquechowdhury.site/press.html",
+      "acquireLicensePage": "https://umairhoquechowdhury.site/press.html",
+      "about": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "representativeOfPage": false
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://umairhoquechowdhury.site/#photo-05",
+      "contentUrl": "https://umairhoquechowdhury.site/kg/umair-05.png",
+      "url": "https://umairhoquechowdhury.site/kg/umair-05.png",
+      "name": "Umair Hoque Chowdhury — drone and aerial photography",
+      "caption": "Umair Hoque Chowdhury, Digital Creator & Artist — drone and aerial photography.",
+      "creditText": "Umair Hoque Chowdhury",
+      "copyrightNotice": "© Umair Hoque Chowdhury",
+      "copyrightHolder": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "license": "https://umairhoquechowdhury.site/press.html",
+      "acquireLicensePage": "https://umairhoquechowdhury.site/press.html",
+      "about": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "representativeOfPage": false
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://umairhoquechowdhury.site/#photo-06",
+      "contentUrl": "https://umairhoquechowdhury.site/kg/umair-06.png",
+      "url": "https://umairhoquechowdhury.site/kg/umair-06.png",
+      "name": "Umair Hoque Chowdhury — behind the scenes production",
+      "caption": "Umair Hoque Chowdhury, Digital Creator & Artist — behind the scenes production.",
+      "creditText": "Umair Hoque Chowdhury",
+      "copyrightNotice": "© Umair Hoque Chowdhury",
+      "copyrightHolder": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "license": "https://umairhoquechowdhury.site/press.html",
+      "acquireLicensePage": "https://umairhoquechowdhury.site/press.html",
+      "about": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "representativeOfPage": false
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://umairhoquechowdhury.site/#photo-07",
+      "contentUrl": "https://umairhoquechowdhury.site/kg/umair-07.png",
+      "url": "https://umairhoquechowdhury.site/kg/umair-07.png",
+      "name": "Umair Hoque Chowdhury — visual artist portrait",
+      "caption": "Umair Hoque Chowdhury, Digital Creator & Artist — visual artist portrait.",
+      "creditText": "Umair Hoque Chowdhury",
+      "copyrightNotice": "© Umair Hoque Chowdhury",
+      "copyrightHolder": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "license": "https://umairhoquechowdhury.site/press.html",
+      "acquireLicensePage": "https://umairhoquechowdhury.site/press.html",
+      "about": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "representativeOfPage": false
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://umairhoquechowdhury.site/#photo-08",
+      "contentUrl": "https://umairhoquechowdhury.site/kg/umair-08.png",
+      "url": "https://umairhoquechowdhury.site/kg/umair-08.png",
+      "name": "Umair Hoque Chowdhury — creative direction",
+      "caption": "Umair Hoque Chowdhury, Digital Creator & Artist — creative direction.",
+      "creditText": "Umair Hoque Chowdhury",
+      "copyrightNotice": "© Umair Hoque Chowdhury",
+      "copyrightHolder": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "license": "https://umairhoquechowdhury.site/press.html",
+      "acquireLicensePage": "https://umairhoquechowdhury.site/press.html",
+      "about": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "representativeOfPage": false
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://umairhoquechowdhury.site/#photo-09",
+      "contentUrl": "https://umairhoquechowdhury.site/kg/umair-09.png",
+      "url": "https://umairhoquechowdhury.site/kg/umair-09.png",
+      "name": "Umair Hoque Chowdhury — studio portrait",
+      "caption": "Umair Hoque Chowdhury, Digital Creator & Artist — studio portrait.",
+      "creditText": "Umair Hoque Chowdhury",
+      "copyrightNotice": "© Umair Hoque Chowdhury",
+      "copyrightHolder": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "license": "https://umairhoquechowdhury.site/press.html",
+      "acquireLicensePage": "https://umairhoquechowdhury.site/press.html",
+      "about": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "representativeOfPage": false
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://umairhoquechowdhury.site/#photo-10",
+      "contentUrl": "https://umairhoquechowdhury.site/kg/umair-10.png",
+      "url": "https://umairhoquechowdhury.site/kg/umair-10.png",
+      "name": "Umair Hoque Chowdhury — street editorial",
+      "caption": "Umair Hoque Chowdhury, Digital Creator & Artist — street editorial.",
+      "creditText": "Umair Hoque Chowdhury",
+      "copyrightNotice": "© Umair Hoque Chowdhury",
+      "copyrightHolder": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "license": "https://umairhoquechowdhury.site/press.html",
+      "acquireLicensePage": "https://umairhoquechowdhury.site/press.html",
+      "about": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "representativeOfPage": false
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://umairhoquechowdhury.site/#photo-11",
+      "contentUrl": "https://umairhoquechowdhury.site/kg/umair-11.png",
+      "url": "https://umairhoquechowdhury.site/kg/umair-11.png",
+      "name": "Umair Hoque Chowdhury — music release visual for Tomar Golpo",
+      "caption": "Umair Hoque Chowdhury, Digital Creator & Artist — music release visual for Tomar Golpo.",
+      "creditText": "Umair Hoque Chowdhury",
+      "copyrightNotice": "© Umair Hoque Chowdhury",
+      "copyrightHolder": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "license": "https://umairhoquechowdhury.site/press.html",
+      "acquireLicensePage": "https://umairhoquechowdhury.site/press.html",
+      "about": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "representativeOfPage": false
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://umairhoquechowdhury.site/#photo-12",
+      "contentUrl": "https://umairhoquechowdhury.site/kg/umair-12.png",
+      "url": "https://umairhoquechowdhury.site/kg/umair-12.png",
+      "name": "Umair Hoque Chowdhury — photography and visual work",
+      "caption": "Umair Hoque Chowdhury, Digital Creator & Artist — photography and visual work.",
+      "creditText": "Umair Hoque Chowdhury",
+      "copyrightNotice": "© Umair Hoque Chowdhury",
+      "copyrightHolder": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "license": "https://umairhoquechowdhury.site/press.html",
+      "acquireLicensePage": "https://umairhoquechowdhury.site/press.html",
+      "about": {
+        "@id": "https://umairhoquechowdhury.site/#person"
+      },
+      "representativeOfPage": false
+    }
+  ]
+}
