@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Allow: /kg/
+
+Sitemap: https://umairhoquechowdhury.site/sitemap.xml
