@@ -583,40 +583,6 @@ a:hover .icon-diagonal {
   to { transform: translateY(260%); }
 }
 
-.signal-strip {
-  width: 100%;
-  overflow: hidden;
-  border-block: 1px solid var(--line);
-  color: var(--ink);
-  background: var(--signal);
-  transform: rotate(-1deg) scale(1.02);
-}
-
-.signal-flow {
-  display: flex;
-  align-items: center;
-  width: max-content;
-  padding: 0.88rem 0;
-  animation: marquee 26s linear infinite;
-  will-change: transform;
-}
-
-.signal-flow span {
-  padding: 0 2rem;
-  font-size: clamp(0.72rem, 1vw, 0.9rem);
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.signal-flow i {
-  font-style: normal;
-}
-
-@keyframes marquee {
-  to { transform: translateX(-50%); }
-}
-
 .section-shell {
   position: relative;
   width: min(100%, 1600px);
@@ -1293,7 +1259,7 @@ a:hover .icon-diagonal {
 
 .education-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1fr;
   gap: clamp(1rem, 2vw, 2rem);
   margin-top: clamp(4rem, 8vw, 8rem);
 }
@@ -2193,3 +2159,31 @@ a:hover .icon-diagonal {
     backdrop-filter: none;
   }
 }
+
+/* Records and certifications */
+.records-page {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 5rem) var(--pad) 8rem;
+}
+.records-back, .records-link {
+  display: inline-block;
+  color: var(--paper);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.35rem;
+}
+.records-back:hover, .records-link:hover { border-color: var(--signal); }
+.records-header { margin: clamp(5rem, 12vw, 10rem) 0 clamp(4rem, 8vw, 7rem); }
+.records-header h1 {
+  max-width: 13ch;
+  margin: 1rem 0;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.065em;
+}
+.records-header > p:last-child, .records-section > p:not(.eyebrow) { color: var(--paper-muted); }
+.records-section { border-top: 1px solid var(--line); padding-top: 2rem; }
+.records-section h2 { font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -0.05em; margin: 1rem 0; }
+.records-image { display: block; max-width: 800px; margin: 2rem 0 1.5rem; }
+.records-image img { display: block; width: 100%; height: auto; }

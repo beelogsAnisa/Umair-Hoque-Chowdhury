@@ -67,15 +67,6 @@
   removeBrokenImage(logo, () => logo?.parentElement?.classList.add("has-logo"));
   removeBrokenImage(document.querySelector(".portrait-frame > img"), () => {});
 
-  // Upload bangladesh-transcript.jpg beside index.html to activate this preview.
-  const transcriptImage = document.querySelector("[data-transcript-image]");
-  const transcriptCard = document.querySelector(".academic-record-card");
-  const transcriptLink = document.querySelector(".transcript-link");
-  removeBrokenImage(transcriptImage, () => {
-    transcriptImage.hidden = false;
-    transcriptCard?.classList.add("has-transcript");
-    if (transcriptLink) transcriptLink.hidden = false;
-  });
 
   const capabilityGroups = {
     visual: {
@@ -150,7 +141,7 @@
 
   const copyButton = document.querySelector(".contact-actions button");
   copyButton?.addEventListener("click", async () => {
-    const email = "umairhoquechowdhury13@gmail.com";
+    const email = "contact@umairhoquechowdhury.site";
     try {
       await navigator.clipboard.writeText(email);
     } catch {
